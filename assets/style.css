@@ -517,3 +517,9 @@ p { margin: 0 0 1em; }
 .clipping__quote .hl { background: linear-gradient(transparent 52%, rgba(255, 214, 102, .7) 52%); box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 .clipping__cta { font-family: var(--sans); font-size: .8rem; font-weight: 600; color: #0a6b94; margin-top: 2px; }
 @media print { .clipping { display: none; } }
+
+/* ---------- Press (clipping + note) ---------- */
+.press { margin: 0; }
+.press__label { display: block; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--accent); margin: 0 0 14px 4px; }
+.clipping__note { margin: 18px 6px 0; font-size: .9rem; font-style: italic; color: var(--muted); line-height: 1.6; }
+@media print { .press { display: none; } }
