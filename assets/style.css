@@ -517,3 +517,9 @@ p { margin: 0 0 1em; }
 /* ---------- Pronouns under name ---------- */
 .hero__name { display: flex; flex-direction: column; gap: 6px; }
 .hero__pronouns { margin: 0; font-size: clamp(.95rem, 1.4vw, 1.1rem); letter-spacing: .04em; color: #8fd6f2; }
+
+/* ---------- Lanternfish in the side margins (assets/fish.js) ---------- */
+.fish-margin { position: fixed; top: 0; z-index: 5; pointer-events: none; display: none; }
+.fish-margin--left { left: 8px; }
+.fish-margin--right { right: 8px; }
+@media print { .fish-margin { display: none !important; } }
