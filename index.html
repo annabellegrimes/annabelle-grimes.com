@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=20261105154146">
+  <link rel="stylesheet" href="assets/style.css?v=20261105160712">
   <script>
     try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
   </script>
@@ -73,7 +73,10 @@
           <div class="avatar">
             <img src="assets/annabelle-grimes-avatar.jpg" width="360" height="360" alt="Portrait of Annabelle Grimes" fetchpriority="high">
           </div>
-          <h1 id="hero-title">Annabelle Grimes</h1>
+          <div class="hero__name">
+            <h1 id="hero-title">Annabelle Grimes</h1>
+            <p class="hero__pronouns">she/her</p>
+          </div>
         </div>
         <p class="hero__welcome"><span class="wave" aria-hidden="true">&#128075;</span> Welcome to my personal website!</p>
         <p class="hero__lede">
@@ -249,7 +252,6 @@
         <div class="about__side">
           <aside class="facts" aria-label="Quick facts">
             <dl>
-              <div><dt>Pronouns</dt><dd>she/her</dd></div>
               <div><dt>Now</dt><dd>PhD Physics, Simon Fraser University</dd></div>
               <div><dt>Collaboration</dt><dd>Pacific Ocean Neutrino Experiment (P-ONE)</dd></div>
               <div><dt>Previously</dt><dd>TRIUMF (GRIFFIN &amp; Theory) &middot; Laser Zentrum Hannover</dd></div>

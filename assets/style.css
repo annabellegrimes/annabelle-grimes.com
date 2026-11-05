@@ -513,3 +513,7 @@ p { margin: 0 0 1em; }
 .press__label { display: block; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--accent); margin: 0 0 14px 4px; }
 .clipping__note { margin: 18px 6px 0; font-size: .9rem; font-style: italic; color: var(--muted); line-height: 1.6; }
 @media print { .press { display: none; } }
+
+/* ---------- Pronouns under name ---------- */
+.hero__name { display: flex; flex-direction: column; gap: 6px; }
+.hero__pronouns { margin: 0; font-size: clamp(.95rem, 1.4vw, 1.1rem); letter-spacing: .04em; color: #8fd6f2; }
