@@ -520,3 +520,6 @@ p { margin: 0 0 1em; }
 .fish-margin { position: absolute; top: 0; z-index: 0; pointer-events: none; display: none; }
 .fish-margin--left { left: 8px; }
 @media print { .fish-margin { display: none !important; } }
+/* never in light mode, whatever the script does: the site toggle wins, otherwise the system setting */
+:root[data-theme="light"] .fish-margin { display: none !important; }
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .fish-margin { display: none !important; } }
