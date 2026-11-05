@@ -519,14 +519,19 @@
       schedule();
     }
 
+    // Rebuild whenever the hero's size changes (window resize, web fonts finishing, etc.)
+    // so the drawing is never stretched.
     var resizeTimer;
-    window.addEventListener('resize', function () {
+    function onResize() {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(function () {
-        if (c.clientWidth === W && Math.abs(c.clientHeight - H) < 80) return; // ignore mobile URL-bar jitter
+        if (c.clientWidth === W && c.clientHeight === H) return;
         build(); if (reduceMotion) draw();
-      }, 150);
-    });
+      }, 120);
+    }
+    if ('ResizeObserver' in window) new ResizeObserver(onResize).observe(c);
+    else window.addEventListener('resize', onResize);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(onResize);
 
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (e) { inView = e[0].isIntersecting; schedule(); }).observe(c);
