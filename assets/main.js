@@ -244,6 +244,7 @@
     var ctx = c.getContext('2d');
     var W = 0, H = 0, floorY = 0, dpr = 1;
     var lines = [], snow = [], pingers = [], rings = [], tracks = [];
+    var arrayX = 0, arrayW = 0;
     var t = 0, last = 0, raf = 0, inView = true;
     var nextTrack = 1.6, nextPing = 3.2, pingIdx = 0;
 
@@ -259,11 +260,14 @@
       floorY = H - 26;
       seed = 20240901;
 
-      var n = Math.max(5, Math.min(16, Math.round(W / 105)));
+      // On wide screens keep the array on the right so it frames the text instead of sitting behind it
+      var wide = W >= 900;
+      var x0min = wide ? W * 0.56 : 0, x0span = W - x0min - (wide ? W * 0.02 : 0);
+      var n = wide ? Math.max(5, Math.min(10, Math.round(x0span / 85))) : Math.max(5, Math.min(16, Math.round(W / 105)));
       lines = [];
       for (var i = 0; i < n; i++) {
         var depth = 0.45 + rnd() * 0.55;           // 1 = near, small = far
-        var x0 = (i + 0.5) * W / n + (rnd() - 0.5) * (W / n) * 0.5;
+        var x0 = x0min + (i + 0.5) * x0span / n + (rnd() - 0.5) * (x0span / n) * 0.5;
         var top = H * (0.1 + (1 - depth) * 0.22 + rnd() * 0.05);
         var m = Math.round(9 + depth * 7);
         // keep the float (one spacing above the top module) clear of the nav bar
@@ -275,7 +279,8 @@
       }
       lines.sort(function (a, b) { return a.depth - b.depth; });
 
-      pingers = [0.16, 0.52, 0.86].map(function (p) { return { x: W * p, y: floorY + 4 }; });
+      pingers = [0.12, 0.5, 0.88].map(function (p) { return { x: x0min + x0span * p, y: floorY + 4 }; });
+      arrayX = x0min; arrayW = x0span;
 
       var count = Math.round(W * H / 7000);
       snow = [];
@@ -325,7 +330,7 @@
       // a muon from an up-going or down-going neutrino crossing the array
       var fromLeft = Math.random() < 0.5;
       var angle = (fromLeft ? 0.25 : Math.PI - 0.25) + (Math.random() - 0.5) * 0.9;
-      var cx = W * (0.35 + Math.random() * 0.5), cy = H * (0.3 + Math.random() * 0.4);
+      var cx = arrayX + arrayW * (0.2 + Math.random() * 0.6), cy = H * (0.3 + Math.random() * 0.4);
       var len = Math.hypot(W, H);
       var dx = Math.cos(angle), dy = Math.sin(angle);
       tracks.push({ sx: cx - dx * len / 2, sy: cy - dy * len / 2, dx: dx, dy: dy, d: 0, len: len, speed: Math.max(W, 700) * 0.85 });
