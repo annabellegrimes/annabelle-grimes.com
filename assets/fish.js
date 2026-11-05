@@ -93,11 +93,18 @@
     return { side: side, canvas: c, ctx: c.getContext('2d'), w: 0, h: 0 };
   });
 
+  // only in dark mode: the site's toggle (data-theme on <html>) wins, otherwise the system setting
+  var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  function isDark() {
+    var t = document.documentElement.getAttribute('data-theme');
+    return t ? t === 'dark' : darkQuery.matches;
+  }
+
   var dpr = 1, active = false;
   function layout() {
     var vw = document.documentElement.clientWidth, vh = window.innerHeight;
     var gutter = (vw - CONTENT) / 2;
-    active = gutter >= MIN_GUTTER;
+    active = gutter >= MIN_GUTTER && isDark();
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     sides.forEach(function (s) {
       s.canvas.style.display = active ? 'block' : 'none';
@@ -139,6 +146,10 @@
     resizeTimer = setTimeout(function () { layout(); draw(); schedule(); }, 120);
   });
   document.addEventListener('visibilitychange', function () { last = 0; schedule(); });
+  // appear and disappear as the theme changes
+  function onTheme() { last = 0; layout(); draw(); schedule(); }
+  new MutationObserver(onTheme).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  if (darkQuery.addEventListener) darkQuery.addEventListener('change', onTheme);
 
   T = 12;          // start mid-swim, so they are not all lined up on the first frame
   layout(); draw(); schedule();
