@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=20261105151541">
+  <link rel="stylesheet" href="assets/style.css?v=20261105152106">
   <script>
     try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
   </script>
@@ -154,89 +154,102 @@
           </div>
         </div>
 
-        <div class="cards" id="project-list">
-          <article class="card card--feature" data-cat="current">
-            <figure class="card__media"><img src="assets/img/acoustic.svg" alt="Illustration: three seafloor acoustic pingers ranging to one optical module on swaying detector lines" width="800" height="450" loading="lazy" decoding="async"></figure>
-            <div class="card__top"><span class="badge badge--live">Current &middot; PhD thesis</span><span class="card__where">SFU &middot; P-ONE</span></div>
-            <h3>Acoustic position reconstruction for P-ONE</h3>
-            <p>The detector lines move with the ocean, and P-ONE can only reconstruct neutrino directions if it knows where every module is.
-               I'm developing methods that combine acoustic ranging between seafloor pingers and receivers in the modules to
-               rebuild the detector's geometry continuously, working toward a reconstruction framework for the whole detector.</p>
-            <details>
-              <summary>More detail</summary>
-              <p>This builds on the prototype system described in <a href="#pub-jinst2025">our 2025 JINST paper</a>: piezo-acoustic receivers
-                 inside P-ONE pressure housings and autonomous pingers on the seafloor. In a test at sea, it measured relative ranging times
-                 with about 230 to 280&nbsp;&micro;s accuracy at distances up to 1.6&nbsp;km. I presented this work at the International
-                 School of Cosmic Ray Astrophysics in Erice, Italy (2026).</p>
-            </details>
-            <ul class="tags tags--sm"><li>Acoustics</li><li>Geometry reconstruction</li><li>Python</li></ul>
-          </article>
+        <div id="project-list">
+          <div class="proj-group proj-group--current" data-group="current">
+            <h3 class="proj-group__title">Current</h3>
+            <div class="cards">
+            <article class="card card--feature" data-cat="current">
+              <figure class="card__media"><img src="assets/img/acoustic.svg" alt="Illustration: three seafloor acoustic pingers ranging to one optical module on swaying detector lines" width="800" height="450" loading="lazy" decoding="async"></figure>
+              <div class="card__top"><span class="badge badge--live">Current &middot; PhD thesis</span><span class="card__where">SFU &middot; P-ONE</span></div>
+              <h3>Acoustic position reconstruction for P-ONE</h3>
+              <p>The detector lines move with the ocean, and P-ONE can only reconstruct neutrino directions if it knows where every module is.
+                 I'm developing methods that combine acoustic ranging between seafloor pingers and receivers in the modules to
+                 rebuild the detector's geometry continuously, working toward a reconstruction framework for the whole detector.</p>
+              <details>
+                <summary>More detail</summary>
+                <p>This builds on the prototype system described in <a href="#pub-jinst2025">our 2025 JINST paper</a>: piezo-acoustic receivers
+                   inside P-ONE pressure housings and autonomous pingers on the seafloor. In a test at sea, it measured relative ranging times
+                   with about 230 to 280&nbsp;&micro;s accuracy at distances up to 1.6&nbsp;km. I presented this work at the International
+                   School of Cosmic Ray Astrophysics in Erice, Italy (2026).</p>
+              </details>
+              <ul class="tags tags--sm"><li>Acoustics</li><li>Geometry reconstruction</li><li>Python</li></ul>
+            </article>
 
-          <article class="card" data-cat="current">
-            <figure class="card__media"><img src="assets/img/calibration.svg" alt="Illustration: a generic deep-sea optical module flashing a calibration LED toward a neighbouring module" width="800" height="450" loading="lazy" decoding="async"></figure>
-            <div class="card__top"><span class="badge badge--live">Current</span><span class="card__where">SFU &middot; P-ONE</span></div>
-            <h3>P-ONE-1: integration, calibration &amp; QA</h3>
-            <p>P-ONE-1 is the first full detector line for P-ONE. I work on integrating, testing and calibrating its subsystems
-               and getting them ready to deploy. I've led the camera integration and quality-assurance procedures for its deep-sea optical modules.</p>
-            <details>
-              <summary>More detail</summary>
-              <p>This work feeds into a collaboration paper in preparation on P-ONE's optical calibration systems, and builds on what the
-                 STRAW pathfinders showed about long-term <a href="#pub-epjc2026">biofouling and sedimentation</a> at the site.</p>
-            </details>
-            <ul class="tags tags--sm"><li>Instrumentation</li><li>Calibration</li><li>Commissioning</li></ul>
-          </article>
-
-          <article class="card" data-cat="outreach">
-            <a class="card__media" href="https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/img/anatomy.jpg" alt="Screenshot of Anatomy of an Astrophysical Neutrino, showing a spiral host galaxy" width="800" height="450" loading="lazy" decoding="async"></a>
-            <div class="card__top"><span class="badge">Science communication</span><span class="card__where">2026</span></div>
-            <h3>Anatomy of an Astrophysical Neutrino</h3>
-            <p>An interactive, scroll-driven visualization that follows a single astrophysical neutrino from a black hole
-               to a deep-sea telescope, for anyone curious about how neutrino astronomy works.</p>
-            <div class="card__links">
-              <a class="link-arrow" href="https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/" target="_blank" rel="noopener">View it</a>
-              <a class="link-arrow link-arrow--quiet" href="https://github.com/annabellegrimes/anatomy-of-an-astrophysical-neutrino-public" target="_blank" rel="noopener">Source</a>
+            <article class="card" data-cat="current">
+              <figure class="card__media"><img src="assets/img/calibration.svg" alt="Illustration: a generic deep-sea optical module flashing a calibration LED toward a neighbouring module" width="800" height="450" loading="lazy" decoding="async"></figure>
+              <div class="card__top"><span class="badge badge--live">Current</span><span class="card__where">SFU &middot; P-ONE</span></div>
+              <h3>P-ONE-1: integration, calibration &amp; QA</h3>
+              <p>P-ONE-1 is the first full detector line for P-ONE. I work on integrating, testing and calibrating its subsystems
+                 and getting them ready to deploy. I've led the camera integration and quality-assurance procedures for its deep-sea optical modules.</p>
+              <details>
+                <summary>More detail</summary>
+                <p>This work feeds into a collaboration paper in preparation on P-ONE's optical calibration systems, and builds on what the
+                   STRAW pathfinders showed about long-term <a href="#pub-epjc2026">biofouling and sedimentation</a> at the site.</p>
+              </details>
+              <ul class="tags tags--sm"><li>Instrumentation</li><li>Calibration</li><li>Commissioning</li></ul>
+            </article>
             </div>
-          </article>
+          </div>
+          <div class="proj-group proj-group--outreach" data-group="outreach">
+            <h3 class="proj-group__title">Science communication</h3>
+            <div class="cards">
+            <article class="card" data-cat="outreach">
+              <a class="card__media" href="https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/img/anatomy.jpg" alt="Screenshot of Anatomy of an Astrophysical Neutrino, showing a spiral host galaxy" width="800" height="450" loading="lazy" decoding="async"></a>
+              <div class="card__top"><span class="badge">Science communication</span><span class="card__where">2026</span></div>
+              <h3>Anatomy of an Astrophysical Neutrino</h3>
+              <p>An interactive, scroll-driven visualization that follows a single astrophysical neutrino from a black hole
+                 to a deep-sea telescope, for anyone curious about how neutrino astronomy works.</p>
+              <div class="card__links">
+                <a class="link-arrow" href="https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/" target="_blank" rel="noopener">View it</a>
+                <a class="link-arrow link-arrow--quiet" href="https://github.com/annabellegrimes/anatomy-of-an-astrophysical-neutrino-public" target="_blank" rel="noopener">Source</a>
+              </div>
+            </article>
 
-          <article class="card" data-cat="outreach">
-            <a class="card__media" href="https://annabellegrimes.github.io/sfu-hep-website/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/img/sfu-hep.jpg" alt="Screenshot of the SFU High Energy Physics group website home page" width="800" height="450" loading="lazy" decoding="async"></a>
-            <div class="card__top"><span class="badge">Web</span><span class="card__where">2026</span></div>
-            <h3>SFU High Energy Physics group website</h3>
-            <p>A website for SFU's ATLAS, P-ONE and computing groups, written in plain HTML and CSS so that future
-               group members can take it over and keep it up to date.</p>
-            <div class="card__links">
-              <a class="link-arrow" href="https://annabellegrimes.github.io/sfu-hep-website/" target="_blank" rel="noopener">View it</a>
-              <a class="link-arrow link-arrow--quiet" href="https://github.com/annabellegrimes/sfu-hep-website" target="_blank" rel="noopener">Source</a>
+            <article class="card" data-cat="outreach">
+              <a class="card__media" href="https://annabellegrimes.github.io/sfu-hep-website/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/img/sfu-hep.jpg" alt="Screenshot of the SFU High Energy Physics group website home page" width="800" height="450" loading="lazy" decoding="async"></a>
+              <div class="card__top"><span class="badge">Web</span><span class="card__where">2026</span></div>
+              <h3>SFU High Energy Physics group website</h3>
+              <p>A website for SFU's ATLAS, P-ONE and computing groups, written in plain HTML and CSS so that future
+                 group members can take it over and keep it up to date.</p>
+              <div class="card__links">
+                <a class="link-arrow" href="https://annabellegrimes.github.io/sfu-hep-website/" target="_blank" rel="noopener">View it</a>
+                <a class="link-arrow link-arrow--quiet" href="https://github.com/annabellegrimes/sfu-hep-website" target="_blank" rel="noopener">Source</a>
+              </div>
+            </article>
             </div>
-          </article>
+          </div>
+          <div class="proj-group proj-group--past" data-group="past">
+            <h3 class="proj-group__title">Previous work</h3>
+            <div class="cards">
+            <article class="card" data-cat="past">
+              <figure class="card__media"><img src="assets/img/griffin.svg" alt="Illustration: a gamma-ray energy spectrum, with a coincidence-gated spectrum highlighted, and a scintillator paddle with photomultiplier" width="800" height="450" loading="lazy" decoding="async"></figure>
+              <div class="card__top"><span class="badge badge--muted">2023 to 2024</span><span class="card__where">TRIUMF &middot; Science Co-op</span></div>
+              <h3>Ancillary scintillator array for GRIFFIN</h3>
+              <p>Developed scintillator and photomultiplier detector hardware for tagging decay coincidences in the GRIFFIN
+                 gamma-ray spectrometer with Dr. Adam Garnsworthy, and took experimental shifts on radioactive-ion-beam
+                 experiments. I presented this as a poster at the 2024 CAP Congress.</p>
+              <ul class="tags tags--sm"><li>Scintillators</li><li>PMTs</li><li>Nuclear structure</li></ul>
+            </article>
 
-          <article class="card" data-cat="past">
-            <figure class="card__media"><img src="assets/img/griffin.svg" alt="Illustration: a gamma-ray energy spectrum, with a coincidence-gated spectrum highlighted, and a scintillator paddle with photomultiplier" width="800" height="450" loading="lazy" decoding="async"></figure>
-            <div class="card__top"><span class="badge badge--muted">2023 to 2024</span><span class="card__where">TRIUMF &middot; Science Co-op</span></div>
-            <h3>Ancillary scintillator array for GRIFFIN</h3>
-            <p>Developed scintillator and photomultiplier detector hardware for tagging decay coincidences in the GRIFFIN
-               gamma-ray spectrometer with Dr. Adam Garnsworthy, and took experimental shifts on radioactive-ion-beam
-               experiments. I presented this as a poster at the 2024 CAP Congress.</p>
-            <ul class="tags tags--sm"><li>Scintillators</li><li>PMTs</li><li>Nuclear structure</li></ul>
-          </article>
+            <article class="card" data-cat="past">
+              <figure class="card__media"><img src="assets/img/imsrg.svg" alt="Illustration: a Hamiltonian matrix flowing from dense to decoupled form under the similarity renormalization group" width="800" height="450" loading="lazy" decoding="async"></figure>
+              <div class="card__top"><span class="badge badge--muted">2023</span><span class="card__where">TRIUMF Theory &middot; Science Co-op</span></div>
+              <h3>Nuclear matrix elements for 0&nu;&beta;&beta; decay</h3>
+              <p>Used in-medium similarity renormalization group (IMSRG) calculations with Dr. Jason Holt to study
+                 nuclear matrix elements relevant to neutrinoless double-beta decay, which links nuclear structure theory to neutrino physics.</p>
+              <ul class="tags tags--sm"><li>IMSRG</li><li>Ab initio theory</li></ul>
+            </article>
 
-          <article class="card" data-cat="past">
-            <figure class="card__media"><img src="assets/img/imsrg.svg" alt="Illustration: a Hamiltonian matrix flowing from dense to decoupled form under the similarity renormalization group" width="800" height="450" loading="lazy" decoding="async"></figure>
-            <div class="card__top"><span class="badge badge--muted">2023</span><span class="card__where">TRIUMF Theory &middot; Science Co-op</span></div>
-            <h3>Nuclear matrix elements for 0&nu;&beta;&beta; decay</h3>
-            <p>Used in-medium similarity renormalization group (IMSRG) calculations with Dr. Jason Holt to study
-               nuclear matrix elements relevant to neutrinoless double-beta decay, which links nuclear structure theory to neutrino physics.</p>
-            <ul class="tags tags--sm"><li>IMSRG</li><li>Ab initio theory</li></ul>
-          </article>
-
-          <article class="card" data-cat="past">
-            <figure class="card__media"><img src="assets/img/lzh.svg" alt="Illustration: a laser depositing layers on a part, with a neural network feeding back to the laser head" width="800" height="450" loading="lazy" decoding="async"></figure>
-            <div class="card__top"><span class="badge badge--muted">2019</span><span class="card__where">LZH &middot; Engineering Co-op</span></div>
-            <h3>Machine learning for laser additive manufacturing</h3>
-            <p>Applied machine learning to process control in laser additive manufacturing, as part of data-driven modelling
-               for repairing single-crystal superalloy turbine blades.</p>
-            <ul class="tags tags--sm"><li>Machine learning</li><li>TensorFlow</li></ul>
-          </article>
+            <article class="card" data-cat="past">
+              <figure class="card__media"><img src="assets/img/lzh.svg" alt="Illustration: a laser depositing layers on a part, with a neural network feeding back to the laser head" width="800" height="450" loading="lazy" decoding="async"></figure>
+              <div class="card__top"><span class="badge badge--muted">2019</span><span class="card__where">LZH &middot; Engineering Co-op</span></div>
+              <h3>Machine learning for laser additive manufacturing</h3>
+              <p>Applied machine learning to process control in laser additive manufacturing, as part of data-driven modelling
+                 for repairing single-crystal superalloy turbine blades.</p>
+              <ul class="tags tags--sm"><li>Machine learning</li><li>TensorFlow</li></ul>
+            </article>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -588,6 +601,6 @@
   </footer>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="assets/main.js?v=20261105151541" defer></script>
+  <script src="assets/main.js?v=20261105152106" defer></script>
 </body>
 </html>

@@ -119,6 +119,10 @@
     $$('#project-list .card').forEach(function (card) {
       card.classList.toggle('is-hidden', f !== 'all' && card.getAttribute('data-cat') !== f);
     });
+    // hide a whole group (and its heading) when none of its cards are showing
+    $$('#project-list .proj-group').forEach(function (g) {
+      g.hidden = !$$('.card:not(.is-hidden)', g).length;
+    });
   });
 
   // Publications
