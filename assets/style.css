@@ -518,10 +518,7 @@ p { margin: 0 0 1em; }
 .hero__name { display: flex; flex-direction: column; gap: 6px; }
 .hero__pronouns { margin: 0; font-size: clamp(.95rem, 1.4vw, 1.1rem); letter-spacing: .04em; color: #8fd6f2; }
 
-/* ---------- Lanternfish in the side margins of #research (assets/fish.js) ---------- */
-#research { position: relative; }
+/* ---------- Lanternfish beside the name in the hero (assets/fish.js) ---------- */
 .fish-margin { position: absolute; top: 0; z-index: 0; pointer-events: none; display: none; }
 .fish-margin--left { left: 8px; }
-.fish-margin--right { right: 8px; }
-#research > .wrap { position: relative; z-index: 1; }
 @media print { .fish-margin { display: none !important; } }

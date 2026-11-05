@@ -1,11 +1,11 @@
-/* Lanternfish in the side margins of the "What I'm working on" section, in dark mode only.
+/* Lanternfish in the margin to the left of the name at the top of the page, in dark mode only.
    The fish drawing, its C-shaped turn and body volume are ported from
    "Anatomy of an Astrophysical Neutrino" (github.com/annabellegrimes/anatomy-of-an-astrophysical-neutrino-public).
    They only appear when the window is wide enough to leave empty side margins, never over the content. */
 (function () {
   'use strict';
-  var section = document.getElementById('research');
-  if (!section || !window.CanvasRenderingContext2D) return;
+  var section = document.querySelector('.hero'), title = document.getElementById('hero-title');
+  if (!section || !title || !window.CanvasRenderingContext2D) return;
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var CONTENT = 1120;          // the page's content width (.wrap max-width)
   var MIN_GUTTER = 110;        // below this the margins are too narrow for a fish
@@ -81,12 +81,12 @@
   }
 
   // ---------- the two margins ----------
-  // y: where in the section (fraction of its height); L: body length in px; period: seconds for a full there-and-back
+  // dy: px above (-) or below (+) the middle of the name; L: body length in px; period: seconds for a full there-and-back
   var SCHOOLS = {
-    left: [{ y: 0.22, L: 54, period: 46, ph: 0.4, tw: 0.1 }, { y: 0.7, L: 40, period: 58, ph: 2.6, tw: 0.6 }],
-    right: [{ y: 0.46, L: 48, period: 52, ph: 4.1, tw: 0.35 }]
+    left: [{ dy: -18, L: 52, period: 46, ph: 0.4, tw: 0.1 }, { dy: 44, L: 38, period: 58, ph: 2.6, tw: 0.6 }]
   };
-  var sides = ['left', 'right'].map(function (side) {
+  var anchorY = 0;   // the middle of the name, in the section's coordinates
+  var sides = ['left'].map(function (side) {
     var c = document.createElement('canvas');
     c.className = 'fish-margin fish-margin--' + side;
     c.setAttribute('aria-hidden', 'true');
@@ -104,6 +104,8 @@
   var dpr = 1, active = false, inView = false;
   function layout() {
     var vw = document.documentElement.clientWidth, sh = section.offsetHeight;
+    var tr = title.getBoundingClientRect(), sr = section.getBoundingClientRect();
+    anchorY = tr.top - sr.top + tr.height / 2;
     var gutter = (vw - CONTENT) / 2;
     active = gutter >= MIN_GUTTER && isDark();
     dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -123,7 +125,7 @@
       ctx.clearRect(0, 0, s.w, s.h);
       SCHOOLS[s.side].forEach(function (f) {
         var L = Math.min(f.L, s.w * 0.4), A = Math.max(0, s.w / 2 - L * 0.65), p = patrol(f.period, f.ph);
-        var x = s.w / 2 + A * p.s, y = s.h * f.y + 5 * p.c + 3 * Math.sin(T * 0.4 + f.ph);
+        var x = s.w / 2 + A * p.s, y = anchorY + f.dy + 5 * p.c + 3 * Math.sin(T * 0.4 + f.ph);
         ctx.save(); ctx.translate(x, y); ctx.scale(L, L); ctx.globalAlpha = 0.85;
         bent(p.sp, function () { drawFish({ sp: p.sp, tw: f.tw }, 1 / L); });
         ctx.restore();
@@ -141,7 +143,7 @@
   }
   function schedule() { if (!raf && active && inView && !reduceMotion && !document.hidden) raf = requestAnimationFrame(frame); }
 
-  // re-fit when the window or the section changes size (the project filters change its height)
+  // re-fit when the window or the section changes size (fonts loading can move the name)
   var resizeTimer;
   function onResize() {
     clearTimeout(resizeTimer);
