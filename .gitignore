@@ -1,0 +1,37 @@
+# Never publish collaboration-internal engineering files (P-ONE CAD, drawings, internal docs).
+# GitHub Pages serves everything in this repo publicly.
+*.sldprt
+*.sldasm
+*.slddrw
+*.SLDPRT
+*.SLDASM
+*.SLDDRW
+*.step
+*.stp
+*.STEP
+*.STP
+*.iges
+*.igs
+*.stl
+*.STL
+*.dwg
+*.dxf
+*.x_t
+*.x_b
+*.3mf
+*.f3d
+*.ipt
+*.iam
+*.prt
+*.asm
+
+# Drafts and source files that shouldn't be public
+*draft*.pdf
+*.tex
+*.zip
+
+# OS / editor
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
