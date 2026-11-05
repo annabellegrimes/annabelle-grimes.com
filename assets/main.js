@@ -266,6 +266,9 @@
         var x0 = (i + 0.5) * W / n + (rnd() - 0.5) * (W / n) * 0.5;
         var top = H * (0.1 + (1 - depth) * 0.22 + rnd() * 0.05);
         var m = Math.round(9 + depth * 7);
+        // keep the float (one spacing above the top module) clear of the nav bar
+        var q = 1 / (m + 0.4), minFloat = 84;
+        top = Math.max(top, (minFloat + floorY * q) / (1 + q));
         var mods = [];
         for (var k = 0; k < m; k++) mods.push({ f: (k + 1) / (m + 0.4), glow: 0, ac: 0, x: x0, y: 0, hit: -1 });
         lines.push({ x0: x0, top: top, depth: depth, mods: mods, phase: rnd() * 6.283, amp: 9 + rnd() * 15 });
@@ -290,7 +293,28 @@
           m.x = L.x0 + dx;
           m.y = floorY - m.f * span;
         }
+        // float: one module-spacing above the top module, on the same swaying line
+        var fb = (L.mods.length + 1) / (L.mods.length + 0.4);
+        var top = L.mods[L.mods.length - 1];
+        var bx = L.x0 + L.amp * L.depth * Math.pow(fb, 1.6) * sway;
+        var by = floorY - fb * span;
+        L.buoy = { x: bx, y: by, ang: Math.atan2(bx - top.x, top.y - by) };
       }
+    }
+
+    function roundSquare(cx, cy, size, r, ang) {
+      var h = size / 2;
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(ang);
+      ctx.beginPath();
+      ctx.moveTo(-h + r, -h);
+      ctx.lineTo(h - r, -h); ctx.quadraticCurveTo(h, -h, h, -h + r);
+      ctx.lineTo(h, h - r);  ctx.quadraticCurveTo(h, h, h - r, h);
+      ctx.lineTo(-h + r, h); ctx.quadraticCurveTo(-h, h, -h, h - r);
+      ctx.lineTo(-h, -h + r); ctx.quadraticCurveTo(-h, -h, -h + r, -h);
+      ctx.closePath();
+      ctx.restore();
     }
 
     function addRing(x, y, user) {
@@ -402,16 +426,21 @@
         ctx.beginPath();
         ctx.moveTo(L.x0, floorY);
         for (var k = 0; k < L.mods.length; k++) ctx.lineTo(L.mods[k].x, L.mods[k].y);
+        ctx.lineTo(L.buoy.x, L.buoy.y);
         ctx.strokeStyle = 'rgba(150, 185, 220,' + (0.12 + 0.14 * L.depth) + ')';
         ctx.lineWidth = 0.6 + L.depth * 0.6;
         ctx.stroke();
         // anchor
         ctx.fillStyle = 'rgba(150, 185, 220, 0.35)';
         ctx.fillRect(L.x0 - 3, floorY - 1, 6, 3);
-        // buoy
-        var top = L.mods[L.mods.length - 1];
-        ctx.beginPath(); ctx.arc(top.x, top.y - 9, 2.4 * L.depth + 1, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(230, 160, 90,' + (0.35 + 0.3 * L.depth) + ')'; ctx.fill();
+        // float: soft-cornered square, tilted with the line
+        var bs = 7 + 6 * L.depth;
+        roundSquare(L.buoy.x, L.buoy.y, bs, bs * 0.28, L.buoy.ang);
+        ctx.fillStyle = 'rgba(230, 160, 90,' + (0.45 + 0.35 * L.depth) + ')';
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(255, 210, 160,' + (0.25 + 0.3 * L.depth) + ')';
+        ctx.lineWidth = 1;
+        ctx.stroke();
 
         for (var k2 = 0; k2 < L.mods.length; k2++) {
           var m = L.mods[k2];
