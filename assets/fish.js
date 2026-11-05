@@ -1,10 +1,11 @@
-/* Lanternfish in the page margins.
+/* Lanternfish in the side margins of the "What I'm working on" section, in dark mode only.
    The fish drawing, its C-shaped turn and body volume are ported from
    "Anatomy of an Astrophysical Neutrino" (github.com/annabellegrimes/anatomy-of-an-astrophysical-neutrino-public).
    They only appear when the window is wide enough to leave empty side margins, never over the content. */
 (function () {
   'use strict';
-  if (!window.CanvasRenderingContext2D) return;
+  var section = document.getElementById('research');
+  if (!section || !window.CanvasRenderingContext2D) return;
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var CONTENT = 1120;          // the page's content width (.wrap max-width)
   var MIN_GUTTER = 110;        // below this the margins are too narrow for a fish
@@ -80,16 +81,16 @@
   }
 
   // ---------- the two margins ----------
-  // y: where in the window (fraction of height); L: body length in px; period: seconds for a full there-and-back
+  // y: where in the section (fraction of its height); L: body length in px; period: seconds for a full there-and-back
   var SCHOOLS = {
-    left: [{ y: 0.3, L: 54, period: 46, ph: 0.4, tw: 0.1 }, { y: 0.74, L: 40, period: 58, ph: 2.6, tw: 0.6 }],
-    right: [{ y: 0.52, L: 48, period: 52, ph: 4.1, tw: 0.35 }]
+    left: [{ y: 0.22, L: 54, period: 46, ph: 0.4, tw: 0.1 }, { y: 0.7, L: 40, period: 58, ph: 2.6, tw: 0.6 }],
+    right: [{ y: 0.46, L: 48, period: 52, ph: 4.1, tw: 0.35 }]
   };
   var sides = ['left', 'right'].map(function (side) {
     var c = document.createElement('canvas');
     c.className = 'fish-margin fish-margin--' + side;
     c.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(c);
+    section.appendChild(c);
     return { side: side, canvas: c, ctx: c.getContext('2d'), w: 0, h: 0 };
   });
 
@@ -100,16 +101,16 @@
     return t ? t === 'dark' : darkQuery.matches;
   }
 
-  var dpr = 1, active = false;
+  var dpr = 1, active = false, inView = false;
   function layout() {
-    var vw = document.documentElement.clientWidth, vh = window.innerHeight;
+    var vw = document.documentElement.clientWidth, sh = section.offsetHeight;
     var gutter = (vw - CONTENT) / 2;
     active = gutter >= MIN_GUTTER && isDark();
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     sides.forEach(function (s) {
       s.canvas.style.display = active ? 'block' : 'none';
       if (!active) return;
-      s.w = Math.floor(gutter - 16); s.h = vh;
+      s.w = Math.floor(gutter - 16); s.h = sh;
       s.canvas.style.width = s.w + 'px'; s.canvas.style.height = s.h + 'px';
       s.canvas.width = Math.round(s.w * dpr); s.canvas.height = Math.round(s.h * dpr);
     });
@@ -138,13 +139,20 @@
     draw();
     schedule();
   }
-  function schedule() { if (!raf && active && !reduceMotion && !document.hidden) raf = requestAnimationFrame(frame); }
+  function schedule() { if (!raf && active && inView && !reduceMotion && !document.hidden) raf = requestAnimationFrame(frame); }
 
+  // re-fit when the window or the section changes size (the project filters change its height)
   var resizeTimer;
-  window.addEventListener('resize', function () {
+  function onResize() {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function () { layout(); draw(); schedule(); }, 120);
-  });
+  }
+  window.addEventListener('resize', onResize);
+  if ('ResizeObserver' in window) new ResizeObserver(onResize).observe(section);
+  // only swim while the section is on screen
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (e) { inView = e[0].isIntersecting; last = 0; schedule(); }).observe(section);
+  } else inView = true;
   document.addEventListener('visibilitychange', function () { last = 0; schedule(); });
   // appear and disappear as the theme changes
   function onTheme() { last = 0; layout(); draw(); schedule(); }
