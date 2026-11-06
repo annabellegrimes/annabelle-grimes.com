@@ -6,6 +6,7 @@ Source for [annabelle-grimes.com](https://annabelle-grimes.com), served with Git
 - `assets/style.css`: styles, including the print layout used by the "Save as PDF" CV button
 - `assets/main.js`: interactions (filters, CV tabs, BibTeX copy) and the hero animation
 - `library/`: the research library, a bookcase of the sources behind my projects (`books.json` holds the books)
+- `energy/`: my weekly Claude energy use, charted from the public [claude-energy-tracker](https://github.com/annabellegrimes/claude-energy-tracker) data (it updates when that repository does)
 
 ## Adding a book to the library
 

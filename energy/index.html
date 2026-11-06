@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Claude Energy</title>
+  <meta name="description" content="How much energy my use of Claude takes, week by week, estimated from the tokens Claude Code logs, and what that compares to.">
+  <meta name="author" content="Annabelle Grimes">
+  <link rel="canonical" href="https://annabelle-grimes.com/energy/">
+  <meta property="og:title" content="My Claude Energy">
+  <meta property="og:description" content="How much energy my use of Claude takes, week by week.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <script>
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+  <style>
+    /* Colours by role; dark mode is its own set of steps (the same hues, validated against the dark surface) */
+    :root {
+      color-scheme: light;
+      --page: #f6f7f9; --surface-1: #fcfcfb; --line: #dde2ea; --grid: #e8eaee;
+      --text-primary: #13203a; --text-secondary: #5b6679; --accent: #0a6b94;
+      --series-1: #2a78d6; --series-2: #eb6834; --series-3: #1baf7a; --range: #13203a;
+      --serif: "Newsreader", Georgia, serif; --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:where(:not([data-theme="light"])) {
+        color-scheme: dark;
+        --page: #0a111e; --surface-1: #1a1a19; --line: #2e3442; --grid: #2a2d33;
+        --text-primary: #f0efec; --text-secondary: #c3c2b7; --accent: #5cc8ee;
+        --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70; --range: #f0efec;
+      }
+    }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --page: #0a111e; --surface-1: #1a1a19; --line: #2e3442; --grid: #2a2d33;
+      --text-primary: #f0efec; --text-secondary: #c3c2b7; --accent: #5cc8ee;
+      --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70; --range: #f0efec;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--page); color: var(--text-primary); font-family: var(--sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: var(--accent); text-underline-offset: 3px; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+    .skip { position: absolute; left: -999px; top: 8px; z-index: 100; background: var(--surface-1); padding: 8px 14px; border-radius: 8px; }
+    .skip:focus { left: 16px; }
+    .container { width: 100%; max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+    @media (max-width: 600px) { .container { padding: 0 16px; } }
+    .bar { position: sticky; top: 0; z-index: 40; background: color-mix(in srgb, var(--page) 88%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    .bar__inner { max-width: 1040px; margin: 0 auto; padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .bar__home { font-family: var(--serif); font-size: 1.15rem; color: var(--text-primary); text-decoration: none; }
+    .bar__back { font-size: .9rem; color: var(--text-secondary); text-decoration: none; }
+    @media (max-width: 600px) { .bar__inner { padding: 0 16px; } }
+
+    .intro { padding: 56px 0 8px; }
+    .eyebrow { margin: 0 0 10px; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
+    h1 { margin: 0 0 14px; font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 4.6vw, 3rem); line-height: 1.1; }
+    .lede { max-width: 44rem; margin: 0 0 8px; font-size: 1.05rem; color: var(--text-secondary); }
+    h2 { margin: 0 0 4px; font-family: var(--serif); font-weight: 500; font-size: 1.45rem; }
+    .sub { margin: 0 0 16px; color: var(--text-secondary); font-size: .92rem; }
+
+    .tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 28px 0 8px; }
+    .tile { background: var(--surface-1); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+    .tile__label { margin: 0; font-size: .85rem; color: var(--text-secondary); }
+    .tile__value { margin: 2px 0; font-size: 2rem; font-weight: 600; letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+    .tile__range { margin: 0; font-size: .82rem; color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+    .tile__like { margin: 8px 0 0; font-size: .88rem; }
+    @media (max-width: 700px) { .tiles { grid-template-columns: 1fr; } }
+
+    .panel { background: var(--surface-1); border: 1px solid var(--line); border-radius: 12px; padding: 20px 20px 14px; margin: 22px 0; position: relative; }
+    .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0 0 8px; padding: 0; list-style: none; font-size: .85rem; color: var(--text-secondary); }
+    .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+    .legend .rng { width: 2px; height: 14px; border-radius: 0; background: var(--range); margin: 0 8px 0 5px; }
+    .chart { width: 100%; height: auto; display: block; overflow: visible; }
+    .chart text { fill: var(--text-secondary); font-family: var(--sans); font-size: 12px; }
+    .chart .gridline { stroke: var(--grid); stroke-width: 1; }
+    .chart .baseline { stroke: var(--text-secondary); stroke-width: 1; }
+    .chart .hit { fill: transparent; cursor: default; }
+    .chart .col.is-on .hit { fill: var(--text-primary); opacity: .05; }
+    .chart .whisker { stroke: var(--range); stroke-width: 1.5; }
+    .chart .label { fill: var(--text-primary); font-weight: 600; }
+    .tip { position: absolute; z-index: 5; pointer-events: none; min-width: 210px; max-width: 280px; padding: 10px 12px; border-radius: 8px;
+      background: var(--surface-1); border: 1px solid var(--line); box-shadow: 0 8px 24px rgba(0, 0, 0, .18); font-size: .85rem; line-height: 1.45; opacity: 0; transition: opacity .12s; }
+    .tip.is-on { opacity: 1; }
+    .tip b { font-weight: 600; }
+    .tip .row { display: flex; justify-content: space-between; gap: 12px; font-variant-numeric: tabular-nums; }
+    .tip .row span:first-child { color: var(--text-secondary); }
+    .tip .sw { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 6px; }
+    .tip .muted { color: var(--text-secondary); }
+
+    details.table { margin: 8px 0 0; }
+    details.table summary { cursor: pointer; color: var(--accent); font-size: .9rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: .88rem; font-variant-numeric: tabular-nums; }
+    th, td { text-align: right; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+    th:first-child, td:first-child { text-align: left; }
+    th { font-weight: 600; color: var(--text-secondary); }
+    .table-wrap { overflow-x: auto; }
+
+    .notes { max-width: 46rem; margin: 30px 0 64px; color: var(--text-secondary); font-size: .92rem; }
+    .notes h2 { color: var(--text-primary); }
+    .foot { border-top: 1px solid var(--line); padding: 24px 0 32px; font-size: .82rem; color: var(--text-secondary); }
+    .status { color: var(--text-secondary); }
+    @media (prefers-reduced-motion: reduce) { .tip { transition: none; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="bar">
+    <div class="bar__inner">
+      <a class="bar__home" href="../">Annabelle Grimes</a>
+      <a class="bar__back" href="../">&larr; Back to home</a>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="intro">
+      <p class="eyebrow">Energy log</p>
+      <h1>How much energy does my Claude use take?</h1>
+      <p class="lede">I use Claude a lot for my research and side projects. I want to be mindful about my energy consumption, and I'm curious
+        what all those tokens add up to. This page estimates it week by week from the tokens Claude Code logs, and sets it beside everyday things.</p>
+      <p class="status" id="status">Loading the latest numbers&hellip;</p>
+    </section>
+
+    <section class="tiles" id="tiles" aria-label="Headline numbers"></section>
+
+    <section class="panel" aria-labelledby="h-week">
+      <h2 id="h-week">Energy per week</h2>
+      <p class="sub">Central estimate, with the range from low to high. Weeks run Monday to Sunday.</p>
+      <ul class="legend"><li><i style="background:var(--series-1)"></i>Central estimate</li><li><i class="rng"></i>Low to high</li></ul>
+      <svg class="chart" id="c-week" role="img" aria-labelledby="h-week"></svg>
+      <div class="tip" id="tip-week" role="status"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="h-type">
+      <h2 id="h-type">Where the energy goes</h2>
+      <p class="sub">Each week split by what the tokens were doing (central estimate). Long sessions re-read their whole history with every reply.</p>
+      <ul class="legend">
+        <li><i style="background:var(--series-1)"></i>Re-reading the conversation (cache reads)</li>
+        <li><i style="background:var(--series-2)"></i>New context (fresh input and cache writes)</li>
+        <li><i style="background:var(--series-3)"></i>Writing replies and thinking (output)</li>
+      </ul>
+      <svg class="chart" id="c-type" role="img" aria-labelledby="h-type"></svg>
+      <div class="tip" id="tip-type" role="status"></div>
+      <details class="table">
+        <summary>Show the numbers as a table</summary>
+        <div class="table-wrap"><table id="t-weeks"></table></div>
+      </details>
+    </section>
+
+    <section class="notes">
+      <h2>How it's worked out</h2>
+      <p>Claude Code records the tokens of every response on my computer. A script adds them up by day and model, and only those totals
+        are published: no prompts, replies or project names. Tokens are weighted by Anthropic's list prices, as a stand-in for the
+        computing work behind them, and scaled so that a typical chatbot answer (about 1,000 tokens in, 500 out) takes 0.3&nbsp;Wh, the
+        figure published estimates converge on. Nobody publishes per-token energy for Claude, so the range runs from three times lower to three times higher.</p>
+      <p>It counts Claude Code only (not chats on claude.ai or in the app), and only running the model: not training it, the hardware
+        or my own computer. The code, the data and every assumption, with sources, are on
+        <a href="https://github.com/annabellegrimes/claude-energy-tracker">GitHub</a>.</p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="container"><span>By <a href="../">Annabelle Grimes</a>.</span> <span id="updated"></span></div>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+    var DATA = 'https://raw.githubusercontent.com/annabellegrimes/claude-energy-tracker/main/data/weekly.json';
+    var $ = function (s) { return document.querySelector(s); };
+    var NS = 'http://www.w3.org/2000/svg';
+    function el(tag, attrs, parent) { var e = document.createElementNS(NS, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; }
+    function kwh(wh) { return wh >= 1000 ? (wh / 1000).toLocaleString('en-GB', { maximumFractionDigits: wh >= 10000 ? 1 : 2 }) + ' kWh' : Math.round(wh).toLocaleString('en-GB') + ' Wh'; }
+    function day(iso) { return new Date(iso + 'T12:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }); }
+    function plusDays(iso, n) { var d = new Date(iso + 'T12:00:00'); d.setDate(d.getDate() + n); return d.toISOString().slice(0, 10); }
+    function niceMax(v) { var p = Math.pow(10, Math.floor(Math.log10(v))); var m = [1, 2, 2.5, 5, 10].find(function (s) { return s * p >= v; }); return m * p; }
+    var COMP = [];
+    function likes(wh, n) {   // everyday things at friendly multiples
+      return COMP.map(function (c) { var x = wh / c.wh; return { c: c, x: x, d: Math.abs(Math.log10(x) - 1.3) }; })
+        .filter(function (o) { return o.x >= 1 && o.x <= 2000; }).sort(function (a, b) { return a.d - b.d; }).slice(0, n)
+        .map(function (o) { return (o.x >= 10 ? Math.round(o.x) : o.x.toFixed(1)) + ' × ' + o.c.name; });
+    }
+
+    // A bar chart of weeks: one value per week, or stacked parts; a hover tooltip per week.
+    function chart(svg, tipEl, weeks, parts, tipHtml) {
+      var W = 960, H = 300, L = 64, R = 12, T = 14, B = 34;
+      svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var top = niceMax(Math.max.apply(null, weeks.map(function (w) { return parts.whisker ? w.wh.high : parts.sum(w); })) * 1.05);
+      var y = function (v) { return T + (H - T - B) * (1 - v / top); };
+      for (var i = 0; i <= 4; i++) {
+        var v = top * i / 4;
+        el('line', { class: i ? 'gridline' : 'baseline', x1: L, x2: W - R, y1: y(v), y2: y(v) }, svg);
+        el('text', { x: L - 8, y: y(v) + 4, 'text-anchor': 'end' }, svg).textContent = kwh(v);
+      }
+      var n = weeks.length, slot = (W - L - R) / n, bw = Math.min(56, slot * 0.6);
+      var every = Math.ceil(n / 12);
+      weeks.forEach(function (w, i) {
+        var g = el('g', { class: 'col', tabindex: 0, role: 'img', 'aria-label': tipHtml(w).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ') }, svg);
+        var cx = L + slot * (i + 0.5), x0 = cx - bw / 2;
+        el('rect', { class: 'hit', x: L + slot * i, y: T, width: slot, height: H - T - B }, g);
+        var base = 0;
+        parts.list.forEach(function (p, k) {
+          var v = p.get(w); if (v <= 0) return;
+          var y0 = y(base), y1 = y(base + v), last = k === parts.list.length - 1 || parts.list.slice(k + 1).every(function (q) { return q.get(w) <= 0; });
+          var hgt = Math.max(0, y0 - y1 - (base > 0 ? 2 : 0));   // a 2px surface gap between stacked parts
+          var r = last ? Math.min(4, bw / 2, hgt) : 0;            // rounded data-end on top only
+          var yt = y1, yb = y1 + hgt;
+          var d = 'M' + x0 + ',' + yb + 'V' + (yt + r) + 'Q' + x0 + ',' + yt + ' ' + (x0 + r) + ',' + yt + 'H' + (x0 + bw - r) +
+                  'Q' + (x0 + bw) + ',' + yt + ' ' + (x0 + bw) + ',' + (yt + r) + 'V' + yb + 'Z';
+          el('path', { d: d, fill: p.color }, g);
+          base += v;
+        });
+        if (parts.whisker) {
+          el('line', { class: 'whisker', x1: cx, x2: cx, y1: y(w.wh.low), y2: y(w.wh.high) }, g);
+          el('line', { class: 'whisker', x1: cx - 5, x2: cx + 5, y1: y(w.wh.high), y2: y(w.wh.high) }, g);
+          el('line', { class: 'whisker', x1: cx - 5, x2: cx + 5, y1: y(w.wh.low), y2: y(w.wh.low) }, g);
+        }
+        if (i % every === 0 || i === n - 1) el('text', { x: cx, y: H - 12, 'text-anchor': 'middle' }, svg).textContent = day(w.week);
+        var show = function () {
+          svg.querySelectorAll('.col.is-on').forEach(function (c) { c.classList.remove('is-on'); });
+          g.classList.add('is-on');
+          tipEl.innerHTML = tipHtml(w); tipEl.classList.add('is-on');
+          var box = svg.getBoundingClientRect(), panel = svg.parentNode.getBoundingClientRect(), sx = box.width / W;
+          var left = box.left - panel.left + (cx * sx) + 14, tw = tipEl.offsetWidth;
+          if (left + tw > panel.width - 8) left = box.left - panel.left + cx * sx - tw - 14;
+          tipEl.style.left = Math.max(8, left) + 'px';
+          tipEl.style.top = (box.top - panel.top + y(parts.whisker ? w.wh.high : parts.sum(w)) * sx) + 'px';
+        };
+        var hide = function () { g.classList.remove('is-on'); tipEl.classList.remove('is-on'); };
+        g.addEventListener('pointerenter', show); g.addEventListener('pointerleave', hide);
+        g.addEventListener('focus', show); g.addEventListener('blur', hide);
+      });
+      // direct label on the latest week
+      var lw = weeks[n - 1], lv = parts.whisker ? lw.wh.central : parts.sum(lw);
+      el('text', { class: 'label', x: L + slot * (n - 0.5), y: y(parts.whisker ? lw.wh.high : lv) - 8, 'text-anchor': 'middle' }, svg).textContent = kwh(lv);
+    }
+
+    function newContext(w) { return w.wh_by_type.cache_write + w.wh_by_type.input; }
+
+    fetch(DATA, { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (d) {
+      COMP = d.comparisons;
+      var weeks = d.weeks;
+      $('#status').textContent = '';
+      $('#updated').textContent = 'Last updated ' + new Date(d.updated + 'T12:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) + '.';
+      // headline tiles: this week (so far), last week, all time
+      var total = { low: 0, central: 0, high: 0 };
+      weeks.forEach(function (w) { total.low += w.wh.low; total.central += w.wh.central; total.high += w.wh.high; });
+      var cur = weeks[weeks.length - 1], prev = weeks[weeks.length - 2];
+      var tile = function (label, wh, sub) {
+        return '<article class="tile"><p class="tile__label">' + label + '</p><p class="tile__value">' + kwh(wh.central) + '</p>' +
+          '<p class="tile__range">' + kwh(wh.low) + ' to ' + kwh(wh.high) + '</p><p class="tile__like">About ' + likes(wh.central, 1)[0] + '</p>' + (sub || '') + '</article>';
+      };
+      $('#tiles').innerHTML = tile('Week of ' + day(cur.week) + (plusDays(cur.week, 6) >= d.updated ? ' (so far)' : ''), cur.wh) +
+        (prev ? tile('Week of ' + day(prev.week), prev.wh) : '') +
+        tile('All time, since ' + day(weeks[0].week), total);
+      // energy per week, with range
+      chart($('#c-week'), $('#tip-week'), weeks, {
+        whisker: true, sum: function (w) { return w.wh.central; },
+        list: [{ color: 'var(--series-1)', get: function (w) { return w.wh.central; } }]
+      }, function (w) {
+        return '<b>Week of ' + day(w.week) + '</b> <span class="muted">· ' + w.days_used + ' day' + (w.days_used === 1 ? '' : 's') + ' with use</span>' +
+          '<div class="row"><span>Central</span><b>' + kwh(w.wh.central) + '</b></div>' +
+          '<div class="row"><span>Low to high</span><span>' + kwh(w.wh.low) + ' to ' + kwh(w.wh.high) + '</span></div>' +
+          '<div class="row"><span>Replies</span><span>' + w.responses.toLocaleString('en-GB') + '</span></div>' +
+          '<div style="margin-top:6px">About the same as:<br>' + likes(w.wh.central, 3).join('<br>') + '</div>';
+      });
+      // where it goes
+      var TYPES = [
+        { name: 'Re-reading the conversation', color: 'var(--series-1)', get: function (w) { return w.wh_by_type.cache_read; } },
+        { name: 'New context', color: 'var(--series-2)', get: newContext },
+        { name: 'Replies and thinking', color: 'var(--series-3)', get: function (w) { return w.wh_by_type.output; } }
+      ];
+      chart($('#c-type'), $('#tip-type'), weeks, {
+        whisker: false, sum: function (w) { return TYPES.reduce(function (s, t) { return s + t.get(w); }, 0); }, list: TYPES
+      }, function (w) {
+        var s = TYPES.reduce(function (a, t) { return a + t.get(w); }, 0);
+        return '<b>Week of ' + day(w.week) + '</b>' + TYPES.slice().reverse().map(function (t) {
+          return '<div class="row"><span><i class="sw" style="background:' + t.color + '"></i>' + t.name + '</span><span>' + kwh(t.get(w)) + ' · ' + Math.round(100 * t.get(w) / s) + '%</span></div>';
+        }).join('');
+      });
+      // the table view
+      $('#t-weeks').innerHTML = '<thead><tr><th>Week of</th><th>Days used</th><th>Central</th><th>Low</th><th>High</th><th>Re-reading</th><th>New context</th><th>Replies</th></tr></thead><tbody>' +
+        weeks.slice().reverse().map(function (w) {
+          return '<tr><td>' + day(w.week) + '</td><td>' + w.days_used + '</td><td>' + kwh(w.wh.central) + '</td><td>' + kwh(w.wh.low) + '</td><td>' + kwh(w.wh.high) +
+            '</td><td>' + kwh(w.wh_by_type.cache_read) + '</td><td>' + kwh(newContext(w)) + '</td><td>' + kwh(w.wh_by_type.output) + '</td></tr>';
+        }).join('') + '</tbody>';
+    }).catch(function () {
+      $('#status').textContent = 'The numbers could not be loaded just now. They live in the claude-energy-tracker repository on GitHub.';
+    });
+  })();
+  </script>
+</body>
+</html>
