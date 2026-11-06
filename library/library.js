@@ -67,13 +67,15 @@
   function spine(b) {
     var h = hash(b.id), cloth = CLOTH[h % CLOTH.length];
     var height = 158 + (h >>> 5) % 58;
-    // the spine holds one line of title, or two on a thicker book; a title longer than that stops at a word, with "…"
-    var perLine = Math.floor((height - 66) / 6.4), text = spineTitle(b.title), lines = text.length > perLine ? 2 : 1;
+    var ribs = (h >>> 17) % 2 === 1, finish = ribs ? ' book--ribs' : '';   // gilt bands or raised ribs
+    // the spine holds one line of title, or two on a thicker book, between its bands or ribs (small capitals run about
+    // 7.4 px a letter); a title longer than that stops at a word, with "…"
+    var room = height - (ribs ? 86 : 68) - 4;
+    var perLine = Math.floor(room / 7.4), text = spineTitle(b.title), lines = text.length > perLine ? 2 : 1;
     if (text.length > 2 * perLine) text = text.slice(0, 2 * perLine - 1).replace(/\s+\S*$/, '') + '…';
     var width = (lines === 2 ? 44 : 28) + (h >>> 11) % 9;
     var el = document.createElement('button');
     el.type = 'button';
-    var finish = ['', ' book--ribs'][(h >>> 17) % 2];   // gilt bands or raised ribs
     el.className = 'book' + (cloth[1] ? ' book--light' : '') + finish;
     el.style.cssText = '--h:' + height + 'px;--w:' + width + 'px;--c:' + cloth[0];
     el.dataset.id = b.id;

@@ -200,7 +200,7 @@ main, .foot { position: relative; z-index: 1; }
 .book::before { top: 10px; }
 .book::after { bottom: 34px; }
 .book__title {
-  position: absolute; top: 24px; bottom: 44px; left: 0; right: 0; margin: auto;
+  position: absolute; top: 22px; bottom: 46px; left: 0; right: 0; margin: auto;   /* clear of the gilt bands */
   writing-mode: vertical-rl; display: flex; align-items: center; justify-content: flex-start; text-align: start;
   font-family: var(--font-display); font-size: 12.5px; line-height: 1.2; letter-spacing: .04em; font-variant: small-caps; overflow: hidden;
   text-shadow: 0 1px 1px rgba(0, 0, 0, .35);
@@ -209,6 +209,7 @@ main, .foot { position: relative; z-index: 1; }
 .book--ribs::before, .book--ribs::after { height: 18px; border: 0; opacity: 1;
   background: repeating-linear-gradient(180deg, rgba(0, 0, 0, .4) 0 2px, rgba(255, 255, 255, .2) 2px 3px, transparent 3px 7px); }
 .book--ribs::after { bottom: 30px; }
+.book--ribs .book__title { top: 32px; bottom: 54px; }   /* clear of the ribs */
 .book__label {   /* the library's call-number sticker */
   position: absolute; left: 50%; bottom: 8px; transform: translateX(-50%); width: calc(var(--w) - 10px); min-width: 22px;
   padding: 2px 0; background: #f3ead6; color: #3a2a18; border-radius: 2px; box-shadow: 0 1px 1px rgba(0, 0, 0, .3);
