@@ -66,6 +66,7 @@
     .tile__value { margin: 2px 0; font-size: 2rem; font-weight: 600; letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
     .tile__range { margin: 0; font-size: .82rem; color: var(--text-secondary); font-variant-numeric: tabular-nums; }
     .tile__like { margin: 8px 0 0; font-size: .88rem; }
+    .tile__like--more { margin-top: 2px; color: var(--text-secondary); }
     @media (max-width: 700px) { .tiles { grid-template-columns: 1fr; } }
 
     .panel { background: var(--surface-1); border: 1px solid var(--line); border-radius: 12px; padding: 20px 20px 14px; margin: 22px 0; position: relative; }
@@ -119,6 +120,7 @@
       <h1>How much energy does my Claude use take?</h1>
       <p class="lede">I use Claude a lot for my research and side projects. I want to be mindful about my energy consumption, and I'm curious
         what all those tokens add up to. This page estimates it week by week from the tokens Claude Code logs, and sets it beside everyday things.</p>
+      <p class="lede" id="commute"></p>
       <p class="status" id="status">Loading the latest numbers&hellip;</p>
     </section>
 
@@ -239,7 +241,7 @@
 
     function newContext(w) { return w.wh_by_type.cache_write + w.wh_by_type.input; }
 
-    fetch(DATA, { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (d) {
+    fetch(DATA + '?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (d) {
       COMP = d.comparisons;
       var weeks = d.weeks;
       $('#status').textContent = '';
@@ -248,9 +250,15 @@
       var total = { low: 0, central: 0, high: 0 };
       weeks.forEach(function (w) { total.low += w.wh.low; total.central += w.wh.central; total.high += w.wh.high; });
       var cur = weeks[weeks.length - 1], prev = weeks[weeks.length - 2];
+      // my own yardstick: the round trip to SFU in my car
+      var trip = d.commute, trips = function (wh) { var x = wh / trip.wh; return (x >= 10 ? Math.round(x) : x >= 1 ? x.toFixed(1) : x.toFixed(2)); };
+      if (trip) $('#commute').innerHTML = 'For scale: a round trip to SFU in my 2008 Volvo XC70 (' + trip.km + '&nbsp;km, about ' +
+        (trip.km * trip.l_per_100km / 100).toFixed(1) + '&nbsp;L of petrol) takes about <b>' + kwh(trip.wh) + '</b>.';
       var tile = function (label, wh, sub) {
         return '<article class="tile"><p class="tile__label">' + label + '</p><p class="tile__value">' + kwh(wh.central) + '</p>' +
-          '<p class="tile__range">' + kwh(wh.low) + ' to ' + kwh(wh.high) + '</p><p class="tile__like">About ' + likes(wh.central, 1)[0] + '</p>' + (sub || '') + '</article>';
+          '<p class="tile__range">' + kwh(wh.low) + ' to ' + kwh(wh.high) + '</p>' +
+          (trip ? '<p class="tile__like"><b>' + trips(wh.central) + '</b> of my drive to SFU and back</p>' : '') +
+          '<p class="tile__like tile__like--more">About ' + likes(wh.central, 1)[0] + '</p>' + (sub || '') + '</article>';
       };
       $('#tiles').innerHTML = tile('Week of ' + day(cur.week) + (plusDays(cur.week, 6) >= d.updated ? ' (so far)' : ''), cur.wh) +
         (prev ? tile('Week of ' + day(prev.week), prev.wh) : '') +
@@ -264,6 +272,7 @@
           '<div class="row"><span>Central</span><b>' + kwh(w.wh.central) + '</b></div>' +
           '<div class="row"><span>Low to high</span><span>' + kwh(w.wh.low) + ' to ' + kwh(w.wh.high) + '</span></div>' +
           '<div class="row"><span>Replies</span><span>' + w.responses.toLocaleString('en-GB') + '</span></div>' +
+          (trip ? '<div class="row"><span>Drives to SFU and back</span><b>' + trips(w.wh.central) + '</b></div>' : '') +
           '<div style="margin-top:6px">About the same as:<br>' + likes(w.wh.central, 3).join('<br>') + '</div>';
       });
       // where it goes
