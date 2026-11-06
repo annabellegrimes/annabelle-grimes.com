@@ -90,13 +90,14 @@ main, .foot { position: relative; z-index: 1; }
 
 /* ---------- Intro ---------- */
 .intro { position: relative; padding: 64px 0 18px; }
-.pendant { overflow: visible; position: absolute; top: 0; right: max(4%, calc(50% - 520px)); width: 110px; height: auto; transform-origin: 60px 0; animation: sway 9s ease-in-out infinite; }
-.pendant__bulb { filter: drop-shadow(0 0 18px rgba(255, 200, 120, .95)) drop-shadow(0 0 44px rgba(255, 180, 90, .6)); }
-@keyframes sway { 0%, 100% { transform: rotate(.8deg); } 50% { transform: rotate(-.8deg); } }
+.pendant { overflow: visible; position: absolute; top: 0; right: max(2%, calc(50% - 570px)); width: 236px; height: auto; transform-origin: 50% 0; animation: sway 9s ease-in-out infinite; pointer-events: none; }
+.pendant__cone { mix-blend-mode: screen; }
+.pendant__halo { animation: hum 5s ease-in-out infinite; }
+@keyframes hum { 0%, 100% { opacity: .9; } 50% { opacity: 1; } }
+@keyframes sway { 0%, 100% { transform: rotate(.6deg); } 50% { transform: rotate(-.6deg); } }
 .eyebrow { margin: 0 0 12px; font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; color: var(--brass); }
-.intro h1 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(2.4rem, 5.4vw, 3.8rem); line-height: 1.05; letter-spacing: -.01em;
+.intro h1 { margin: 0 0 16px; font-family: var(--font-display); font-weight: 400; font-size: clamp(2.4rem, 5.4vw, 3.8rem); line-height: 1.05; letter-spacing: -.01em;
   text-shadow: 0 2px 18px rgba(var(--glow), .18); }
-.flourish { margin: 6px 0 14px; color: var(--brass); font-size: 1.5rem; line-height: 1; opacity: .85; }
 .lede { max-width: 42rem; margin: 0 0 24px; font-family: var(--font-display); font-size: 1.22rem; line-height: 1.55; color: #e9dcc3; }
 .tools { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
 .find { display: flex; align-items: center; gap: 10px; flex: 1 1 320px; max-width: 460px; padding: 0 16px; height: 46px;
@@ -106,7 +107,7 @@ main, .foot { position: relative; z-index: 1; }
 .find input { flex: 1; min-width: 0; border: 0; background: transparent; color: var(--ink); font: inherit; font-size: .95rem; outline: none; }
 .find input::placeholder { color: #a8957a; }
 .count { margin: 0; font-family: var(--font-display); font-style: italic; font-size: 1rem; color: var(--ink-muted); }
-@media (max-width: 760px) { .pendant { width: 78px; right: 10px; opacity: .9; } .intro { padding-top: 48px; } }
+@media (max-width: 760px) { .pendant { width: 140px; right: 0; } .intro { padding-top: 48px; } }
 @media (max-width: 560px) { .pendant { display: none; } }
 
 /* ---------- The bookcase: crown moulding, a back of boards, shelves, a plinth ---------- */
@@ -179,7 +180,7 @@ main, .foot { position: relative; z-index: 1; }
   box-shadow: -3px 0 6px rgba(0, 0, 0, .45);
 }
 
-/* ---------- A book's spine: cloth with a little grain, and one of three finishes ---------- */
+/* ---------- A book's spine: cloth with a little grain, and one of two finishes ---------- */
 .book {
   --h: 190px; --w: 34px; --c: #7a2e2e; --t: #ecd9a6; --foil: #d6b56a;
   position: relative; flex: none; height: var(--h); width: var(--w); padding: 0; border: 0; cursor: pointer;
@@ -204,10 +205,7 @@ main, .foot { position: relative; z-index: 1; }
   font-family: var(--font-display); font-size: 12.5px; line-height: 1.2; letter-spacing: .04em; font-variant: small-caps; overflow: hidden;
   text-shadow: 0 1px 1px rgba(0, 0, 0, .35);
 }
-/* finish 2: a dark leather title label between rules */
-.book--label .book__title { top: 30px; bottom: 54px; left: 3px; right: 3px; padding: 6px 0; background: rgba(24, 14, 6, .6);
-  box-shadow: inset 0 0 0 1px rgba(214, 181, 106, .55), inset 0 0 0 3px rgba(24, 14, 6, .6), inset 0 0 0 4px rgba(214, 181, 106, .35); color: #ecd9a6; }
-/* finish 3: raised ribs across the spine, as on a hand-bound book */
+/* finish 2: raised ribs across the spine, as on a hand-bound book */
 .book--ribs::before, .book--ribs::after { height: 18px; border: 0; opacity: 1;
   background: repeating-linear-gradient(180deg, rgba(0, 0, 0, .4) 0 2px, rgba(255, 255, 255, .2) 2px 3px, transparent 3px 7px); }
 .book--ribs::after { bottom: 30px; }
@@ -229,18 +227,6 @@ main, .foot { position: relative; z-index: 1; }
 /* ---------- Things on the shelves ---------- */
 .deco { position: relative; flex: none; align-self: flex-end; margin: 0 8px; pointer-events: none; }
 .deco svg { display: block; }
-.deco--candle::before {   /* the candle's warm pool of light */
-  content: ""; position: absolute; left: 50%; top: -40px; width: 180px; height: 180px; margin-left: -90px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(var(--glow), .3), rgba(var(--glow), .08) 45%, transparent 70%); animation: glow 3.2s ease-in-out infinite;
-}
-.flame { transform-origin: 50% 100%; transform-box: fill-box; animation: flicker 2.4s ease-in-out infinite; }
-@keyframes flicker { 0%, 100% { transform: scale(1, 1) rotate(0); } 25% { transform: scale(.94, 1.06) rotate(-2deg); } 50% { transform: scale(1.04, .95) rotate(1.5deg); } 75% { transform: scale(.97, 1.03) rotate(-1deg); } }
-@keyframes glow { 0%, 100% { opacity: .85; } 50% { opacity: 1; } }
-.plankton circle { animation: twinkle 4s ease-in-out infinite; }
-.plankton circle:nth-child(3n) { animation-delay: -1.3s; } .plankton circle:nth-child(3n+1) { animation-delay: -2.6s; }
-@keyframes twinkle { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
-.deco--jar::before { content: ""; position: absolute; left: 50%; top: 10px; width: 120px; height: 120px; margin-left: -60px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(110, 230, 220, .18), transparent 65%); }
 
 /* the copy that slides off the shelf and flies to the reader */
 .flyer { position: fixed; z-index: 70; margin: 0; pointer-events: none; will-change: transform; box-shadow: 0 18px 40px rgba(0, 0, 0, .6); }
@@ -354,5 +340,5 @@ main, .foot { position: relative; z-index: 1; }
 @media (prefers-reduced-motion: reduce) {
   .book, .book:hover, .book:focus-visible { transition: none; }
   .motes { display: none; }
-  .pendant, .flame, .deco--candle::before, .plankton circle { animation: none; }
+  .pendant, .pendant__halo { animation: none; }
 }
