@@ -53,7 +53,13 @@
     .bar__back { font-size: .9rem; color: var(--text-secondary); text-decoration: none; }
     @media (max-width: 600px) { .bar__inner { padding: 0 16px; } }
 
-    .intro { padding: 56px 0 8px; }
+    .intro { padding: 56px 0 8px; display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 0 48px; align-items: center; }
+    .intro__head { grid-column: 1 / -1; }
+    .car { margin: 0 0 6px; }
+    .car svg { display: block; width: 100%; height: auto; }
+    .car figcaption { margin-top: 2px; text-align: center; font-size: .85rem; color: var(--text-secondary); }
+    .car figcaption b { color: var(--text-primary); font-weight: 600; }
+    @media (max-width: 860px) { .intro { grid-template-columns: 1fr; } .car { max-width: 300px; } }
     .eyebrow { margin: 0 0 10px; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
     h1 { margin: 0 0 14px; font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 4.6vw, 3rem); line-height: 1.1; }
     .lede { max-width: 44rem; margin: 0 0 8px; font-size: 1.05rem; color: var(--text-secondary); }
@@ -116,12 +122,56 @@
 
   <main id="main" class="container">
     <section class="intro">
-      <p class="eyebrow">Energy log</p>
-      <h1>How much energy does my Claude use take?</h1>
-      <p class="lede">I use Claude a lot for my research and side projects. I want to be mindful about my energy consumption, and I'm curious
-        what all those tokens add up to. This page estimates it week by week from the tokens Claude Code logs, and sets it beside everyday things.</p>
-      <p class="lede" id="commute"></p>
-      <p class="status" id="status">Loading the latest numbers&hellip;</p>
+      <div class="intro__head">
+        <p class="eyebrow">Energy log</p>
+        <h1>How much energy does my Claude use take?</h1>
+      </div>
+      <div class="intro__text">
+        <p class="lede">I&rsquo;ve been using Claude a lot recently for research and side projects, and I&rsquo;m curious how much energy all those
+          tokens add up to. To better understand my usage, this page estimates its energy footprint week by week using Claude Code&rsquo;s
+          token logs, with everyday comparisons to put the numbers in perspective.</p>
+        <p class="lede" id="commute"></p>
+        <p class="status" id="status">Loading the latest numbers&hellip;</p>
+      </div>
+      <!-- my car, the yardstick: a 2008 Volvo XC70, drawn side on, with the trip to SFU under it -->
+      <figure class="car" aria-label="My car, a white 2008 Volvo XC70">
+        <svg viewBox="0 0 440 230" role="img" aria-hidden="true">
+          <defs>
+            <linearGradient id="car-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#eef0f1"/><stop offset="1" stop-color="#d7dadd"/></linearGradient>
+            <linearGradient id="car-glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4a5866"/><stop offset=".5" stop-color="#26303a"/><stop offset="1" stop-color="#1b232b"/></linearGradient>
+            <radialGradient id="car-rim" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#e9ecef"/><stop offset=".7" stop-color="#b8bec5"/><stop offset="1" stop-color="#8d949c"/></radialGradient>
+          </defs>
+          <ellipse cx="220" cy="176" rx="190" ry="9" fill="#000" opacity=".22"/>
+          <!-- roof rails -->
+          <path d="M138 38 H 318" stroke="#a9afb6" stroke-width="4" stroke-linecap="round"/>
+          <path d="M146 38 v 6 M 230 38 v 6 M 310 38 v 6" stroke="#a9afb6" stroke-width="3"/>
+          <!-- body: an estate, tailgate at the left, bonnet sloping down to the right -->
+          <path d="M30 150 L 28 112 Q 28 92 40 80 L 56 70 L 128 44 Q 136 42 150 42 L 312 42 Q 328 42 338 52 L 368 86 L 404 96 Q 418 100 420 116 L 422 146 Q 422 156 410 156 L 42 156 Q 30 156 30 150 Z" fill="url(#car-body)" stroke="#b9bec4" stroke-width="1.5"/>
+          <!-- windows -->
+          <path d="M64 76 L 132 50 L 186 50 L 186 82 L 70 84 Z" fill="url(#car-glass)"/>
+          <path d="M194 50 L 262 50 L 262 82 L 194 82 Z" fill="url(#car-glass)"/>
+          <path d="M270 50 L 312 50 Q 324 50 332 58 L 356 84 L 270 84 Z" fill="url(#car-glass)"/>
+          <path d="M188 46 V 132 M 266 46 V 132" stroke="#c4c9ce" stroke-width="2"/>
+          <path d="M210 98 h 14 M 290 98 h 14" stroke="#9aa1a8" stroke-width="3" stroke-linecap="round"/>
+          <!-- tall Volvo tail light, headlight, fog light -->
+          <path d="M30 88 Q 31 82 36 80 L 40 80 L 40 118 L 30 118 Z" fill="#c4372f"/>
+          <path d="M390 94 L 414 100 Q 418 104 416 110 L 394 106 Z" fill="#f4f1e6" stroke="#9aa1a8" stroke-width="1"/>
+          <!-- dark lower cladding and wheel-arch flares -->
+          <path d="M30 136 H 420 V 148 Q 420 156 410 156 H 42 Q 30 156 30 148 Z" fill="#3b3f44"/>
+          <path d="M56 156 Q 58 112 100 110 Q 142 112 144 156 Z" fill="#3b3f44"/>
+          <path d="M292 156 Q 294 112 336 110 Q 378 112 380 156 Z" fill="#3b3f44"/>
+          <circle cx="408" cy="128" r="4" fill="#e9e6da" stroke="#2a2d31"/>
+          <!-- wheels: tyres and five-spoke rims -->
+          <g transform="translate(100 154)"><circle r="31" fill="#17191b"/><circle r="20" fill="url(#car-rim)"/>
+            <g stroke="#7c838b" stroke-width="4" stroke-linecap="round"><path d="M0 -4 V -18"/><path d="M0 -4 V -18" transform="rotate(72)"/><path d="M0 -4 V -18" transform="rotate(144)"/><path d="M0 -4 V -18" transform="rotate(216)"/><path d="M0 -4 V -18" transform="rotate(288)"/></g><circle r="4" fill="#5d636a"/></g>
+          <g transform="translate(336 154)"><circle r="31" fill="#17191b"/><circle r="20" fill="url(#car-rim)"/>
+            <g stroke="#7c838b" stroke-width="4" stroke-linecap="round"><path d="M0 -4 V -18"/><path d="M0 -4 V -18" transform="rotate(72)"/><path d="M0 -4 V -18" transform="rotate(144)"/><path d="M0 -4 V -18" transform="rotate(216)"/><path d="M0 -4 V -18" transform="rotate(288)"/></g><circle r="4" fill="#5d636a"/></g>
+          <!-- the road to SFU -->
+          <path d="M10 200 H 430" stroke="var(--line)" stroke-width="2"/>
+          <path d="M10 200 H 430" stroke="var(--text-secondary)" stroke-width="2" stroke-dasharray="14 12" opacity=".6"/>
+        </svg>
+        <figcaption>My 2008 Volvo XC70: <b>9.2&nbsp;km</b> each way to SFU</figcaption>
+      </figure>
     </section>
 
     <section class="tiles" id="tiles" aria-label="Headline numbers"></section>
