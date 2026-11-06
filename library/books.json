@@ -1,0 +1,1415 @@
+{
+ "updated": "2026-11-06",
+ "shelves": [
+  {
+   "id": "sources",
+   "title": "Where neutrinos come from",
+   "sub": "Active galaxies, blazars, the Galactic plane and the first cosmic neutrinos"
+  },
+  {
+   "id": "physics",
+   "title": "Neutrino physics",
+   "sub": "Oscillations, masses and how neutrinos interact"
+  },
+  {
+   "id": "cosmo",
+   "title": "The expanding universe",
+   "sub": "Cosmology and the light between galaxies"
+  },
+  {
+   "id": "pone",
+   "title": "P-ONE and neutrino telescopes",
+   "sub": "The detector, its site and its calibration"
+  },
+  {
+   "id": "deep",
+   "title": "Life in the deep sea",
+   "sub": "What lives, glows and calls around the detector"
+  }
+ ],
+ "books": [
+  {
+   "id": "fermi-1949-on-the-origin",
+   "shelf": "sources",
+   "title": "On the Origin of the Cosmic Radiation",
+   "authors": [
+    "Enrico Fermi"
+   ],
+   "year": "1949",
+   "venue": "Physical Review",
+   "kind": "paper",
+   "note": "Fermi's mechanism: charged particles gain energy by bouncing off moving magnetic clouds.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1103/PhysRev.75.1169"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "kelner-2008-energy-spectra-of",
+   "shelf": "sources",
+   "title": "Energy spectra of gamma-rays, electrons and neutrinos produced at interactions of relativistic protons with low energy radiation",
+   "authors": [
+    "S. R. Kelner",
+    "F. A. Aharonian"
+   ],
+   "year": "2008",
+   "venue": "arXiv",
+   "kind": "paper",
+   "note": "Photomeson (pγ) production: the threshold, and the shares of energy passed to pions and neutrinos.",
+   "links": [
+    {
+     "label": "arXiv",
+     "url": "https://arxiv.org/abs/0803.0688"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "collaboration-2013-evidence-for-high-energy",
+   "shelf": "sources",
+   "title": "Evidence for High-Energy Extraterrestrial Neutrinos at the IceCube Detector",
+   "authors": [
+    "IceCube Collaboration"
+   ],
+   "year": "2013",
+   "venue": "Science",
+   "kind": "paper",
+   "note": "The first evidence for high-energy neutrinos from beyond the Solar System.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1126/science.1242856"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "bauer-2015-nustar-spectroscopy-of",
+   "shelf": "sources",
+   "title": "NuSTAR spectroscopy of multi-component X-ray reflection from NGC 1068",
+   "authors": [
+    "Franz E. Bauer",
+    "Patricia Arévalo",
+    "Dominic J. Walton",
+    "Michael J. Koss",
+    "Simonetta Puccetti",
+    "Poshak Gandhi",
+    "Daniel Stern",
+    "David M. Alexander"
+   ],
+   "authorCount": 29,
+   "year": "2015",
+   "venue": "The Astrophysical Journal",
+   "kind": "paper",
+   "note": "NuSTAR's view of NGC 1068's buried nucleus, through the X-rays it reflects.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1088/0004-637X/812/2/116"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "collaboration-2018-multimessenger-observations-of",
+   "shelf": "sources",
+   "title": "Multimessenger observations of a flaring blazar coincident with high-energy neutrino IceCube-170922A",
+   "authors": [
+    "IceCube Collaboration",
+    "Fermi-LAT",
+    "MAGIC",
+    "AGILE",
+    "ASAS-SN",
+    "HAWC",
+    "H.E.S.S.",
+    "INTEGRAL"
+   ],
+   "authorCount": 1001,
+   "year": "2018",
+   "venue": "Science",
+   "kind": "paper",
+   "note": "IceCube-170922A: a 290 TeV neutrino arriving during a gamma-ray flare of the blazar TXS 0506+056.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1126/science.aat1378"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "collaboration-2018-neutrino-emission-from",
+   "shelf": "sources",
+   "title": "Neutrino emission from the direction of the blazar TXS 0506+056 prior to the IceCube-170922A alert",
+   "authors": [
+    "IceCube Collaboration",
+    "Mark Aartsen",
+    "Markus Ackermann",
+    "Jenni Adams",
+    "Juan Antonio Aguilar",
+    "Markus Ahlers",
+    "Maryon Ahrens",
+    "Imen Al Samarai"
+   ],
+   "authorCount": 331,
+   "year": "2018",
+   "venue": "Science",
+   "kind": "paper",
+   "note": "An earlier burst of neutrinos from the same blazar in 2014–15, found in IceCube's archive.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1126/science.aat2890"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "murase-2020-hidden-cores-of",
+   "shelf": "sources",
+   "title": "Hidden Cores of Active Galactic Nuclei as the Origin of Medium-Energy Neutrinos: Critical Tests with the MeV Gamma-Ray Connection",
+   "authors": [
+    "Kohta Murase",
+    "Shigeo S. Kimura",
+    "Peter Mészáros"
+   ],
+   "year": "2020",
+   "venue": "Physical Review Letters",
+   "kind": "paper",
+   "note": "Stochastic acceleration of protons to PeV energies by turbulence in AGN coronae.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1103/PhysRevLett.125.011101"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "kheirandish-2021-high-energy-neutrinos-from",
+   "shelf": "sources",
+   "title": "High-Energy Neutrinos from Magnetized Coronae of Active Galactic Nuclei and Prospects for Identification of Seyfert Galaxies and Quasars in Neutrino Telescopes",
+   "authors": [
+    "Ali Kheirandish",
+    "Kohta Murase",
+    "Shigeo S. Kimura"
+   ],
+   "year": "2021",
+   "venue": "arXiv",
+   "kind": "paper",
+   "note": "Proton acceleration and neutrino production in coronae.",
+   "links": [
+    {
+     "label": "arXiv",
+     "url": "https://arxiv.org/abs/2102.04475"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "collaboration-2022-evidence-for-neutrino",
+   "shelf": "sources",
+   "title": "Evidence for neutrino emission from the nearby active galaxy NGC 1068",
+   "authors": [
+    "IceCube Collaboration",
+    "R. Abbasi",
+    "M. Ackermann",
+    "J. Adams",
+    "J. A. Aguilar",
+    "M. Ahlers",
+    "M. Ahrens",
+    "J. M. Alameddine"
+   ],
+   "authorCount": 386,
+   "year": "2022",
+   "venue": "Science",
+   "kind": "paper",
+   "note": "The 4.2σ excess, TeV energies, and a neutrino flux at least ten times any TeV gamma-ray flux.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1126/science.abg3395"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "abbasi-2022-improved-characterization-of",
+   "shelf": "sources",
+   "title": "Improved Characterization of the Astrophysical Muon–neutrino Flux with 9.5 Years of IceCube Data",
+   "authors": [
+    "R. Abbasi",
+    "M. Ackermann",
+    "J. Adams",
+    "J. A. Aguilar",
+    "M. Ahlers",
+    "M. Ahrens",
+    "J. M. Alameddine",
+    "C. Alispach"
+   ],
+   "authorCount": 380,
+   "year": "2022",
+   "venue": "The Astrophysical Journal",
+   "kind": "paper",
+   "note": "Nine and a half years of IceCube muon tracks: the spectrum of the astrophysical neutrino flux.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.3847/1538-4357/ac4d29"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "collaboration-2023-icecat-1-the-icecube",
+   "shelf": "sources",
+   "title": "IceCat-1: the IceCube Event Catalog of Alert Tracks",
+   "authors": [
+    "IceCube Collaboration"
+   ],
+   "year": "2023",
+   "venue": "ApJS 269, 25 (data release)",
+   "kind": "data",
+   "note": "IceCube's catalogue of alert tracks, 2011–2023: where its most likely astrophysical neutrinos came from.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.7910/DVN/SCRUCD"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Neutrino Telescope Map",
+     "url": "/telescopes/"
+    }
+   ]
+  },
+  {
+   "id": "collaboration-2023-observation-of-high-energy",
+   "shelf": "sources",
+   "title": "Observation of high-energy neutrinos from the Galactic plane",
+   "authors": [
+    "IceCube Collaboration",
+    "R. Abbasi",
+    "M. Ackermann",
+    "J. Adams",
+    "J. A. Aguilar",
+    "M. Ahlers",
+    "M. Ahrens",
+    "J. M. Alameddine"
+   ],
+   "authorCount": 390,
+   "year": "2023",
+   "venue": "Science",
+   "kind": "paper",
+   "note": "Neutrinos from the plane of our own Galaxy, seen at 4.5σ.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1126/science.adc9818"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "abbasi-2025-icecube-search-for",
+   "shelf": "sources",
+   "title": "IceCube Search for Neutrino Emission from X-Ray Bright Seyfert Galaxies",
+   "authors": [
+    "R. Abbasi",
+    "M. Ackermann",
+    "J. Adams",
+    "S. K. Agarwalla",
+    "J. A. Aguilar",
+    "M. Ahlers",
+    "J. M. Alameddine",
+    "N. M. Amin"
+   ],
+   "authorCount": 425,
+   "year": "2025",
+   "venue": "The Astrophysical Journal",
+   "kind": "paper",
+   "note": "NGC 4151 at about 3σ (local).",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.3847/1538-4357/addd05"
+    },
+    {
+     "label": "arXiv",
+     "url": "https://arxiv.org/abs/2406.07601"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "d-ammando-2026-active-galactic-nuclei",
+   "shelf": "sources",
+   "title": "Active Galactic Nuclei as high-energy neutrino sources",
+   "authors": [
+    "Filippo D’Ammando"
+   ],
+   "year": "2026",
+   "venue": "The Astronomy and Astrophysics Review",
+   "kind": "paper",
+   "note": "Review: coronae as gamma-ray-obscured neutrino sources up to about 1 PeV, the 30–100 Schwarzschild-radius production zone, jets at higher energies, and the Seyfert results.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1007/s00159-026-00168-9"
+    },
+    {
+     "label": "arXiv",
+     "url": "https://arxiv.org/abs/2606.30764"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "jain-2026-evaluating-the-contribution",
+   "shelf": "sources",
+   "title": "Evaluating the contribution of active galactic nuclei to the diffuse high-energy neutrino flux",
+   "authors": [
+    "Samyak Jain",
+    "Dan Hooper",
+    "Francis Halzen"
+   ],
+   "year": "2026",
+   "venue": "Journal of Cosmology and Astroparticle Physics",
+   "kind": "paper",
+   "note": "Blazars at most 16%; X-ray-bright AGN between about 11% and all of the flux.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1088/1475-7516/2026/05/045"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "smith-1972-neutrino-reactions-at",
+   "shelf": "physics",
+   "title": "Neutrino reactions at accelerator energies",
+   "authors": [
+    "C.H. Llewellyn Smith"
+   ],
+   "year": "1972",
+   "venue": "Physics Reports",
+   "kind": "paper",
+   "note": "The classic review of how neutrinos scatter off nucleons, from quasi-elastic to deep-inelastic.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1016/0370-1573(72)90010-5"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "suzuki-1987-total-nuclear-capture",
+   "shelf": "physics",
+   "title": "Total nuclear capture rates for negative muons",
+   "authors": [
+    "T. Suzuki",
+    "D. F. Measday",
+    "J. P. Roalsvig"
+   ],
+   "year": "1987",
+   "venue": "Physical Review C",
+   "kind": "paper",
+   "note": "How quickly nuclei capture stopped negative muons, across the periodic table.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1103/PhysRevC.35.2212"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "gandhi-1998-neutrino-interactions-at",
+   "shelf": "physics",
+   "title": "Neutrino Interactions at Ultrahigh Energies",
+   "authors": [
+    "Raj Gandhi",
+    "Chris Quigg",
+    "Mary Hall Reno",
+    "Ina Sarcevic"
+   ],
+   "year": "1998",
+   "venue": "arXiv",
+   "kind": "paper",
+   "note": "Neutrino–nucleon cross sections at ultrahigh energies, and how often the Earth stops a neutrino.",
+   "links": [
+    {
+     "label": "arXiv",
+     "url": "https://arxiv.org/abs/hep-ph/9807264"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    },
+    {
+     "title": "Neutrino Telescope Map",
+     "url": "/telescopes/"
+    }
+   ]
+  },
+  {
+   "id": "fukuda-2003-the-super-kamiokande-detector",
+   "shelf": "physics",
+   "title": "The Super-Kamiokande detector",
+   "authors": [
+    "S. Fukuda",
+    "Y. Fukuda",
+    "T. Hayakawa",
+    "E. Ichihara",
+    "M. Ishitsuka",
+    "Y. Itow",
+    "T. Kajita",
+    "J. Kameda"
+   ],
+   "authorCount": 177,
+   "year": "2003",
+   "venue": "Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment",
+   "kind": "paper",
+   "note": "The Super-Kamiokande water Cherenkov detector: tank, photomultipliers and reconstruction.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1016/S0168-9002(03)00425-X"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "connolly-2011-calculation-of-high",
+   "shelf": "physics",
+   "title": "Calculation of High Energy Neutrino-Nucleon Cross Sections and Uncertainties Using the MSTW Parton Distribution Functions and Implications for Future Experiments",
+   "authors": [
+    "Amy Connolly",
+    "Robert S. Thorne",
+    "David Waters"
+   ],
+   "year": "2011",
+   "venue": "arXiv",
+   "kind": "paper",
+   "note": "Neutrino–nucleon cross sections at high energies, with their uncertainties.",
+   "links": [
+    {
+     "label": "arXiv",
+     "url": "https://arxiv.org/abs/1102.0691"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Neutrino Telescope Map",
+     "url": "/telescopes/"
+    }
+   ]
+  },
+  {
+   "id": "cooper-sarkar-2011-the-high-energy",
+   "shelf": "physics",
+   "title": "The high energy neutrino cross-section in the Standard Model and its uncertainty",
+   "authors": [
+    "Amanda Cooper-Sarkar",
+    "Philipp Mertsch",
+    "Subir Sarkar"
+   ],
+   "year": "2011",
+   "venue": "arXiv",
+   "kind": "paper",
+   "note": "The Standard Model's high-energy neutrino cross section, and its uncertainty from the proton's structure.",
+   "links": [
+    {
+     "label": "arXiv",
+     "url": "https://arxiv.org/abs/1106.3723"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "collaboration-2017-a-measurement-of",
+   "shelf": "physics",
+   "title": "A Measurement of the Tau Neutrino Cross Section in Atmospheric Neutrino Oscillations with Super-Kamiokande",
+   "authors": [
+    "Super-Kamiokande Collaboration",
+    ":",
+    "Z. Li",
+    "K. Abe",
+    "C. Bronner",
+    "Y. Hayato",
+    "M. Ikeda",
+    "K. Iyogi"
+   ],
+   "authorCount": 164,
+   "year": "2017",
+   "venue": "arXiv",
+   "kind": "paper",
+   "note": "Super-Kamiokande's measurement of tau neutrinos appearing among atmospheric neutrinos.",
+   "links": [
+    {
+     "label": "arXiv",
+     "url": "https://arxiv.org/abs/1711.09436"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "collaboration-2017-measurement-of-the",
+   "shelf": "physics",
+   "title": "Measurement of the multi-TeV neutrino cross section with IceCube using Earth absorption",
+   "authors": [
+    "IceCube Collaboration",
+    "M. G. Aartsen",
+    "M. Ackermann",
+    "J. Adams",
+    "J. A. Aguilar",
+    "M. Ahlers",
+    "M. Ahrens",
+    "I. Al Samarai"
+   ],
+   "authorCount": 318,
+   "year": "2017",
+   "venue": "arXiv",
+   "kind": "paper",
+   "note": "The first measurement of the neutrino cross section at TeV energies, from absorption in the Earth.",
+   "links": [
+    {
+     "label": "arXiv",
+     "url": "https://arxiv.org/abs/1711.08119"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Neutrino Telescope Map",
+     "url": "/telescopes/"
+    }
+   ]
+  },
+  {
+   "id": "esteban-2020-the-fate-of",
+   "shelf": "physics",
+   "title": "The fate of hints: updated global analysis of three-flavor neutrino oscillations",
+   "authors": [
+    "Ivan Esteban",
+    "M.C. Gonzalez-Garcia",
+    "Michele Maltoni",
+    "Thomas Schwetz",
+    "Albert Zhou"
+   ],
+   "year": "2020",
+   "venue": "Journal of High Energy Physics",
+   "kind": "paper",
+   "note": "NuFIT 5.0: the global fit of the three-flavour neutrino oscillation parameters.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1007/JHEP09(2020)178"
+    },
+    {
+     "label": "arXiv",
+     "url": "https://arxiv.org/abs/2007.14792"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "group-2022-review-of-particle",
+   "shelf": "physics",
+   "title": "Review of Particle Physics",
+   "authors": [
+    "Particle Data Group",
+    "R L Workman",
+    "V D Burkert",
+    "V Crede",
+    "E Klempt",
+    "U Thoma",
+    "L Tiator",
+    "K Agashe"
+   ],
+   "authorCount": 239,
+   "year": "2022",
+   "venue": "Progress of Theoretical and Experimental Physics",
+   "kind": "paper",
+   "note": "Pion and muon lifetimes and decays, and the Δ(1232) resonance.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1093/ptep/ptac097"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "aker-2024-direct-neutrino-mass-measurement",
+   "shelf": "physics",
+   "title": "Direct neutrino-mass measurement based on 259 days of KATRIN data",
+   "authors": [
+    "M. Aker",
+    "D. Batzler",
+    "A. Beglarian",
+    "J. Behrens",
+    "J. Beisenkötter",
+    "M. Biassoni",
+    "B. Bieringer",
+    "Y. Biondi"
+   ],
+   "authorCount": 149,
+   "year": "2024",
+   "venue": "arXiv",
+   "kind": "paper",
+   "note": "KATRIN's direct limit on the neutrino mass, from tritium beta decay.",
+   "links": [
+    {
+     "label": "arXiv",
+     "url": "https://arxiv.org/abs/2406.13516"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "franceschini-2008-the-extragalactic-optical-infrared",
+   "shelf": "cosmo",
+   "title": "The extragalactic optical-infrared background radiations, their time evolution and the cosmic photon-photon opacity",
+   "authors": [
+    "Alberto Franceschini",
+    "Giulia Rodighiero",
+    "Mattia Vaccari"
+   ],
+   "year": "2008",
+   "venue": "arXiv",
+   "kind": "paper",
+   "note": "The background light between galaxies, which absorbs high-energy gamma rays on their way to us.",
+   "links": [
+    {
+     "label": "arXiv",
+     "url": "https://arxiv.org/abs/0805.1841"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "collaboration-2018-planck-2018-results",
+   "shelf": "cosmo",
+   "title": "Planck 2018 results. VI. Cosmological parameters",
+   "authors": [
+    "Planck Collaboration",
+    "N. Aghanim",
+    "Y. Akrami",
+    "M. Ashdown",
+    "J. Aumont",
+    "C. Baccigalupi",
+    "M. Ballardini",
+    "A. J. Banday"
+   ],
+   "authorCount": 182,
+   "year": "2018",
+   "venue": "arXiv",
+   "kind": "paper",
+   "note": "The cosmological parameters: the expansion rate, the matter density and the age of the universe.",
+   "links": [
+    {
+     "label": "arXiv",
+     "url": "https://arxiv.org/abs/1807.06209"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "agostini-2020-the-pacific-ocean",
+   "shelf": "pone",
+   "title": "The Pacific Ocean Neutrino Experiment",
+   "authors": [
+    "Matteo Agostini",
+    "Michael Böhmer",
+    "Jeff Bosma",
+    "Kenneth Clark",
+    "Matthias Danninger",
+    "Christian Fruck",
+    "Roman Gernhäuser",
+    "Andreas Gärtner"
+   ],
+   "authorCount": 35,
+   "year": "2020",
+   "venue": "Nature Astronomy",
+   "kind": "paper",
+   "note": "The proposal for P-ONE: a neutrino telescope in the Cascadia Basin, on Ocean Networks Canada's seafloor network.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1038/s41550-020-1182-4"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "schumacher-2021-ple-m-a-global",
+   "shelf": "pone",
+   "title": "PLEνM: A global and distributed monitoring system of high-energy astrophysical neutrinos",
+   "authors": [
+    "Lisa Johanna Schumacher",
+    "Matthias Huber",
+    "Matteo Agostini",
+    "Mauricio Bustamante",
+    "Foteini Oikonomou",
+    "Elisa Resconi"
+   ],
+   "year": "2021",
+   "venue": "arXiv",
+   "kind": "paper",
+   "note": "Neutrino telescopes around the world combined into one instrument that sees the whole sky.",
+   "links": [
+    {
+     "label": "arXiv",
+     "url": "https://arxiv.org/abs/2107.13534"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Neutrino Telescope Map",
+     "url": "/telescopes/"
+    }
+   ]
+  },
+  {
+   "id": "resconi-2021-the-pacific-ocean",
+   "shelf": "pone",
+   "title": "The Pacific Ocean Neutrino Experiment",
+   "authors": [
+    "Elisa Resconi",
+    "P-ONE Collaboration"
+   ],
+   "year": "2021",
+   "venue": "arXiv",
+   "kind": "paper",
+   "note": "An overview of P-ONE and its pathfinder experiments.",
+   "links": [
+    {
+     "label": "arXiv",
+     "url": "https://arxiv.org/html/2111.13133"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "bailly-2021-two-year-optical-site",
+   "shelf": "pone",
+   "title": "Two-year optical site characterization for the Pacific Ocean Neutrino Experiment (P-ONE) in the Cascadia Basin",
+   "authors": [
+    "Nicolai Bailly",
+    "Jeannette Bedard",
+    "Michael Böhmer",
+    "Jeff Bosma",
+    "Dirk Brussow",
+    "Jonathan Cheng",
+    "Ken Clark",
+    "Beckey Croteau"
+   ],
+   "authorCount": 57,
+   "year": "2021",
+   "venue": "The European Physical Journal C",
+   "kind": "paper",
+   "note": "Bioluminescence (10 kHz to several MHz per sensor) and potassium-40 as the site's background light.",
+   "links": [
+    {
+     "label": "arXiv",
+     "url": "https://arxiv.org/abs/2108.04961"
+    },
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1140/epjc/s10052-021-09872-5"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "collaboration-2023-pacific-ocean-neutrino",
+   "shelf": "pone",
+   "title": "Pacific Ocean Neutrino Experiment: expected performance of the first cluster of strings",
+   "authors": [
+    "P-ONE Collaboration"
+   ],
+   "year": "2023",
+   "venue": "PoS ICRC2023, 1053",
+   "kind": "paper",
+   "note": "How well P-ONE's first cluster of lines is expected to detect and reconstruct neutrinos.",
+   "links": [
+    {
+     "label": "Link",
+     "url": "https://inspirehep.net/files/81b1d9fb33259875879b1f59deabffc2"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "ghuman-2025-in-situ-calibration",
+   "shelf": "pone",
+   "title": "In Situ Calibration Systems for the Pacific Ocean Neutrino Experiment",
+   "authors": [
+    "Dilraj Ghuman",
+    "P-one",
+    "N. Whitehorn",
+    "T. DeYoung",
+    "M. Un Nisa",
+    "V. Parrish",
+    "D. Salazar-Gallegos",
+    "J. Garriz"
+   ],
+   "authorCount": 84,
+   "year": "2025",
+   "venue": "Proceedings of 39th International Cosmic Ray Conference — PoS(ICRC2025)",
+   "kind": "paper",
+   "note": "P-ONE's in-situ calibration: flashers, acoustic positioning, and tilt and orientation sensors.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.22323/1.501.1042"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "agostini-2026-optical-calibration-systems",
+   "shelf": "pone",
+   "title": "Optical calibration systems of the Pacific Ocean Neutrino Experiment",
+   "authors": [
+    "M. Agostini",
+    "A. Alexander Wight",
+    "M. Altomare",
+    "K. Baş",
+    "N. Baily",
+    "P. S. Barbeau",
+    "A. J. Baron",
+    "S. Bash"
+   ],
+   "authorCount": 92,
+   "year": "2026",
+   "venue": "arXiv",
+   "kind": "paper",
+   "note": "P-ONE's optical calibration systems: the light sources in its modules and calibration units.",
+   "links": [
+    {
+     "label": "arXiv",
+     "url": "https://arxiv.org/abs/2603.09495"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "collaboration-the-p-one-demonstrator",
+   "shelf": "pone",
+   "title": "The P-ONE demonstrator",
+   "authors": [
+    "P-ONE Collaboration"
+   ],
+   "year": null,
+   "venue": "pacific-neutrino.org",
+   "kind": "web",
+   "note": "The first P-ONE line: what it carries and where it stands.",
+   "links": [
+    {
+     "label": "Link",
+     "url": "https://www.pacific-neutrino.org/pathfinder-2/p-one-demonstrator"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "alldredge-1988-characteristics-dynamics-and",
+   "shelf": "deep",
+   "title": "Characteristics, dynamics and significance of marine snow",
+   "authors": [
+    "Alice L. Alldredge",
+    "Mary W. Silver"
+   ],
+   "year": "1988",
+   "venue": "Progress in Oceanography",
+   "kind": "paper",
+   "note": "What marine snow is made of, and how fast it sinks.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1016/0079-6611(88)90053-5"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "whitman-1998-prokaryotes-the-unseen",
+   "shelf": "deep",
+   "title": "Prokaryotes: The unseen majority",
+   "authors": [
+    "William B. Whitman",
+    "David C. Coleman",
+    "William J. Wiebe"
+   ],
+   "year": "1998",
+   "venue": "Proceedings of the National Academy of Sciences",
+   "kind": "paper",
+   "note": "Bacteria per millilitre near the surface and in deep water.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1073/pnas.95.12.6578"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "myrberg-2001-the-acoustical-biology",
+   "shelf": "deep",
+   "title": "The Acoustical Biology of Elasmobranchs",
+   "authors": [
+    "Arthur A. Myrberg"
+   ],
+   "year": "2001",
+   "venue": "Environmental Biology of Fishes",
+   "kind": "paper",
+   "note": "Sharks hear best at low frequencies and are drawn to sounds like struggling prey.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1023/A:1007647021634"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "suttle-2005-viruses-in-the",
+   "shelf": "deep",
+   "title": "Viruses in the sea",
+   "authors": [
+    "Curtis A. Suttle"
+   ],
+   "year": "2005",
+   "venue": "Nature",
+   "kind": "paper",
+   "note": "Viruses' abundance and their role in recycling carbon and nutrients.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1038/nature04160"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "irovi-2007-blue-and-fin",
+   "shelf": "deep",
+   "title": "Blue and fin whale call source levels and propagation range in the Southern Ocean",
+   "authors": [
+    "Ana Širović",
+    "John A. Hildebrand",
+    "Sean M. Wiggins"
+   ],
+   "year": "2007",
+   "venue": "J. Acoust. Soc. Am. 122, 1208–1215",
+   "kind": "paper",
+   "note": "Blue whale calls of about 189 dB at 25–29 Hz, located up to 200 km away.",
+   "links": [
+    {
+     "label": "Link",
+     "url": "https://escholarship.org/uc/item/8mr3c6vn"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "armbrust-2009-the-life-of",
+   "shelf": "deep",
+   "title": "The life of diatoms in the world's oceans",
+   "authors": [
+    "E. Virginia Armbrust"
+   ],
+   "year": "2009",
+   "venue": "Nature",
+   "kind": "paper",
+   "note": "Diatoms make most of the organic matter that feeds life in the sea.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1038/nature08057"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "widder-2010-bioluminescence-in-the",
+   "shelf": "deep",
+   "title": "Bioluminescence in the Ocean: Origins of Biological, Chemical, and Ecological Diversity",
+   "authors": [
+    "E. A. Widder"
+   ],
+   "year": "2010",
+   "venue": "Science",
+   "kind": "paper",
+   "note": "Counterillumination by belly light organs; luciferases.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1126/science.1174269"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "haddock-2010-bioluminescence-in-the",
+   "shelf": "deep",
+   "title": "Bioluminescence in the Sea",
+   "authors": [
+    "Steven H.D. Haddock",
+    "Mark A. Moline",
+    "James F. Case"
+   ],
+   "year": "2010",
+   "venue": "Annual Review of Marine Science",
+   "kind": "paper",
+   "note": "Which animals glow, including copepods and radiolarians, and why.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1146/annurev-marine-120308-081028"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "zarubin-2012-bacterial-bioluminescence-as",
+   "shelf": "deep",
+   "title": "Bacterial bioluminescence as a lure for marine zooplankton and fish",
+   "authors": [
+    "Margarita Zarubin",
+    "Shimshon Belkin",
+    "Michael Ionescu",
+    "Amatzia Genin"
+   ],
+   "year": "2012",
+   "venue": "PNAS 109, 853–857",
+   "kind": "paper",
+   "note": "Glowing bacteria are eaten, and spread, more often.",
+   "links": [
+    {
+     "label": "Link",
+     "url": "https://cris.huji.ac.il/en/publications/bacterial-bioluminescence-as-a-lure-for-marine-zooplankton-and-fi/"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "watanabe-2012-the-slowest-fish",
+   "shelf": "deep",
+   "title": "The slowest fish: Swim speed and tail-beat frequency of Greenland sharks",
+   "authors": [
+    "Yuuki Y. Watanabe",
+    "Christian Lydersen",
+    "Aaron T. Fisk",
+    "Kit M. Kovacs"
+   ],
+   "year": "2012",
+   "venue": "Journal of Experimental Marine Biology and Ecology",
+   "kind": "paper",
+   "note": "The sleeper shark's close relative cruises at 0.34 m/s.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1016/j.jembe.2012.04.021"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "irigoien-2014-large-mesopelagic-fishes",
+   "shelf": "deep",
+   "title": "Large mesopelagic fishes biomass and trophic efficiency in the open ocean",
+   "authors": [
+    "Xabier Irigoien",
+    "T. A. Klevjer",
+    "A. Røstad",
+    "U. Martinez",
+    "G. Boyra",
+    "J. L. Acuña",
+    "A. Bode",
+    "F. Echevarria"
+   ],
+   "authorCount": 14,
+   "year": "2014",
+   "venue": "Nature Communications",
+   "kind": "paper",
+   "note": "Mesopelagic fish, mostly lanternfish, measured acoustically and at least ten times more abundant than earlier estimates.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1038/ncomms4271"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "proud-2017-biogeography-of-the",
+   "shelf": "deep",
+   "title": "Biogeography of the Global Ocean’s Mesopelagic Zone",
+   "authors": [
+    "Roland Proud",
+    "Martin J. Cox",
+    "Andrew S. Brierley"
+   ],
+   "year": "2017",
+   "venue": "Current Biology",
+   "kind": "paper",
+   "note": "The deep scattering layer seen by sonar worldwide.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1016/j.cub.2016.11.003"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  },
+  {
+   "id": "burnham-2020-learning-about-whales",
+   "shelf": "deep",
+   "title": "Learning About Whales by Listening for Their Calls",
+   "authors": [
+    "Rianna Burnham"
+   ],
+   "year": "2020",
+   "venue": "Frontiers for Young Minds",
+   "kind": "paper",
+   "note": "Seafloor and glider hydrophones listening for whales off Vancouver Island.",
+   "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.3389/frym.2020.00055"
+    }
+   ],
+   "usedIn": [
+    {
+     "title": "Anatomy of an Astrophysical Neutrino",
+     "url": "https://annabellegrimes.github.io/anatomy-of-an-astrophysical-neutrino-public/"
+    }
+   ]
+  }
+ ]
+}

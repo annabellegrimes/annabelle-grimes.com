@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research Library</title>
+  <meta name="description" content="The sources behind Annabelle Grimes's research and science-communication projects, shelved by subject. Pull a book off the shelf to see what it is and where to read it.">
+  <meta name="author" content="Annabelle Grimes">
+  <link rel="canonical" href="https://annabelle-grimes.com/library/">
+  <meta property="og:title" content="Research Library">
+  <meta property="og:description" content="The sources behind my research, shelved by subject. Pull a book off the shelf to read about it.">
+  <meta name="theme-color" content="#1a110b">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="library.css?v=20261106120000">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="bar">
+    <div class="bar__inner">
+      <a class="bar__home" href="../">Annabelle Grimes</a>
+      <a class="bar__back" href="../">&larr; Back to home</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="intro">
+      <div class="container">
+        <p class="eyebrow">Research library</p>
+        <h1>The reading room</h1>
+        <p class="lede">Every source behind my projects, shelved by subject. Pull a book off the shelf to see what it is,
+          what I use it for, and where to read it.</p>
+        <div class="tools">
+          <label class="find">
+            <span class="sr-only">Find a book</span>
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <input type="search" id="find" placeholder="Find a book: title, author, subject" autocomplete="off">
+          </label>
+          <p class="count" id="count" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="room" aria-label="Bookcase">
+      <div class="container">
+        <div class="bookcase" id="bookcase">
+          <p class="loading">Unpacking the books&hellip;</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- the book taken off the shelf: an open book with the source's details on its pages -->
+  <dialog class="reader" id="reader" aria-labelledby="r-title">
+    <div class="open-book" id="open-book">
+      <div class="page page--left">
+        <p class="r-shelf" id="r-shelf"></p>
+        <h2 class="r-title" id="r-title"></h2>
+        <p class="r-authors" id="r-authors"></p>
+        <p class="r-pub" id="r-pub"></p>
+        <div class="card-pocket">
+          <p class="card-pocket__label">Library card</p>
+          <p class="card-pocket__call" id="r-call"></p>
+          <button type="button" class="r-copy" id="r-copy">Copy citation</button>
+        </div>
+      </div>
+      <div class="page page--right">
+        <h3>Why it&rsquo;s on the shelf</h3>
+        <p class="r-note" id="r-note"></p>
+        <h3>Where I use it</h3>
+        <ul class="r-used" id="r-used"></ul>
+        <h3>Read it</h3>
+        <p class="r-links" id="r-links"></p>
+        <div class="r-nav">
+          <button type="button" id="r-prev" aria-label="Previous book on the shelf">&larr; Previous</button>
+          <button type="button" id="r-next" aria-label="Next book on the shelf">Next &rarr;</button>
+        </div>
+      </div>
+      <div class="cover" aria-hidden="true"><span class="cover__title" id="cover-title"></span></div>
+    </div>
+    <button type="button" class="r-close" id="r-close" aria-label="Put the book back">&times;</button>
+  </dialog>
+
+  <footer class="foot">
+    <div class="container foot__inner">
+      <span>By <a href="../">Annabelle Grimes</a>.</span>
+      <span id="updated"></span>
+    </div>
+  </footer>
+
+  <script src="library.js?v=20261106120000" defer></script>
+</body>
+</html>
