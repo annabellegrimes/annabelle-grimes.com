@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="library.css?v=20261106120000">
+  <link rel="stylesheet" href="library.css?v=20261106160000">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -25,11 +25,28 @@
     </div>
   </header>
 
+  <!-- lamplight over the room: the glow, and dust drifting in it -->
+  <div class="lamplight" aria-hidden="true"></div>
+  <div class="motes" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
   <main id="main">
     <section class="intro">
+      <!-- a brass pendant lamp hanging over the title -->
+      <svg class="pendant" viewBox="0 0 120 230" aria-hidden="true">
+        <defs>
+          <linearGradient id="brass" x1="0" x2="1"><stop offset="0" stop-color="#7a5a22"/><stop offset=".45" stop-color="#e8c77e"/><stop offset=".6" stop-color="#c9a052"/><stop offset="1" stop-color="#6b4d1c"/></linearGradient>
+          <radialGradient id="bulb" cx=".5" cy=".4" r=".6"><stop offset="0" stop-color="#fff6dc"/><stop offset=".6" stop-color="#ffd58a"/><stop offset="1" stop-color="#ffb347" stop-opacity="0"/></radialGradient>
+        </defs>
+        <line x1="60" y1="0" x2="60" y2="118" stroke="#2a1d12" stroke-width="2"/>
+        <rect x="54" y="112" width="12" height="16" rx="2" fill="url(#brass)"/>
+        <path d="M60 126 C 30 128 14 150 8 176 L 112 176 C 106 150 90 128 60 126 Z" fill="url(#brass)"/>
+        <path d="M8 176 L 112 176" stroke="#5a3f16" stroke-width="2"/>
+        <ellipse cx="60" cy="182" rx="22" ry="14" fill="url(#bulb)" class="pendant__bulb"/>
+      </svg>
       <div class="container">
         <p class="eyebrow">Research library</p>
         <h1>The reading room</h1>
+        <p class="flourish" aria-hidden="true">&#10086;</p>
         <p class="lede">Every source behind my projects, shelved by subject. Pull a book off the shelf to see what it is,
           what I use it for, and where to read it.</p>
         <div class="tools">
@@ -45,10 +62,15 @@
 
     <section class="room" aria-label="Bookcase">
       <div class="container">
-        <div class="bookcase" id="bookcase">
-          <p class="loading">Unpacking the books&hellip;</p>
+        <div class="case">
+          <div class="case__crown" aria-hidden="true"></div>
+          <div class="bookcase" id="bookcase">
+            <p class="loading">Unpacking the books&hellip;</p>
+          </div>
+          <div class="case__plinth" aria-hidden="true"></div>
         </div>
       </div>
+      <div class="floor" aria-hidden="true"><div class="rug"></div></div>
     </section>
   </main>
 
@@ -67,6 +89,7 @@
         </div>
       </div>
       <div class="page page--right">
+        <span class="ribbon" aria-hidden="true"></span>
         <h3>Why it&rsquo;s on the shelf</h3>
         <p class="r-note" id="r-note"></p>
         <h3>Where I use it</h3>
@@ -90,6 +113,6 @@
     </div>
   </footer>
 
-  <script src="library.js?v=20261106120000" defer></script>
+  <script src="library.js?v=20261106160000" defer></script>
 </body>
 </html>
