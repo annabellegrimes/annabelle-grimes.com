@@ -90,7 +90,7 @@
   function build(data) {
     shelves = data.shelves; books = data.books;
     bookcase.innerHTML = '';
-    shelves.forEach(function (s) {
+    shelves.forEach(function (s, i) {
       var mine = books.filter(function (b) { return b.shelf === s.id; });
       var sec = document.createElement('section');
       sec.className = 'shelf'; sec.setAttribute('aria-labelledby', 'shelf-' + s.id);
@@ -101,8 +101,15 @@
       if (mine.length && mine.length < 6) mine[mine.length - 1].el.classList.add('is-leaning');   // a short shelf: the last book leans
       decorate(row, s.id);
       var end = document.createElement('span'); end.className = 'bookend'; end.setAttribute('aria-hidden', 'true'); row.appendChild(end);
+      // a lit candle at one end of the shelf (alternating), so the books can be read by its light
+      var left = i % 2 === 1, candle = document.createElement('span');
+      candle.className = 'candle' + (left ? ' candle--start' : ' candle--end'); candle.setAttribute('aria-hidden', 'true');
+      candle.innerHTML = '<span class="candle__halo"></span><span class="candle__flame"></span><span class="candle__wick"></span><span class="candle__wax"></span><span class="candle__dish"></span>';
+      if (left) row.insertBefore(candle, row.firstChild); else row.appendChild(candle);
+      sec.style.setProperty('--cx', left ? '6%' : '94%');
+      var glow = document.createElement('div'); glow.className = 'shelf__glow'; glow.setAttribute('aria-hidden', 'true');
       var plank = document.createElement('div'); plank.className = 'shelf__plank'; plank.setAttribute('aria-hidden', 'true');
-      sec.appendChild(row); sec.appendChild(plank); bookcase.appendChild(sec);
+      sec.appendChild(row); sec.appendChild(glow); sec.appendChild(plank); bookcase.appendChild(sec);
     });
     $('#count').textContent = books.length + ' books on ' + shelves.length + ' shelves';
     if (data.updated) $('#updated').textContent = 'Last updated ' + new Date(data.updated + 'T12:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) + '.';

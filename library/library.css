@@ -71,7 +71,10 @@ a:hover { color: #8ad8f3; }
 .skip:focus { left: 16px; }
 .container { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 24px; }
 @media (max-width: 600px) { .container { padding: 0 16px; } }
-main, .foot { position: relative; z-index: 1; }
+main { position: relative; }
+.foot { position: relative; z-index: 1; }
+.intro { z-index: 1; }
+.room { position: relative; z-index: 3; }   /* the bookcase sits above the room's shading: its light is the candles' */
 
 /* the site's navigation bar, as on the home page (always in its deep-navy state here) */
 .nav { position: sticky; top: 0; z-index: 40; height: 64px; color: #e9f1fb;
@@ -284,6 +287,57 @@ main, .foot { position: relative; z-index: 1; }
   filter: drop-shadow(-6px 8px 8px rgba(0, 0, 0, .45));
 }
 
+/* ---------- Candles: one per shelf, lighting that shelf's books ---------- */
+.shelf__glow {   /* the candle's light falling along the shelf (above the books, so it lifts them) */
+  position: absolute; inset: 0; z-index: 1; pointer-events: none; mix-blend-mode: screen;
+  background:
+    radial-gradient(ellipse 62% 105% at var(--cx, 94%) 90%, rgba(255, 184, 104, .34), rgba(255, 166, 86, .13) 42%, transparent 74%),
+    radial-gradient(ellipse 120% 70% at 50% 100%, rgba(255, 190, 120, .08), transparent 70%);
+  animation: shelfglow 5s ease-in-out infinite;
+}
+@keyframes shelfglow { 0%, 100% { opacity: .92; } 30% { opacity: 1; } 55% { opacity: .86; } 80% { opacity: .97; } }
+.candle { position: relative; flex: none; align-self: flex-end; width: 40px; height: 104px; margin: 0 10px 0 6px; pointer-events: none; }
+.candle--end { margin-left: auto; margin-right: 6px; }
+.candle--start { margin-left: 2px; margin-right: 14px; }
+.candle__dish {
+  position: absolute; bottom: 0; left: 1px; right: 1px; height: 10px; border-radius: 50% / 65%;
+  background: linear-gradient(180deg, #f6dc9c, #c99d48 45%, #6b4a1c); box-shadow: 0 3px 5px rgba(0, 0, 0, .55);
+}
+.candle__dish::after {   /* the finger ring */
+  content: ""; position: absolute; right: -10px; bottom: 2px; width: 11px; height: 10px; border: 2.5px solid #c99d48; border-radius: 50%;
+}
+.candle__wax {
+  position: absolute; bottom: 6px; left: 10px; width: 20px; height: 60px; border-radius: 5px 5px 2px 2px;
+  background: linear-gradient(90deg, #cdbf9f, #fbf2df 38%, #f0e4c8 66%, #b9a882);
+  box-shadow: inset 0 7px 9px -5px rgba(255, 196, 120, .8), 0 0 0 .5px rgba(0, 0, 0, .25);
+}
+.candle__wax::before, .candle__wax::after {   /* drips */
+  content: ""; position: absolute; top: 2px; width: 4px; border-radius: 0 0 3px 3px; background: linear-gradient(90deg, #efe3c7, #fdf7ea);
+}
+.candle__wax::before { left: 3px; height: 17px; }
+.candle__wax::after { right: 4px; height: 9px; }
+.candle__wick { position: absolute; bottom: 65px; left: 19px; width: 2px; height: 7px; border-radius: 1px; background: #2a1a0e; }
+.candle__flame {
+  position: absolute; bottom: 68px; left: 13px; width: 14px; height: 27px; border-radius: 50% 50% 50% 50% / 64% 64% 36% 36%;
+  background: radial-gradient(ellipse 50% 46% at 50% 70%, #fffdf3 0 26%, #ffe8a2 42%, #ffb546 70%, rgba(255, 140, 40, 0) 100%);
+  transform-origin: 50% 92%; animation: candle 1.9s ease-in-out infinite; filter: drop-shadow(0 0 6px rgba(255, 190, 90, .9));
+}
+.candle__flame::after {   /* the blue at the base of the flame */
+  content: ""; position: absolute; left: 4px; right: 4px; bottom: 2px; height: 6px; border-radius: 50%; background: rgba(110, 150, 255, .45);
+}
+.candle--start .candle__flame { animation-delay: -.7s; }
+.candle__halo {
+  position: absolute; left: 50%; bottom: 36px; width: 170px; height: 170px; margin-left: -85px; border-radius: 50%; mix-blend-mode: screen;
+  background: radial-gradient(circle, rgba(255, 214, 140, .55), rgba(255, 176, 90, .16) 38%, transparent 70%);
+  animation: hum 3.2s ease-in-out infinite;
+}
+@keyframes candle {
+  0%, 100% { transform: scale(1, 1) skewX(0); }
+  22% { transform: scale(.94, 1.07) skewX(2.5deg); }
+  48% { transform: scale(1.05, .95) skewX(-2deg); }
+  74% { transform: scale(.97, 1.04) skewX(1deg); }
+}
+
 /* ---------- A book's spine: cloth with a little grain, and one of two finishes ---------- */
 .book {
   --h: 190px; --w: 34px; --c: #7a2e2e; --t: #ecd9a6; --foil: #d6b56a;
@@ -424,7 +478,7 @@ main, .foot { position: relative; z-index: 1; }
 
 @media (prefers-reduced-motion: reduce) {
   .book, .book:hover, .book:focus-visible { transition: none; }
-  .intro::before, .daylight i, .caustics, .lantern, .vines__trail, .lantern__halo, .lantern__flame,
+  .shelf__glow, .candle__flame, .candle__halo, .intro::before, .daylight i, .caustics, .lantern, .vines__trail, .lantern__halo, .lantern__flame,
   .ph-surface, .ph-rays, .ph-kelp--a, .ph-kelp--b, .ph-line circle { animation: none; }
   .ph-bubbles { display: none; }
 }
