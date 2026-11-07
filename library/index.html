@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="library.css?v=20261107034500">
+  <link rel="stylesheet" href="library.css?v=20261107051500">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -40,6 +40,18 @@
   <!-- daylight through the porthole: soft beams across the cabin, and the ripple of the water above -->
   <div class="daylight" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
   <div class="caustics" aria-hidden="true"></div>
+
+  <!-- shared paints for the candles drawn on the shelves -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="cd-wax" x1="0" x2="1"><stop offset="0" stop-color="#b9a780"/><stop offset=".28" stop-color="#f3e8cd"/><stop offset=".45" stop-color="#fffaee"/><stop offset=".72" stop-color="#ecdfbf"/><stop offset="1" stop-color="#a99670"/></linearGradient>
+      <linearGradient id="cd-drip" x1="0" x2="1"><stop offset="0" stop-color="#e8dab8"/><stop offset=".45" stop-color="#fffbf1"/><stop offset="1" stop-color="#ddcca6"/></linearGradient>
+      <radialGradient id="cd-pool" cx=".5" cy=".5" r=".6"><stop offset="0" stop-color="#fff3cf"/><stop offset=".7" stop-color="#ffd98f"/><stop offset="1" stop-color="#e9c98a"/></radialGradient>
+      <linearGradient id="cd-brass" x1="0" x2="1"><stop offset="0" stop-color="#5a3e15"/><stop offset=".35" stop-color="#e9c77d"/><stop offset=".55" stop-color="#f6dfa4"/><stop offset=".75" stop-color="#b8903f"/><stop offset="1" stop-color="#4f3712"/></linearGradient>
+      <linearGradient id="cd-brass-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbe6b0"/><stop offset="1" stop-color="#b38a3c"/></linearGradient>
+      <linearGradient id="cd-pewter" x1="0" x2="1"><stop offset="0" stop-color="#2c2f33"/><stop offset=".4" stop-color="#9aa1a9"/><stop offset=".6" stop-color="#727880"/><stop offset="1" stop-color="#26292d"/></linearGradient>
+    </defs>
+  </svg>
 
   <main id="main">
     <section class="intro">
@@ -227,6 +239,7 @@
           </svg>
         </div>
       </div>
+      <div class="floorboards" aria-hidden="true"></div>
     </section>
   </main>
 
@@ -269,6 +282,6 @@
     </div>
   </footer>
 
-  <script src="library.js?v=20261107030000" defer></script>
+  <script src="library.js?v=20261107042000" defer></script>
 </body>
 </html>

@@ -199,7 +199,28 @@ main { position: relative; }
 }
 
 /* ---------- The bookcase: crown moulding, a back of boards, shelves, a plinth ---------- */
-.room { padding: 22px 0 88px; }
+.room { padding: 22px 0 0; }
+/* the floor the bookcase stands on: dark oak boards, with the case's shadow where it meets them */
+.floorboards {
+  position: relative; z-index: 0; height: 110px; overflow: hidden; background: #24160c; isolation: isolate;
+  border-top: 9px solid #2b1a0d;   /* the skirting board where the wall meets the floor */
+  box-shadow: inset 0 1px 0 rgba(255, 220, 170, .14);
+}
+.floorboards::before {   /* oak boards running away from you, in perspective */
+  content: ""; position: absolute; z-index: 0; left: -30%; right: -30%; top: 0; height: 420px; transform-origin: 50% 0;
+  transform: perspective(300px) rotateX(62deg);
+  background:
+    radial-gradient(ellipse 34% 26% at 50% 0, rgba(0, 0, 0, .8), rgba(0, 0, 0, .3) 60%, transparent),   /* the case's shadow */
+    radial-gradient(ellipse 22% 40% at 64% 0, rgba(255, 180, 100, .12), transparent 70%),               /* candlelight spilling down */
+    linear-gradient(180deg, rgba(0, 0, 0, .55), rgba(3, 11, 23, .62) 30%, rgba(3, 11, 23, .9) 60%),     /* the room's dark */
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, .65) 0 3px, rgba(255, 220, 170, .05) 3px 4px, transparent 4px 132px),
+    repeating-linear-gradient(180deg, transparent 0 236px, rgba(0, 0, 0, .55) 236px 239px, transparent 239px 420px),
+    linear-gradient(90deg, rgba(0, 0, 0, .1), rgba(255, 220, 170, .05), rgba(0, 0, 0, .1)),
+    var(--wood-v);
+  background-size: auto, auto, auto, auto, 264px 420px, auto, 200px 700px;
+  background-position: 0 0, 0 0, 0 0, 0 0, 132px 0, 0 0, 0 0;
+}
+
 .case { position: relative; margin: 26px 16px 0; filter: drop-shadow(0 26px 34px rgba(0, 0, 0, .45)); }
 .case__crown, .case__plinth { position: relative; z-index: 1; margin: 0 -30px; border-radius: 3px; background-color: var(--wood); }
 .case__crown {
@@ -296,29 +317,12 @@ main { position: relative; }
   animation: shelfglow 5s ease-in-out infinite;
 }
 @keyframes shelfglow { 0%, 100% { opacity: .92; } 30% { opacity: 1; } 55% { opacity: .86; } 80% { opacity: .97; } }
-.candle { position: relative; flex: none; align-self: flex-end; width: 40px; height: 104px; margin: 0 10px 0 6px; pointer-events: none; }
+.candle { position: relative; flex: none; align-self: flex-end; margin: 0 10px 0 6px; pointer-events: none; }
 .candle--end { margin-left: auto; margin-right: 6px; }
 .candle--start { margin-left: 2px; margin-right: 14px; }
-.candle__dish {
-  position: absolute; bottom: 0; left: 1px; right: 1px; height: 10px; border-radius: 50% / 65%;
-  background: linear-gradient(180deg, #f6dc9c, #c99d48 45%, #6b4a1c); box-shadow: 0 3px 5px rgba(0, 0, 0, .55);
-}
-.candle__dish::after {   /* the finger ring */
-  content: ""; position: absolute; right: -10px; bottom: 2px; width: 11px; height: 10px; border: 2.5px solid #c99d48; border-radius: 50%;
-}
-.candle__wax {
-  position: absolute; bottom: 6px; left: 10px; width: 20px; height: 60px; border-radius: 5px 5px 2px 2px;
-  background: linear-gradient(90deg, #cdbf9f, #fbf2df 38%, #f0e4c8 66%, #b9a882);
-  box-shadow: inset 0 7px 9px -5px rgba(255, 196, 120, .8), 0 0 0 .5px rgba(0, 0, 0, .25);
-}
-.candle__wax::before, .candle__wax::after {   /* drips */
-  content: ""; position: absolute; top: 2px; width: 4px; border-radius: 0 0 3px 3px; background: linear-gradient(90deg, #efe3c7, #fdf7ea);
-}
-.candle__wax::before { left: 3px; height: 17px; }
-.candle__wax::after { right: 4px; height: 9px; }
-.candle__wick { position: absolute; bottom: 65px; left: 19px; width: 2px; height: 7px; border-radius: 1px; background: #2a1a0e; }
+.candle__art { position: absolute; left: 0; bottom: 0; display: block; overflow: visible; }
 .candle__flame {
-  position: absolute; bottom: 68px; left: 13px; width: 14px; height: 27px; border-radius: 50% 50% 50% 50% / 64% 64% 36% 36%;
+  position: absolute; z-index: 1; width: 14px; height: 27px; border-radius: 50% 50% 50% 50% / 64% 64% 36% 36%;
   background: radial-gradient(ellipse 50% 46% at 50% 70%, #fffdf3 0 26%, #ffe8a2 42%, #ffb546 70%, rgba(255, 140, 40, 0) 100%);
   transform-origin: 50% 92%; animation: candle 1.9s ease-in-out infinite; filter: drop-shadow(0 0 6px rgba(255, 190, 90, .9));
 }
@@ -327,7 +331,7 @@ main { position: relative; }
 }
 .candle--start .candle__flame { animation-delay: -.7s; }
 .candle__halo {
-  position: absolute; left: 50%; bottom: 36px; width: 170px; height: 170px; margin-left: -85px; border-radius: 50%; mix-blend-mode: screen;
+  position: absolute; left: 50%; width: 170px; height: 170px; margin-left: -85px; border-radius: 50%; mix-blend-mode: screen;
   background: radial-gradient(circle, rgba(255, 214, 140, .55), rgba(255, 176, 90, .16) 38%, transparent 70%);
   animation: hum 3.2s ease-in-out infinite;
 }

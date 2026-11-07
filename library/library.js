@@ -63,6 +63,62 @@
     });
   }
 
+  /* ---------- Candles: each shelf gets its own size of candle on its own kind of stand ---------- */
+  var CANDLES = [
+    { stand: 'chamber', w: 22, h: 50 },
+    { stand: 'stick', w: 15, h: 60 },
+    { stand: 'saucer', w: 32, h: 38 },
+    { stand: 'stick', w: 13, h: 40 },
+    { stand: 'chamber', w: 26, h: 30 }
+  ];
+  function rnd(seed) { return function () { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; }; }
+  function drawCandle(el, n) {
+    var c = CANDLES[n % CANDLES.length], r = rnd(97 + n * 31), standH = { chamber: 11, stick: 62, saucer: 8 }[c.stand];
+    var W = Math.max(c.w + 34, 46), H = standH + c.h + 12, cx = W / 2, x0 = cx - c.w / 2, x1 = cx + c.w / 2;
+    var yb = H - standH, yt = yb - c.h, p = [];
+    p.push('<ellipse cx="' + cx + '" cy="' + (H - 1) + '" rx="' + (W / 2 - 2) + '" ry="2.2" fill="#000" opacity=".45"/>');   // contact shadow on the shelf
+    // the stand: always a flat foot sitting on the shelf
+    if (c.stand === 'chamber') {
+      var R = c.w / 2 + 12;
+      p.push('<circle cx="' + (cx + R + 1) + '" cy="' + (H - 7) + '" r="5" fill="none" stroke="url(#cd-brass)" stroke-width="2.6"/>');
+      p.push('<path d="M' + (cx - R) + ' ' + (H - 4) + ' Q ' + (cx - R) + ' ' + (H - 11) + ' ' + (cx - R + 7) + ' ' + (H - 11) + ' H ' + (cx + R - 7) + ' Q ' + (cx + R) + ' ' + (H - 11) + ' ' + (cx + R) + ' ' + (H - 4) + ' L ' + (cx + R - 2) + ' ' + H + ' H ' + (cx - R + 2) + ' Z" fill="url(#cd-brass)"/>');
+      p.push('<ellipse cx="' + cx + '" cy="' + (H - 10.5) + '" rx="' + (R - 4) + '" ry="2.2" fill="url(#cd-brass-top)"/>');
+    } else if (c.stand === 'stick') {
+      p.push('<path d="M' + (cx - 15) + ' ' + H + ' L ' + (cx - 13) + ' ' + (H - 5) + ' Q ' + (cx - 6) + ' ' + (H - 9) + ' ' + (cx - 4) + ' ' + (H - 14) + ' H ' + (cx + 4) + ' Q ' + (cx + 6) + ' ' + (H - 9) + ' ' + (cx + 13) + ' ' + (H - 5) + ' L ' + (cx + 15) + ' ' + H + ' Z" fill="url(#cd-brass)"/>');
+      p.push('<rect x="' + (cx - 3) + '" y="' + (H - standH + 8) + '" width="6" height="' + (standH - 20) + '" fill="url(#cd-brass)"/>');
+      [0.32, 0.6].forEach(function (f) { p.push('<ellipse cx="' + cx + '" cy="' + (H - standH * f) + '" rx="6.5" ry="3.4" fill="url(#cd-brass)"/>'); });
+      p.push('<path d="M' + (x0 - 5) + ' ' + yb + ' H ' + (x1 + 5) + ' L ' + (cx + 4) + ' ' + (yb + 9) + ' H ' + (cx - 4) + ' Z" fill="url(#cd-brass)"/>');
+      p.push('<ellipse cx="' + cx + '" cy="' + yb + '" rx="' + (c.w / 2 + 5) + '" ry="1.8" fill="url(#cd-brass-top)"/>');
+    } else {
+      p.push('<path d="M' + (cx - c.w / 2 - 11) + ' ' + (H - 3) + ' Q ' + (cx - c.w / 2 - 11) + ' ' + (H - 8) + ' ' + (cx - c.w / 2 - 5) + ' ' + (H - 8) + ' H ' + (cx + c.w / 2 + 5) + ' Q ' + (cx + c.w / 2 + 11) + ' ' + (H - 8) + ' ' + (cx + c.w / 2 + 11) + ' ' + (H - 3) + ' L ' + (cx + c.w / 2 + 9) + ' ' + H + ' H ' + (cx - c.w / 2 - 9) + ' Z" fill="url(#cd-pewter)"/>');
+    }
+    // wax spilled onto the stand
+    p.push('<ellipse cx="' + (cx + 2) + '" cy="' + (yb - 0.5) + '" rx="' + (c.w / 2 + 4 + r() * 4) + '" ry="2.6" fill="url(#cd-drip)"/>');
+    // the candle, its top melted into a shallow bowl
+    p.push('<path d="M' + x0 + ' ' + (yt + 3) + ' Q ' + cx + ' ' + (yt + 7) + ' ' + x1 + ' ' + (yt + 3) + ' V ' + yb + ' H ' + x0 + ' Z" fill="url(#cd-wax)"/>');
+    p.push('<ellipse cx="' + cx + '" cy="' + (yt + 4) + '" rx="' + (c.w / 2 - 1.5) + '" ry="2.2" fill="url(#cd-pool)"/>');
+    // drips: down the front, and over both sides
+    var drips = 4 + Math.round(c.w / 6 + r() * 2);
+    for (var k = 0; k < drips; k++) {
+      var side = k === 0 ? -1 : k === 1 ? 1 : 0;
+      var dx = side ? (side < 0 ? x0 + 0.5 : x1 - 0.5) : x0 + 3 + r() * (c.w - 6);
+      var dw = 2.6 + r() * 2.6, len = 8 + r() * (c.h * (side ? 0.85 : 0.65)), y = yt + 2.5;
+      var bulge = side ? side * 1.4 : 0;
+      p.push('<path d="M' + (dx - dw / 2) + ' ' + y + ' C ' + (dx - dw / 2 + bulge) + ' ' + (y + len * 0.5) + ' ' + (dx - dw / 2 + bulge) + ' ' + (y + len * 0.8) + ' ' + (dx - dw / 2 + bulge) + ' ' + (y + len) +
+        ' A ' + (dw / 2 + 0.6) + ' ' + (dw / 2 + 0.8) + ' 0 0 0 ' + (dx + dw / 2 + bulge) + ' ' + (y + len) +
+        ' C ' + (dx + dw / 2 + bulge) + ' ' + (y + len * 0.7) + ' ' + (dx + dw / 2) + ' ' + (y + len * 0.4) + ' ' + (dx + dw / 2) + ' ' + y + ' Z" fill="url(#cd-drip)" stroke="rgba(120,92,52,.38)" stroke-width=".6"/>');
+    }
+    if (c.stand !== 'stick') for (var q = 0; q < 2; q++) {
+      var lx = cx + (q ? 1 : -1) * (c.w / 2 + 3 + r() * 3);
+      p.push('<path d="M' + (lx - 2) + ' ' + (yb - 1) + ' q 0 ' + (3 + r() * 3) + ' 2 ' + (4 + r() * 3) + ' q 2 -1 2 -' + (4 + r() * 3) + ' Z" fill="url(#cd-drip)"/>');
+    }
+    p.push('<path d="M' + cx + ' ' + (yt + 4) + ' q 1 -4 -.3 -8" fill="none" stroke="#2a1a0e" stroke-width="1.6" stroke-linecap="round"/>');   // the wick
+    el.style.width = W + 'px'; el.style.height = H + 'px';
+    el.innerHTML = '<span class="candle__halo" style="bottom:' + (standH + c.h - 26) + 'px"></span>' +
+      '<span class="candle__flame" style="bottom:' + (standH + c.h + 1) + 'px;left:' + (cx - 7) + 'px"></span>' +
+      '<svg class="candle__art" viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '">' + p.join('') + '</svg>';
+  }
+
   /* ---------- Shelves ---------- */
   function spine(b) {
     var h = hash(b.id), cloth = CLOTH[h % CLOTH.length];
@@ -104,7 +160,7 @@
       // a lit candle at one end of the shelf (alternating), so the books can be read by its light
       var left = i % 2 === 1, candle = document.createElement('span');
       candle.className = 'candle' + (left ? ' candle--start' : ' candle--end'); candle.setAttribute('aria-hidden', 'true');
-      candle.innerHTML = '<span class="candle__halo"></span><span class="candle__flame"></span><span class="candle__wick"></span><span class="candle__wax"></span><span class="candle__dish"></span>';
+      drawCandle(candle, i);
       if (i === shelves.length - 1) {   // the bottom shelf: Nellie, asleep in her bed by the candle
         var nellie = document.createElement('span');
         nellie.className = 'nellie'; nellie.tabIndex = 0;
