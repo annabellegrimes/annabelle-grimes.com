@@ -81,11 +81,11 @@
   }
 
   // ---------- the two margins ----------
-  // dy: px above (-) or below (+) the middle of the name; L: body length in px; period: seconds for a full there-and-back
+  // dy: px above (-) or below (+) the middle of the hero; L: body length in px; period: seconds for a full there-and-back
   var SCHOOLS = {
     left: [{ dy: -18, L: 52, period: 46, ph: 0.4, tw: 0.1 }, { dy: 44, L: 38, period: 58, ph: 2.6, tw: 0.6 }]
   };
-  var anchorY = 0;   // the middle of the name, in the section's coordinates
+  var anchorY = 0;   // halfway down the hero, in the section's coordinates
   var sides = ['left'].map(function (side) {
     var c = document.createElement('canvas');
     c.className = 'fish-margin fish-margin--' + side;
@@ -98,7 +98,7 @@
   function layout() {
     var vw = document.documentElement.clientWidth, sh = section.offsetHeight;
     var tr = title.getBoundingClientRect(), sr = section.getBoundingClientRect();
-    anchorY = tr.top - sr.top + tr.height / 2;
+    anchorY = sh / 2;   // halfway down the hero
     var gutter = (vw - CONTENT) / 2;
     active = gutter >= MIN_GUTTER;
     dpr = Math.min(window.devicePixelRatio || 1, 2);
