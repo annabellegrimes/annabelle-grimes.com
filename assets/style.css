@@ -375,9 +375,9 @@ p { margin: 0 0 1em; }
 
 /* ---------- Print (CV) ---------- */
 @media print {
-  :root { --bg: #fff; --bg-alt: #fff; --surface: #fff; --text: #111; --muted: #444; --line: #ccc; --accent: #1d4f7a; --accent-soft: transparent; }
+  :root, :root[data-theme], :root:not([data-theme="light"]) { color-scheme: light; --bg: #fff; --bg-alt: #fff; --surface: #fff; --text: #111; --muted: #444; --line: #ccc; --accent: #1d4f7a; --accent-soft: transparent; }
   body { font-size: 10.5pt; line-height: 1.45; background: #fff; }
-  .nav, .hero, #about, #research, #personal-projects, #publications .pub-tools, .pub__actions, .pub__abstract, .note, .contact, .footer, .toast, .skip, .tabs, #print-cv, .kicker { display: none !important; }
+  .nav, .hero, #about, #research, #projects, #publications .pub-tools, .pub__actions, .pub__abstract, .note, .contact, .footer, .toast, .skip, .tabs, #print-cv, .kicker { display: none !important; }
   main { display: flex; flex-direction: column; }
   #cv { order: 1; }
   #publications { order: 2; }
@@ -532,3 +532,17 @@ p { margin: 0 0 1em; }
 .fish-margin { position: absolute; top: 0; z-index: 0; pointer-events: none; display: none; }
 .fish-margin--left { left: 8px; }
 @media print { .fish-margin { display: none !important; } }
+
+/* ---------- Pages other than the home page (e.g. /cv/) ---------- */
+.nav.nav--static {
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(160%) blur(12px);
+  -webkit-backdrop-filter: saturate(160%) blur(12px);
+  border-bottom-color: var(--line);
+  color: var(--text);
+}
+.cv-page { padding-top: calc(var(--nav-h) + 56px); }
+.cv-page .panel { animation: none; }
+.cv-page .panel + .panel { margin-top: 56px; }
+.cv-page .panel__print-title { display: block; font-family: var(--serif); font-size: 1.5rem; font-weight: 500; margin: 0 0 24px; }
+@media print { .cv-page { padding-top: 0; } .cv-page .panel + .panel { margin-top: 0; } }
