@@ -377,7 +377,7 @@ p { margin: 0 0 1em; }
 @media print {
   :root { --bg: #fff; --bg-alt: #fff; --surface: #fff; --text: #111; --muted: #444; --line: #ccc; --accent: #1d4f7a; --accent-soft: transparent; }
   body { font-size: 10.5pt; line-height: 1.45; background: #fff; }
-  .nav, .hero, #about, #research, #publications .pub-tools, .pub__actions, .pub__abstract, .note, .contact, .footer, .toast, .skip, .tabs, #print-cv, .kicker { display: none !important; }
+  .nav, .hero, #about, #research, #personal-projects, #publications .pub-tools, .pub__actions, .pub__abstract, .note, .contact, .footer, .toast, .skip, .tabs, #print-cv, .kicker { display: none !important; }
   main { display: flex; flex-direction: column; }
   #cv { order: 1; }
   #publications { order: 2; }
@@ -453,7 +453,9 @@ p { margin: 0 0 1em; }
 }
 .proj-group__title::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 .proj-group .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.proj-group--outreach .card__media img { object-position: 50% 0; }
+.proj-group--outreach .card__media img,
+.proj-group--personal .card__media img { object-position: 50% 0; }
+.section--rule { border-top: 1px solid var(--line); }
 @media (max-width: 1000px) {
   .proj-group .cards,   .proj-group--current .card--feature { grid-column: 1 / -1; }
 }
