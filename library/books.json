@@ -61,10 +61,14 @@
     "F. A. Aharonian"
    ],
    "year": "2008",
-   "venue": "arXiv",
+   "venue": "Physical Review D",
    "kind": "paper",
    "note": "Photomeson (pγ) production: the threshold, and the shares of energy passed to pions and neutrinos.",
    "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1103/PhysRevD.78.034013"
+    },
     {
      "label": "arXiv",
      "url": "https://arxiv.org/abs/0803.0688"
@@ -233,10 +237,14 @@
     "Shigeo S. Kimura"
    ],
    "year": "2021",
-   "venue": "arXiv",
+   "venue": "The Astrophysical Journal",
    "kind": "paper",
    "note": "Proton acceleration and neutrino production in coronae.",
    "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.3847/1538-4357/ac1c77"
+    },
     {
      "label": "arXiv",
      "url": "https://arxiv.org/abs/2102.04475"
@@ -321,12 +329,16 @@
     "IceCube Collaboration"
    ],
    "year": "2023",
-   "venue": "ApJS 269, 25 (data release)",
-   "kind": "data",
+   "venue": "The Astrophysical Journal Supplement Series",
+   "kind": "paper",
    "note": "IceCube's catalogue of alert tracks, 2011–2023: where its most likely astrophysical neutrinos came from.",
    "links": [
     {
      "label": "DOI",
+     "url": "https://doi.org/10.3847/1538-4365/acfa95"
+    },
+    {
+     "label": "Data",
      "url": "https://doi.org/10.7910/DVN/SCRUCD"
     }
    ],
@@ -520,10 +532,14 @@
     "Ina Sarcevic"
    ],
    "year": "1998",
-   "venue": "arXiv",
+   "venue": "Physical Review D",
    "kind": "paper",
    "note": "Neutrino–nucleon cross sections at ultrahigh energies, and how often the Earth stops a neutrino.",
    "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1103/PhysRevD.58.093009"
+    },
     {
      "label": "arXiv",
      "url": "https://arxiv.org/abs/hep-ph/9807264"
@@ -582,10 +598,14 @@
     "David Waters"
    ],
    "year": "2011",
-   "venue": "arXiv",
+   "venue": "Physical Review D",
    "kind": "paper",
    "note": "Neutrino–nucleon cross sections at high energies, with their uncertainties.",
    "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1103/PhysRevD.83.113009"
+    },
     {
      "label": "arXiv",
      "url": "https://arxiv.org/abs/1102.0691"
@@ -608,10 +628,14 @@
     "Subir Sarkar"
    ],
    "year": "2011",
-   "venue": "arXiv",
+   "venue": "Journal of High Energy Physics",
    "kind": "paper",
    "note": "The Standard Model's high-energy neutrino cross section, and its uncertainty from the proton's structure.",
    "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1007/JHEP08(2011)042"
+    },
     {
      "label": "arXiv",
      "url": "https://arxiv.org/abs/1106.3723"
@@ -639,11 +663,15 @@
     "K. Iyogi"
    ],
    "authorCount": 164,
-   "year": "2017",
-   "venue": "arXiv",
+   "year": "2018",
+   "venue": "Physical Review D",
    "kind": "paper",
    "note": "Super-Kamiokande's measurement of tau neutrinos appearing among atmospheric neutrinos.",
    "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1103/PhysRevD.98.052006"
+    },
     {
      "label": "arXiv",
      "url": "https://arxiv.org/abs/1711.09436"
@@ -672,10 +700,14 @@
    ],
    "authorCount": 318,
    "year": "2017",
-   "venue": "arXiv",
+   "venue": "Nature",
    "kind": "paper",
    "note": "The first measurement of the neutrino cross section at TeV energies, from absorption in the Earth.",
    "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1038/nature24459"
+    },
     {
      "label": "arXiv",
      "url": "https://arxiv.org/abs/1711.08119"
@@ -767,11 +799,15 @@
     "Y. Biondi"
    ],
    "authorCount": 149,
-   "year": "2024",
-   "venue": "arXiv",
+   "year": "2025",
+   "venue": "Science",
    "kind": "paper",
    "note": "KATRIN's direct limit on the neutrino mass, from tritium beta decay.",
    "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1126/science.adq9592"
+    },
     {
      "label": "arXiv",
      "url": "https://arxiv.org/abs/2406.13516"
@@ -794,10 +830,14 @@
     "Mattia Vaccari"
    ],
    "year": "2008",
-   "venue": "arXiv",
+   "venue": "Astronomy & Astrophysics",
    "kind": "paper",
    "note": "The background light between galaxies, which absorbs high-energy gamma rays on their way to us.",
    "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1051/0004-6361:200809691"
+    },
     {
      "label": "arXiv",
      "url": "https://arxiv.org/abs/0805.1841"
@@ -825,11 +865,15 @@
     "A. J. Banday"
    ],
    "authorCount": 182,
-   "year": "2018",
-   "venue": "arXiv",
+   "year": "2020",
+   "venue": "Astronomy & Astrophysics",
    "kind": "paper",
    "note": "The cosmological parameters: the expansion rate, the matter density and the age of the universe.",
    "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1051/0004-6361/201833910"
+    },
     {
      "label": "arXiv",
      "url": "https://arxiv.org/abs/1807.06209"
@@ -887,10 +931,14 @@
     "Elisa Resconi"
    ],
    "year": "2021",
-   "venue": "arXiv",
+   "venue": "Proceedings of Science (ICRC2021)",
    "kind": "paper",
    "note": "Neutrino telescopes around the world combined into one instrument that sees the whole sky.",
    "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.22323/1.395.1185"
+    },
     {
      "label": "arXiv",
      "url": "https://arxiv.org/abs/2107.13534"
@@ -912,13 +960,17 @@
     "P-ONE Collaboration"
    ],
    "year": "2021",
-   "venue": "arXiv",
+   "venue": "Proceedings of Science (ICRC2021)",
    "kind": "paper",
    "note": "An overview of P-ONE and its pathfinder experiments.",
    "links": [
     {
+     "label": "DOI",
+     "url": "https://doi.org/10.22323/1.395.0024"
+    },
+    {
      "label": "arXiv",
-     "url": "https://arxiv.org/html/2111.13133"
+     "url": "https://arxiv.org/abs/2111.13133"
     }
    ],
    "usedIn": [
@@ -972,13 +1024,13 @@
     "P-ONE Collaboration"
    ],
    "year": "2023",
-   "venue": "PoS ICRC2023, 1053",
+   "venue": "Proceedings of Science (ICRC2023)",
    "kind": "paper",
    "note": "How well P-ONE's first cluster of lines is expected to detect and reconstruct neutrinos.",
    "links": [
     {
-     "label": "Link",
-     "url": "https://inspirehep.net/files/81b1d9fb33259875879b1f59deabffc2"
+     "label": "DOI",
+     "url": "https://doi.org/10.22323/1.444.1053"
     }
    ],
    "usedIn": [
@@ -1036,10 +1088,14 @@
    ],
    "authorCount": 92,
    "year": "2026",
-   "venue": "arXiv",
+   "venue": "Journal of Instrumentation",
    "kind": "paper",
    "note": "P-ONE's optical calibration systems: the light sources in its modules and calibration units.",
    "links": [
+    {
+     "label": "DOI",
+     "url": "https://doi.org/10.1088/1748-0221/21/07/P07029"
+    },
     {
      "label": "arXiv",
      "url": "https://arxiv.org/abs/2603.09495"
@@ -1185,13 +1241,13 @@
     "Sean M. Wiggins"
    ],
    "year": "2007",
-   "venue": "J. Acoust. Soc. Am. 122, 1208–1215",
+   "venue": "The Journal of the Acoustical Society of America",
    "kind": "paper",
    "note": "Blue whale calls of about 189 dB at 25–29 Hz, located up to 200 km away.",
    "links": [
     {
-     "label": "Link",
-     "url": "https://escholarship.org/uc/item/8mr3c6vn"
+     "label": "DOI",
+     "url": "https://doi.org/10.1121/1.2749452"
     }
    ],
    "usedIn": [
@@ -1286,13 +1342,13 @@
     "Amatzia Genin"
    ],
    "year": "2012",
-   "venue": "PNAS 109, 853–857",
+   "venue": "Proceedings of the National Academy of Sciences",
    "kind": "paper",
    "note": "Glowing bacteria are eaten, and spread, more often.",
    "links": [
     {
-     "label": "Link",
-     "url": "https://cris.huji.ac.il/en/publications/bacterial-bioluminescence-as-a-lure-for-marine-zooplankton-and-fi/"
+     "label": "DOI",
+     "url": "https://doi.org/10.1073/pnas.1116683109"
     }
    ],
    "usedIn": [
@@ -1388,20 +1444,22 @@
    ]
   },
   {
-   "id": "burnham-2020-learning-about-whales",
+   "id": "burnham-2018-gray-whale-call",
    "shelf": "deep",
-   "title": "Learning About Whales by Listening for Their Calls",
+   "title": "Gray Whale (Eschrictius robustus) Call Types Recorded During Migration off the West Coast of Vancouver Island",
    "authors": [
-    "Rianna Burnham"
+    "Rianna Burnham",
+    "David Duffus",
+    "Xavier Mouy"
    ],
-   "year": "2020",
-   "venue": "Frontiers for Young Minds",
+   "year": "2018",
+   "venue": "Frontiers in Marine Science",
    "kind": "paper",
-   "note": "Seafloor and glider hydrophones listening for whales off Vancouver Island.",
+   "note": "Hydrophones off the west coast of Vancouver Island recording the calls of migrating gray whales.",
    "links": [
     {
      "label": "DOI",
-     "url": "https://doi.org/10.3389/frym.2020.00055"
+     "url": "https://doi.org/10.3389/fmars.2018.00329"
     }
    ],
    "usedIn": [
