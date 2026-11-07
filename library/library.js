@@ -105,6 +105,14 @@
       var left = i % 2 === 1, candle = document.createElement('span');
       candle.className = 'candle' + (left ? ' candle--start' : ' candle--end'); candle.setAttribute('aria-hidden', 'true');
       candle.innerHTML = '<span class="candle__halo"></span><span class="candle__flame"></span><span class="candle__wick"></span><span class="candle__wax"></span><span class="candle__dish"></span>';
+      if (i === shelves.length - 1) {   // the bottom shelf: Nellie, asleep in her bed by the candle
+        var nellie = document.createElement('span');
+        nellie.className = 'nellie'; nellie.tabIndex = 0;
+        nellie.setAttribute('role', 'img'); nellie.setAttribute('aria-label', 'Nellie, my study partner, curled up in her dog bed');
+        nellie.innerHTML = '<span class="nellie__back"></span><img class="nellie__dog" src="nellie.webp" alt="" width="440" height="385" loading="lazy" decoding="async">' +
+          '<span class="nellie__front"></span><span class="nellie__tip" aria-hidden="true"><b>Nellie:</b> my study partner</span>';
+        row.appendChild(nellie);
+      }
       if (left) row.insertBefore(candle, row.firstChild); else row.appendChild(candle);
       sec.style.setProperty('--cx', left ? '6%' : '94%');
       var glow = document.createElement('div'); glow.className = 'shelf__glow'; glow.setAttribute('aria-hidden', 'true');

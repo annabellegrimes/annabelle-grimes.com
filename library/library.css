@@ -338,6 +338,47 @@ main { position: relative; }
   74% { transform: scale(.97, 1.04) skewX(1deg); }
 }
 
+/* ---------- Nellie, in her bed on the bottom shelf ---------- */
+.nellie {
+  position: relative; flex: none; align-self: flex-end; width: 196px; height: 150px; margin: 0 4px 0 auto; cursor: default; outline: none;
+}
+.nellie + .candle--end { margin-left: 4px; }
+.nellie__back, .nellie__front { position: absolute; left: 0; right: 0; border-radius: 50%; pointer-events: none; }
+.nellie__back {   /* the bed's raised rim, behind her */
+  bottom: 10px; height: 108px;
+  background: radial-gradient(ellipse 72% 60% at 50% 62%, #3b2f4a 0 40%, transparent 41%),
+              radial-gradient(ellipse at 50% 30%, #8a6a9a, #5b4570 55%, #3a2c49);
+  box-shadow: inset 0 6px 10px rgba(255, 220, 255, .12), 0 8px 14px rgba(0, 0, 0, .45);
+}
+.nellie__dog {
+  position: absolute; left: 22px; bottom: 13px; width: 152px; height: auto; transform: rotate(-4deg);
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, .45)) brightness(1.04) sepia(.08); transition: transform .35s ease;
+}
+.nellie__front {   /* the plush front rim, over her paws */
+  bottom: 0; height: 52px; left: 2px; right: 2px; border-radius: 46% 46% 50% 50% / 58% 58% 42% 42%;
+  background: linear-gradient(180deg, #9c7aad, #6d5283 45%, #4a3860);
+  box-shadow: inset 0 3px 4px rgba(255, 230, 255, .25), inset 0 -6px 8px rgba(0, 0, 0, .3), 0 4px 6px rgba(0, 0, 0, .45);
+}
+.nellie__front::before {   /* the plush texture */
+  content: ""; position: absolute; inset: 4px 10px; border-radius: 50%; opacity: .35;
+  background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .25) 0 1px, transparent 1px 5px);
+}
+.nellie__tip {
+  position: absolute; left: 50%; bottom: calc(100% - 4px); transform: translate(-50%, 6px); white-space: nowrap; pointer-events: none;
+  padding: 6px 12px; border-radius: 999px; font-size: .82rem; color: #eaf2fb; background: rgba(6, 20, 42, .92);
+  border: 1px solid rgba(143, 214, 242, .3); box-shadow: 0 6px 16px rgba(0, 0, 0, .45);
+  opacity: 0; transition: opacity .2s, transform .2s;
+}
+.nellie__tip b { font-weight: 600; color: #8fd6f2; }
+.nellie:hover .nellie__tip, .nellie:focus-visible .nellie__tip, .nellie:focus .nellie__tip { opacity: 1; transform: translate(-50%, 0); }
+.nellie:hover .nellie__dog, .nellie:focus .nellie__dog { transform: rotate(-2deg) translateY(-2px); }
+.nellie:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; border-radius: 12px; }
+@media (max-width: 760px) {
+  .nellie { width: 150px; height: 118px; }
+  .nellie__back { height: 84px; } .nellie__front { height: 40px; }
+  .nellie__dog { width: 116px; left: 17px; bottom: 10px; }
+}
+
 /* ---------- A book's spine: cloth with a little grain, and one of two finishes ---------- */
 .book {
   --h: 190px; --w: 34px; --c: #7a2e2e; --t: #ecd9a6; --foil: #d6b56a;
@@ -478,7 +519,7 @@ main { position: relative; }
 
 @media (prefers-reduced-motion: reduce) {
   .book, .book:hover, .book:focus-visible { transition: none; }
-  .shelf__glow, .candle__flame, .candle__halo, .intro::before, .daylight i, .caustics, .lantern, .vines__trail, .lantern__halo, .lantern__flame,
+  .nellie__dog, .nellie__tip, .shelf__glow, .candle__flame, .candle__halo, .intro::before, .daylight i, .caustics, .lantern, .vines__trail, .lantern__halo, .lantern__flame,
   .ph-surface, .ph-rays, .ph-kelp--a, .ph-kelp--b, .ph-line circle { animation: none; }
   .ph-bubbles { display: none; }
 }
