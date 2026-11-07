@@ -9,19 +9,31 @@
   <link rel="canonical" href="https://annabelle-grimes.com/library/">
   <meta property="og:title" content="Research Library">
   <meta property="og:description" content="The sources behind my research, shelved by subject. Pull a book off the shelf to read about it.">
-  <meta name="theme-color" content="#160d06">
+  <meta name="theme-color" content="#06142a">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="library.css?v=20261107001500">
+  <link rel="stylesheet" href="library.css?v=20261107013000">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <header class="bar">
-    <div class="bar__inner">
-      <a class="bar__home" href="../">Annabelle Grimes</a>
-      <a class="bar__back" href="../">&larr; Back to home</a>
+  <header class="nav" id="top">
+    <div class="nav__inner">
+      <a class="nav__brand" href="../">Annabelle Grimes</a>
+      <nav aria-label="Primary">
+        <ul class="nav__links" id="nav-links">
+          <li><a href="../#research">Research</a></li>
+          <li><a href="../#about">About</a></li>
+          <li><a href="../#publications">Publications</a></li>
+          <li><a href="../#cv">CV</a></li>
+          <li><a href="../#contact">Contact</a></li>
+          <li><a href="./" class="is-current" aria-current="page">Library</a></li>
+        </ul>
+      </nav>
+      <button class="icon-btn nav__menu" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
     </div>
   </header>
 
@@ -53,7 +65,8 @@
               <path d="M262 90 L 290 90 L 340 360 L 300 360 Z" opacity=".55"/>
             </g>
             <g class="ph-line">
-              <line x1="292" y1="350" x2="292" y2="150" stroke="#0b3446" stroke-width="1.6" opacity=".7"/>
+              <line x1="292" y1="350" x2="292" y2="140" stroke="#0b3446" stroke-width="1.6" opacity=".7"/>
+              <rect class="ph-float" x="284" y="126" width="16" height="14" rx="3" fill="#c8925c" stroke="#7a5230" stroke-width="1"/><path d="M286 129 h 12" stroke="#e8b882" stroke-width="1.2" opacity=".7"/>
               <circle cx="292" cy="170" r="6" fill="url(#ph-om)"/><circle cx="292" cy="215" r="6" fill="url(#ph-om)"/>
               <circle cx="292" cy="260" r="6" fill="url(#ph-om)"/><circle cx="292" cy="305" r="6" fill="url(#ph-om)"/>
             </g>
@@ -63,9 +76,6 @@
               <path d="M90 300 q -18 -8 -22 -24 M 86 252 q 18 -6 24 -22 M 90 206 q -16 -8 -18 -24" fill="none" stroke="#2c8a62" stroke-width="5" stroke-linecap="round"/></g>
             <g class="ph-kelp ph-kelp--b"><path d="M120 360 C 128 326 112 300 122 270 C 130 246 118 230 124 210" fill="none" stroke="#2c8a62" stroke-width="5" stroke-linecap="round"/>
               <path d="M122 314 q 16 -6 20 -20 M 120 262 q -14 -6 -18 -20" fill="none" stroke="#3fa275" stroke-width="4" stroke-linecap="round"/></g>
-            <g class="ph-fish-path"><g class="ph-fish"><path d="M0 0 C 14 -12 40 -12 52 0 C 40 12 14 12 0 0 Z M 50 0 L 66 -10 L 63 0 L 66 10 Z" fill="#8c7448"/>
-              <path d="M14 -3 C 24 -6 34 -6 42 -2" fill="none" stroke="#6e5a34" stroke-width="2"/><circle cx="12" cy="-2" r="2.2" fill="#2a1a08"/></g></g>
-            <g class="ph-snow" fill="#d8f2f4" opacity=".55"><circle cx="190" cy="107" r="1.4"/><circle cx="331" cy="61" r="1.7"/><circle cx="187" cy="101" r="0.9"/><circle cx="140" cy="67" r="1.4"/><circle cx="300" cy="115" r="1.1"/><circle cx="254" cy="94" r="0.9"/><circle cx="187" cy="60" r="1.1"/><circle cx="268" cy="77" r="1.1"/><circle cx="259" cy="70" r="0.9"/><circle cx="131" cy="99" r="1.7"/><circle cx="124" cy="68" r="0.9"/><circle cx="62" cy="73" r="1.1"/></g>
             <g class="ph-bubbles" fill="none" stroke="#ecffff" stroke-width="1.4" opacity=".85">
               <circle cx="178" cy="330" r="4"/><circle cx="186" cy="330" r="2.5"/><circle cx="240" cy="330" r="3.2"/><circle cx="160" cy="330" r="2"/><circle cx="228" cy="330" r="2.2"/>
             </g>
@@ -259,6 +269,6 @@
     </div>
   </footer>
 
-  <script src="library.js?v=20261106230000" defer></script>
+  <script src="library.js?v=20261107013000" defer></script>
 </body>
 </html>

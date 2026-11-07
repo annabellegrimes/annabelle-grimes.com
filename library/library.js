@@ -229,6 +229,16 @@
     else { var t = document.createElement('textarea'); t.value = text; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); ok(); } catch (e) {} t.remove(); }
   });
 
+  /* ---------- The site menu on small screens ---------- */
+  var menuBtn = $('#menu-toggle'), navLinks = $('#nav-links');
+  if (menuBtn && navLinks) {
+    menuBtn.addEventListener('click', function () {
+      var open = navLinks.classList.toggle('is-open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+  }
+
   fetch('books.json').then(function (r) { return r.json(); }).then(function (data) {
     build(data);
     var m = location.hash.match(/^#book=(.+)$/);   // a link straight to one book
