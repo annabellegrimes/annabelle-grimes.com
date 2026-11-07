@@ -516,6 +516,16 @@ p { margin: 0 0 1em; }
 
 /* ---------- Pronouns under name ---------- */
 .hero__name { display: flex; flex-direction: column; gap: 6px; }
+/* contact, right under the profile */
+.hero__contact { display: flex; flex-wrap: wrap; gap: 10px; margin: -4px 0 30px; }
+.contact__chip {
+  display: inline-flex; align-items: center; gap: 8px; padding: 7px 15px 7px 12px; border-radius: 999px; cursor: pointer;
+  border: 1px solid rgba(200, 220, 240, .28); background: rgba(6, 20, 42, .45); color: #e9f1fb; font: inherit; font-size: .9rem; font-weight: 500;
+  text-decoration: none; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: border-color .2s, background-color .2s, transform .2s;
+}
+.contact__chip:hover { border-color: #5cc8ee; background: rgba(92, 200, 238, .12); color: #fff; transform: translateY(-1px); }
+.contact__chip svg { color: #8fd6f2; flex: none; }
+@media (max-width: 600px) { .hero__contact { gap: 8px; margin-bottom: 26px; } .contact__chip { padding: 6px 12px 6px 10px; font-size: .86rem; } }
 .hero__pronouns { margin: 0; font-size: clamp(.95rem, 1.4vw, 1.1rem); letter-spacing: .04em; color: #8fd6f2; }
 
 /* ---------- Lanternfish beside the name in the hero (assets/fish.js) ---------- */
