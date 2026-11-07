@@ -522,3 +522,15 @@ p { margin: 0 0 1em; }
 .fish-margin { position: absolute; top: 0; z-index: 0; pointer-events: none; display: none; }
 .fish-margin--left { left: 8px; }
 @media print { .fish-margin { display: none !important; } }
+
+/* ---------- Personal projects: under-construction badge, intro link ---------- */
+.card__aside { font-style: italic; }
+.badge--wip { background: transparent; border: 1px dashed currentColor; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+.badge--wip::before { content: ""; width: 9px; height: 9px; flex: none; background: repeating-linear-gradient(-45deg, currentColor 0 2px, transparent 2px 4px); border-radius: 2px; }
+.hero__lede a { color: #8fd6f2; }
+.hero__lede a:hover { color: #fff; }
+/* seven nav links: tighten them just above the mobile-menu breakpoint */
+@media (min-width: 761px) and (max-width: 900px) {
+  .nav__inner { gap: 12px; }
+  .nav__links a { padding: 6px 8px; font-size: .9rem; }
+}

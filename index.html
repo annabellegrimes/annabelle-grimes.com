@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=20261106204500">
+  <link rel="stylesheet" href="assets/style.css?v=20261107035000">
   <script>
     try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
   </script>
@@ -44,6 +44,7 @@
       <nav aria-label="Primary">
         <ul class="nav__links" id="nav-links">
           <li><a href="#research">Research</a></li>
+          <li><a href="#personal-projects">Personal</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#publications">Publications</a></li>
           <li><a href="library/">Library</a></li>
@@ -86,8 +87,8 @@
           in the deep Pacific off British Columbia.
         </p>
         <p class="hero__lede">
-          This is where I gather, summarize, and share my work &mdash; along with the occasional side project when I get
-          distracted by something interesting.
+          This is where I gather, summarize, and share my work &mdash; along with the occasional
+          <a href="#personal-projects">side project</a> when I get distracted by something interesting.
         </p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="#research">Current research</a>
@@ -242,8 +243,9 @@
               <a class="card__media" href="energy/" tabindex="-1" aria-hidden="true"><img src="assets/img/energy.jpg" alt="The energy page: this week's, last week's and all-time energy, and a chart of energy per week with its range" width="800" height="450" loading="lazy" decoding="async"></a>
               <div class="card__top"><span class="badge">Interactive</span><span class="card__where">2026</span></div>
               <h3>AI Energy Usage Tracker</h3>
-              <p>A weekly log of the energy behind my use of Claude, estimated from the tokens it records and set beside
-                 everyday things like boiling a kettle, because I want to be mindful of it.</p>
+              <p>I've been using Claude Code quite a lot recently, and got curious about what all those tokens add up to.
+                 This project estimates my AI energy consumption from Claude Code's token logs, tracks it week by week,
+                 and compares it with everyday activities.</p>
               <div class="card__links">
                 <a class="link-arrow" href="energy/">View it</a>
                 <a class="link-arrow link-arrow--quiet" href="https://github.com/annabellegrimes/claude-energy-tracker" target="_blank" rel="noopener">Source</a>
@@ -252,11 +254,12 @@
 
             <article class="card">
               <a class="card__media" href="https://annabellegrimes.github.io/annabelles-mineral-museum/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/img/mineral-museum.jpg" alt="The home page of Annabelle's Mineral Museum: the museum's title, introduction, and a placard noting it is under construction" width="800" height="450" loading="lazy" decoding="async"></a>
-              <div class="card__top"><span class="badge">Interactive</span><span class="card__where">2026</span></div>
+              <div class="card__top"><span class="badge badge--wip">Under construction</span><span class="card__where">2026</span></div>
               <h3>Annabelle's Mineral Museum</h3>
-              <p>A digital catalogue of my rock and mineral collection: 3D-scanned specimens made with an iPhone and Polycam,
-                 identifications that are honest about uncertainty, and a little detective work into where each one might
-                 have come from. Currently under construction.</p>
+              <p>I've been collecting rocks and minerals for years, and my shelves have officially outgrown my ability to remember what anything is.</p>
+              <p>Armed with an iPhone, Polycam, and a healthy amount of geological guesswork, I'm building a digital mineral museum:
+                 3D-scanned specimens, interactive models, mineral identifications, and a little detective work into where they might have come from.</p>
+              <p class="card__aside">Currently under construction. Turns out I have a lot of rocks.</p>
               <div class="card__links">
                 <a class="link-arrow" href="https://annabellegrimes.github.io/annabelles-mineral-museum/" target="_blank" rel="noopener">Explore it</a>
                 <a class="link-arrow link-arrow--quiet" href="https://github.com/annabellegrimes/annabelles-mineral-museum" target="_blank" rel="noopener">Source</a>
