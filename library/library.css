@@ -1,46 +1,61 @@
-/* /library/: a reading room at lamplight. Matches annabelle-grimes.com's type and page shell, in the colours of a
-   green-papered study with a walnut bookcase and brass fittings; like /telescopes/, it keeps one look in both themes. */
+/* /library/: a reading room in a cabin under the sea. Matches annabelle-grimes.com's type and page shell; warm oak
+   planks and iron hull ribs, a brass porthole onto sunlit water, daylight falling across the shelves, and a lantern.
+   Like /telescopes/, it keeps one look in both themes. */
 :root {
-  --wall: #1b2820;
-  --wall-dark: #121b15;
-  --wood: #6e4428;
-  --wood-dark: #3b2213;
-  --wood-light: #9b6a3f;
-  --brass: #d9b46a;
+  --wall: #5f3b22;
+  --wall-dark: #24160b;
+  --wood: #8d5833;
+  --wood-dark: #4a2a16;
+  --wood-light: #b8834f;
+  --brass: #e1bd72;
   --brass-dark: #8f6d2e;
   --paper: #f5ecd9;
   --paper-edge: #e2d1b0;
-  --ink: #f4e9d6;
-  --ink-muted: #cdbb9b;
+  --ink: #fcf3e3;
+  --ink-muted: #ecd9ba;
   --page-ink: #2b1d12;
   --page-muted: #6e5843;
-  --line: rgba(217, 180, 106, 0.22);
-  --glow: 255, 196, 122;
+  --line: rgba(236, 202, 130, 0.24);
+  --sea: #6fd0d6;
+  --glow: 255, 206, 140;     /* lantern */
+  --day: 214, 246, 238;      /* daylight through seawater: pale aqua-gold */
   /* fine grain, for wood, cloth and paper (an SVG noise tile, black specks at low alpha) */
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   --grain-soft: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .25 0 0 0 0 .1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-display: "Newsreader", Georgia, serif;
+  --rib-gap: 560px;
   color-scheme: dark;
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body {
+  position: relative;
   margin: 0; color: var(--ink);
   font-family: var(--font-body); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  /* green striped wallpaper with a small gold figure */
+  /* the cabin wall: oak planks, with riveted iron hull ribs curving up through them */
   background-color: var(--wall);
   background-image:
-    radial-gradient(circle, rgba(214, 180, 106, .09) 0 1.6px, transparent 2.2px),
-    radial-gradient(circle, rgba(214, 180, 106, .05) 0 1px, transparent 1.6px),
-    repeating-linear-gradient(90deg, rgba(0, 0, 0, .16) 0 1px, transparent 1px 22px, rgba(255, 255, 255, .025) 22px 23px, transparent 23px 44px),
+    radial-gradient(circle at calc(var(--rib-gap) - 15px) 23px, #c9c3b6 0 1.6px, #4a4540 2.6px, transparent 3.6px),
+    linear-gradient(90deg, transparent 0 calc(var(--rib-gap) - 28px), rgba(15, 12, 10, .85) calc(var(--rib-gap) - 28px) calc(var(--rib-gap) - 26px),
+      #6d665d calc(var(--rib-gap) - 26px) calc(var(--rib-gap) - 23px), #4a4540 calc(var(--rib-gap) - 23px) calc(var(--rib-gap) - 8px),
+      #2c2925 calc(var(--rib-gap) - 8px) calc(var(--rib-gap) - 6px), rgba(0, 0, 0, .35) calc(var(--rib-gap) - 6px) calc(var(--rib-gap) - 2px), transparent calc(var(--rib-gap) - 2px) var(--rib-gap)),
+    repeating-linear-gradient(180deg, rgba(0, 0, 0, .38) 0 2px, rgba(255, 222, 176, .07) 2px 3px, transparent 3px 46px),
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, .035) 0 46px, rgba(0, 0, 0, .06) 46px 92px, rgba(255, 240, 210, .02) 92px 138px, rgba(0, 0, 0, .03) 138px 184px),
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, .07) 0 1px, transparent 1px 7px, rgba(255, 255, 255, .03) 7px 8px, transparent 8px 19px),
     var(--grain);
-  background-size: 44px 44px, 44px 44px, auto, 160px 160px;
-  background-position: 0 0, 22px 22px, 0 0, 0 0;
+  background-size: var(--rib-gap) 46px, var(--rib-gap) 100%, auto, auto, auto, 160px 160px;
+  background-repeat: repeat, repeat-x, repeat, repeat, repeat, repeat;
+  background-position: calc(50% + 280px) 0, calc(50% + 280px) 0, 0 0, 0 0, 0 0, 0 0;
+}
+/* the corners of the cabin fall softly into shade */
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(140% 110% at 60% 25%, transparent 55%, rgba(12, 6, 2, .45) 100%);
 }
 a { color: var(--brass); text-underline-offset: 3px; text-decoration-thickness: 1px; }
-a:hover { color: #f0d08e; }
+a:hover { color: #f6dca0; }
 :focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; border-radius: 4px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .skip { position: absolute; left: -999px; top: 8px; z-index: 100; background: var(--wall-dark); padding: 8px 14px; border-radius: 8px; }
@@ -49,70 +64,112 @@ a:hover { color: #f0d08e; }
 @media (max-width: 600px) { .container { padding: 0 16px; } }
 main, .foot { position: relative; z-index: 1; }
 
-.bar { position: sticky; top: 0; z-index: 40; background: rgba(18, 27, 21, .86); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.bar { position: sticky; top: 0; z-index: 40; background: rgba(36, 22, 11, .86); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
 .bar__inner { max-width: 1160px; margin: 0 auto; padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .bar__home { font-family: var(--font-display); font-size: 1.15rem; color: var(--ink); text-decoration: none; }
 .bar__back { font-size: .9rem; color: var(--ink-muted); text-decoration: none; }
 .bar__back:hover { color: var(--ink); }
 @media (max-width: 600px) { .bar__inner { padding: 0 16px; } }
 
-/* ---------- Lamplight: a warm pool from the pendant, the room's corners in shadow, dust drifting in the light ---------- */
-.lamplight {
-  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+/* ---------- Daylight: beams from the porthole falling across the room, and the ripple of the water above ---------- */
+.daylight, .caustics {
+  position: absolute; z-index: 2; pointer-events: none;
+  --px: min(calc(50% + 404px), calc(100% - 190px));   /* the porthole's centre */
+  --py: 248px;
+}
+.daylight { inset: 0 0 auto 0; height: 1900px; overflow: hidden; mix-blend-mode: screen; }
+.daylight::before {   /* the glow around the glass */
+  content: ""; position: absolute; left: calc(var(--px) - 420px); top: calc(var(--py) - 320px); width: 840px; height: 640px;
+  background: radial-gradient(closest-side, rgba(var(--day), .28), rgba(var(--day), .08) 55%, transparent);
+}
+.daylight i {
+  position: absolute; inset: 0; animation: beam 9s ease-in-out infinite alternate;
+  -webkit-mask-image: radial-gradient(circle at var(--px) var(--py), #000 0, rgba(0, 0, 0, .75) 260px, transparent 1250px);
+  mask-image: radial-gradient(circle at var(--px) var(--py), #000 0, rgba(0, 0, 0, .75) 260px, transparent 1250px);
+  filter: blur(6px);
+}
+.daylight i:nth-child(1) { background: conic-gradient(from 180deg at var(--px) var(--py), transparent 26deg, rgba(var(--day), .3) 36deg, transparent 47deg); }
+.daylight i:nth-child(2) { background: conic-gradient(from 180deg at var(--px) var(--py), transparent 46deg, rgba(var(--day), .22) 54deg, transparent 61deg); animation-delay: -3s; animation-duration: 11s; }
+.daylight i:nth-child(3) { background: conic-gradient(from 180deg at var(--px) var(--py), transparent 60deg, rgba(var(--day), .26) 68deg, transparent 80deg); animation-delay: -6s; }
+.daylight i:nth-child(4) { background: conic-gradient(from 180deg at var(--px) var(--py), transparent 14deg, rgba(var(--day), .16) 22deg, transparent 30deg); animation-delay: -2s; animation-duration: 13s; }
+@keyframes beam { 0% { opacity: .5; } 50% { opacity: 1; } 100% { opacity: .65; } }
+.caustics {   /* dappled light, as if the sun came through water, drifting slowly over the shelves */
+  inset: 0 0 auto 0; height: 1600px; opacity: .22; mix-blend-mode: overlay;
   background:
-    radial-gradient(55% 45% at 74% 8%, rgba(var(--glow), .2), rgba(var(--glow), .06) 45%, transparent 70%),
-    radial-gradient(130% 100% at 50% 35%, transparent 50%, rgba(5, 4, 2, .62) 100%);
+    radial-gradient(circle at 30% 40%, rgba(var(--day), .9) 0 6%, transparent 18%),
+    radial-gradient(circle at 70% 60%, rgba(var(--day), .8) 0 5%, transparent 16%),
+    radial-gradient(circle at 50% 80%, rgba(var(--day), .7) 0 4%, transparent 14%);
+  background-size: 230px 190px, 310px 260px, 170px 150px;
+  -webkit-mask-image: radial-gradient(60% 55% at 62% 32%, #000, transparent 75%);
+  mask-image: radial-gradient(60% 55% at 62% 32%, #000, transparent 75%);
+  animation: ripple 24s linear infinite;
 }
-.motes { position: fixed; top: 60px; right: 6%; width: 38vw; height: 70vh; z-index: 0; pointer-events: none; }
-.motes i {
-  position: absolute; width: 3px; height: 3px; border-radius: 50%; background: rgba(255, 228, 180, .55);
-  box-shadow: 0 0 6px rgba(255, 214, 150, .6); opacity: 0; animation: mote 22s linear infinite;
-}
-.motes i:nth-child(1)  { left: 12%; top: 30%; animation-delay: -2s; }
-.motes i:nth-child(2)  { left: 34%; top: 55%; animation-delay: -9s; animation-duration: 28s; }
-.motes i:nth-child(3)  { left: 58%; top: 20%; animation-delay: -15s; }
-.motes i:nth-child(4)  { left: 72%; top: 62%; animation-delay: -4s; animation-duration: 25s; width: 2px; height: 2px; }
-.motes i:nth-child(5)  { left: 44%; top: 38%; animation-delay: -18s; animation-duration: 31s; }
-.motes i:nth-child(6)  { left: 85%; top: 28%; animation-delay: -11s; width: 2px; height: 2px; }
-.motes i:nth-child(7)  { left: 22%; top: 72%; animation-delay: -6s; animation-duration: 27s; }
-.motes i:nth-child(8)  { left: 66%; top: 44%; animation-delay: -20s; }
-.motes i:nth-child(9)  { left: 50%; top: 80%; animation-delay: -13s; animation-duration: 33s; width: 2px; height: 2px; }
-.motes i:nth-child(10) { left: 8%;  top: 50%; animation-delay: -24s; }
-.motes i:nth-child(11) { left: 92%; top: 70%; animation-delay: -7s; animation-duration: 29s; }
-.motes i:nth-child(12) { left: 38%; top: 12%; animation-delay: -17s; width: 2px; height: 2px; }
-@keyframes mote {
-  0%   { transform: translate(0, 0); opacity: 0; }
-  15%  { opacity: .9; }
-  50%  { transform: translate(22px, -40px); opacity: .6; }
-  85%  { opacity: .85; }
-  100% { transform: translate(-14px, -90px); opacity: 0; }
-}
+@keyframes ripple { to { background-position: 230px 95px, -310px 130px, 170px -150px; } }
 
 /* ---------- Intro ---------- */
-.intro { position: relative; padding: 64px 0 18px; }
-.pendant { overflow: visible; position: absolute; top: 0; right: max(2%, calc(50% - 570px)); width: 236px; height: auto; transform-origin: 50% 0; animation: sway 9s ease-in-out infinite; pointer-events: none; }
-.pendant__cone { mix-blend-mode: screen; }
-.pendant__halo { animation: hum 5s ease-in-out infinite; }
-@keyframes hum { 0%, 100% { opacity: .9; } 50% { opacity: 1; } }
-@keyframes sway { 0%, 100% { transform: rotate(.6deg); } 50% { transform: rotate(-.6deg); } }
-.eyebrow { margin: 0 0 12px; font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; color: var(--brass); }
+.intro { position: relative; padding: 64px 0 18px; min-height: 420px; }
+.porthole {
+  position: absolute; z-index: 1; top: 22px; right: max(12px, calc(50% - 570px)); width: 336px; margin: 0;
+  filter: drop-shadow(0 18px 26px rgba(0, 0, 0, .5));
+}
+.porthole svg { display: block; width: 100%; height: auto; overflow: visible; }
+.porthole * { transform-box: view-box; }
+.ph-surface { animation: surface 5s linear infinite; }
+@keyframes surface { to { transform: translateX(-40px); } }
+.ph-rays { animation: shimmer 7s ease-in-out infinite alternate; }
+@keyframes shimmer { from { opacity: .55; } to { opacity: 1; } }
+.ph-kelp--a { transform-origin: 88px 360px; animation: kelp 6.5s ease-in-out infinite alternate; }
+.ph-kelp--b { transform-origin: 120px 360px; animation: kelp 5s ease-in-out -2s infinite alternate-reverse; }
+@keyframes kelp { from { transform: rotate(-5deg); } to { transform: rotate(6deg); } }
+.ph-fish-path { animation: swim 28s linear infinite; }
+@keyframes swim { 0% { transform: translate(400px, 168px); } 100% { transform: translate(-90px, 140px); } }
+.ph-fish { animation: bob 3s ease-in-out infinite alternate; }
+@keyframes bob { to { transform: translateY(8px); } }
+.ph-bubbles circle { animation: rise 7s ease-in infinite; opacity: 0; }
+.ph-bubbles circle:nth-child(2) { animation-delay: -1.4s; animation-duration: 6s; }
+.ph-bubbles circle:nth-child(3) { animation-delay: -3s; animation-duration: 8s; }
+.ph-bubbles circle:nth-child(4) { animation-delay: -4.6s; }
+.ph-bubbles circle:nth-child(5) { animation-delay: -5.8s; animation-duration: 6.5s; }
+@keyframes rise { 0% { transform: translate(0, 0); opacity: 0; } 12% { opacity: 1; } 100% { transform: translate(10px, -250px); opacity: 0; } }
+.ph-line circle { animation: om 4s ease-in-out infinite; }
+.ph-line circle:nth-of-type(2) { animation-delay: -1s; } .ph-line circle:nth-of-type(3) { animation-delay: -2s; } .ph-line circle:nth-of-type(4) { animation-delay: -3s; }
+@keyframes om { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+
+.lantern {
+  position: absolute; z-index: 1; top: 0; right: calc(50% - 196px); width: 84px; height: auto; overflow: visible;
+  transform-origin: 50% 0; animation: sway 8s ease-in-out infinite; pointer-events: none;
+}
+.lantern__halo { mix-blend-mode: screen; animation: hum 4s ease-in-out infinite; }
+.lantern__flame { transform-box: fill-box; transform-origin: 50% 90%; animation: flicker 2.6s ease-in-out infinite; }
+@keyframes hum { 0%, 100% { opacity: .85; } 50% { opacity: 1; } }
+@keyframes flicker { 0%, 100% { transform: scale(1, 1); } 30% { transform: scale(.94, 1.06); } 60% { transform: scale(1.05, .95); } }
+@keyframes sway { 0%, 100% { transform: rotate(1.2deg); } 50% { transform: rotate(-1.2deg); } }
+
+.eyebrow { margin: 0 0 12px; font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; color: var(--sea); }
 .intro h1 { margin: 0 0 16px; font-family: var(--font-display); font-weight: 400; font-size: clamp(2.4rem, 5.4vw, 3.8rem); line-height: 1.05; letter-spacing: -.01em;
-  text-shadow: 0 2px 18px rgba(var(--glow), .18); }
-.lede { max-width: 42rem; margin: 0 0 24px; font-family: var(--font-display); font-size: 1.22rem; line-height: 1.55; color: #e9dcc3; }
+  text-shadow: 0 2px 18px rgba(0, 0, 0, .35); }
+.intro .container { position: relative; z-index: 3; }
+.lede { max-width: 38rem; margin: 0 0 24px; font-family: var(--font-display); font-size: 1.22rem; line-height: 1.55; color: #f6e8cf; text-shadow: 0 1px 10px rgba(0, 0, 0, .35); }
 .tools { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
 .find { display: flex; align-items: center; gap: 10px; flex: 1 1 320px; max-width: 460px; padding: 0 16px; height: 46px;
-  background: rgba(255, 244, 222, .07); border: 1px solid var(--line); border-radius: 999px; color: var(--ink-muted);
+  background: rgba(30, 18, 8, .45); border: 1px solid var(--line); border-radius: 999px; color: var(--ink-muted);
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, .35); }
-.find:focus-within { border-color: var(--brass); }
+.find:focus-within { border-color: var(--sea); }
 .find input { flex: 1; min-width: 0; border: 0; background: transparent; color: var(--ink); font: inherit; font-size: .95rem; outline: none; }
-.find input::placeholder { color: #a8957a; }
+.find input::placeholder { color: #cdb592; }
 .count { margin: 0; font-family: var(--font-display); font-style: italic; font-size: 1rem; color: var(--ink-muted); }
-@media (max-width: 760px) { .pendant { width: 140px; right: 0; } .intro { padding-top: 48px; } }
-@media (max-width: 560px) { .pendant { display: none; } }
+@media (max-width: 1120px) { .lantern { display: none; } }
+@media (max-width: 980px) { .porthole { width: 260px; } .lede { max-width: 30rem; } }
+@media (max-width: 760px) {
+  .intro { min-height: 0; padding-top: 24px; }
+  .porthole { position: relative; top: 0; right: auto; width: 210px; margin: 0 auto 18px; }
+  .daylight, .caustics { --px: 50%; --py: 140px; }
+  body { background-position: -528px 0, -528px 0, 0 0, 0 0, 0 0, 0 0; }   /* one rib, at the left edge */
+}
 
 /* ---------- The bookcase: crown moulding, a back of boards, shelves, a plinth ---------- */
 .room { padding: 22px 0 0; }
-.case { position: relative; margin: 26px 16px 0; filter: drop-shadow(0 30px 40px rgba(0, 0, 0, .55)); }
+.case { position: relative; margin: 26px 16px 0; filter: drop-shadow(0 26px 34px rgba(0, 0, 0, .45)); }
 .case__crown, .case__plinth { position: relative; z-index: 1; margin: 0 -30px; border-radius: 3px; background-color: var(--wood); }
 .case__crown {
   height: 40px;
@@ -133,8 +190,8 @@ main, .foot { position: relative; z-index: 1; }
 .bookcase {
   position: relative; padding: 0 26px;
   border-left: 18px solid var(--wood); border-right: 18px solid var(--wood);
-  border-image: repeating-linear-gradient(180deg, #74482b 0 7px, #66402a 7px 19px, #7c4f2f 19px 23px, #6a422a 23px 41px) 1;
-  background-color: #2a180c;
+  border-image: repeating-linear-gradient(180deg, #95603a 0 7px, #84532f 7px 19px, #9c6740 19px 23px, #8a5833 23px 41px) 1;
+  background-color: #3e2414;
   background-image:
     linear-gradient(90deg, rgba(0, 0, 0, .5), transparent 7%, transparent 93%, rgba(0, 0, 0, .5)),
     repeating-linear-gradient(90deg, rgba(0, 0, 0, .35) 0 2px, rgba(255, 255, 255, .03) 2px 3px, transparent 3px 118px),
@@ -163,7 +220,7 @@ main, .foot { position: relative; z-index: 1; }
   overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; scrollbar-color: var(--wood-light) transparent;
   /* warm light falls on the front of the books */
   box-shadow: inset 0 -12px 16px -12px rgba(0, 0, 0, .35);
-  background: linear-gradient(180deg, transparent 40%, rgba(var(--glow), .045));
+  background: linear-gradient(180deg, transparent 40%, rgba(var(--day), .05));
 }
 .shelf__plank {   /* thick, with a rounded front lip catching the light */
   height: 20px; margin: 0 -26px; border-radius: 2px 2px 3px 3px;
@@ -178,6 +235,18 @@ main, .foot { position: relative; z-index: 1; }
   flex: none; align-self: flex-end; width: 14px; height: 116px; margin-left: 6px; border-radius: 3px 3px 0 0;
   background: linear-gradient(90deg, var(--brass-dark), #f0d394 40%, var(--brass) 60%, var(--brass-dark));
   box-shadow: -3px 0 6px rgba(0, 0, 0, .45);
+}
+
+.vines {   /* a pothos on top of the case, trailing down its side */
+  position: absolute; z-index: 3; top: -122px; left: -40px; width: 170px; height: auto; pointer-events: none;
+  filter: drop-shadow(2px 6px 6px rgba(0, 0, 0, .4));
+}
+.vines__trail { transform-box: view-box; transform-origin: 60px 100px; animation: frond 9s ease-in-out infinite alternate; }
+@media (max-width: 760px) { .vines { width: 110px; top: -79px; left: -18px; } }
+.ladder {   /* leaning on the right of the case, clear of the books' click targets */
+  position: absolute; z-index: 2; top: -6px; right: -18px; width: 62px; height: calc(100% + 34px);
+  transform: rotate(2.2deg); transform-origin: 50% 100%; pointer-events: none;
+  filter: drop-shadow(-6px 8px 8px rgba(0, 0, 0, .45));
 }
 
 /* ---------- A book's spine: cloth with a little grain, and one of two finishes ---------- */
@@ -232,30 +301,34 @@ main, .foot { position: relative; z-index: 1; }
 /* the copy that slides off the shelf and flies to the reader */
 .flyer { position: fixed; z-index: 70; margin: 0; pointer-events: none; will-change: transform; box-shadow: 0 18px 40px rgba(0, 0, 0, .6); }
 
-/* ---------- The floor and rug under the bookcase ---------- */
+/* ---------- The floor: oak boards in a patch of sunlight, a rug, an armchair and a sea fern ---------- */
 .floor {
-  position: relative; height: 120px; margin-top: 0; overflow: hidden;
-  background-color: #3c2515;
+  position: relative; height: 230px; margin-top: 0; overflow: hidden;
+  background-color: #7a4a28;
   background-image:
-    linear-gradient(180deg, rgba(0, 0, 0, .55), transparent 40%, rgba(0, 0, 0, .5)),
-    repeating-linear-gradient(90deg, rgba(0, 0, 0, .45) 0 2px, transparent 2px 170px),
-    repeating-linear-gradient(91deg, rgba(255, 255, 255, .03) 0 2px, transparent 2px 11px),
+    linear-gradient(180deg, rgba(0, 0, 0, .5), transparent 30%, transparent 70%, rgba(0, 0, 0, .35)),
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, .4) 0 2px, rgba(255, 220, 170, .06) 2px 3px, transparent 3px 150px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .025) 0 2px, transparent 2px 11px),
     var(--grain);
 }
-.rug {
-  position: absolute; left: 50%; top: 18px; width: min(760px, 80%); height: 120px; transform: translateX(-50%) perspective(420px) rotateX(48deg);
-  transform-origin: 50% 0; border-radius: 4px;
-  background:
-    radial-gradient(ellipse at center, transparent 30%, rgba(0, 0, 0, .25) 100%),
-    repeating-linear-gradient(45deg, rgba(214, 180, 106, .14) 0 6px, transparent 6px 18px),
-    repeating-linear-gradient(-45deg, rgba(214, 180, 106, .1) 0 6px, transparent 6px 18px),
-    #6b2526;
-  box-shadow: inset 0 0 0 8px #3d1416, inset 0 0 0 10px rgba(214, 180, 106, .6), inset 0 0 0 18px #4f1a1c, 0 -2px 0 #2a0e10;
+.floor__light {   /* the porthole's light, landing on the boards */
+  position: absolute; inset: 0; mix-blend-mode: screen; pointer-events: none;
+  background: radial-gradient(45% 70% at 58% 60%, rgba(var(--day), .2), transparent 70%),
+              radial-gradient(28% 50% at 30% 70%, rgba(var(--glow), .14), transparent 70%);
 }
+.rug {
+  position: absolute; left: 50%; bottom: 26px; width: min(720px, 72%); height: 150px;
+  transform: translateX(-50%) perspective(520px) rotateX(50deg); transform-origin: 50% 100%;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, .3));
+}
+.chair { position: absolute; left: max(10px, calc(50% - 600px)); bottom: 16px; width: 220px; height: auto; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .35)); }
+.plant { position: absolute; right: max(10px, calc(50% - 590px)); bottom: 14px; width: 112px; height: auto; }
+.plant__fronds { transform-box: view-box; transform-origin: 70px 150px; animation: frond 7s ease-in-out infinite alternate; }
+@keyframes frond { from { transform: rotate(-1.5deg); } to { transform: rotate(1.5deg); } }
 
 /* ---------- The reader: an open book under the lamp ---------- */
 .reader { padding: 0; border: 0; background: transparent; max-width: none; max-height: none; overflow: visible; color: var(--page-ink); }
-.reader::backdrop { background: radial-gradient(70% 70% at 50% 45%, rgba(60, 38, 14, .55), rgba(8, 5, 2, .86)); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
+.reader::backdrop { background: radial-gradient(70% 70% at 50% 45%, rgba(40, 70, 72, .5), rgba(8, 5, 2, .86)); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
 .open-book {
   position: relative; display: grid; grid-template-columns: 1fr 1fr; width: min(940px, 94vw); min-height: min(560px, 82vh);
   perspective: 2200px; border-radius: 6px;
@@ -305,7 +378,7 @@ main, .foot { position: relative; z-index: 1; }
   border: 1px solid var(--line); background: var(--wall-dark); color: var(--ink); font-size: 24px; line-height: 1;
   box-shadow: 0 6px 16px rgba(0, 0, 0, .5);
 }
-.r-close:hover { background: #24342a; }
+.r-close:hover { background: #3a2614; }
 /* the front cover, which swings open when the book arrives */
 .cover {
   position: absolute; top: -8px; bottom: -8px; left: 50%; right: -8px; z-index: 5; display: grid; place-items: center; padding: 30px;
@@ -324,8 +397,11 @@ main, .foot { position: relative; z-index: 1; }
   .shelf { margin: 0 -12px; padding: 18px 12px 0; }
   .shelf__plank { margin: 0 -12px; }
   .shelf__row { min-height: 206px; }
-  .floor { height: 80px; }
-  .motes { width: 80vw; right: 0; }
+  .floor { height: 150px; }
+  .rug { width: 92%; height: 110px; bottom: 16px; }
+  .chair { width: 120px; left: 4px; }
+  .plant { width: 70px; right: 4px; }
+  .ladder { display: none; }
   .open-book { grid-template-columns: 1fr; width: 94vw; max-height: 86vh; overflow-y: auto; }
   .page { max-height: none; overflow: visible; padding: 26px 22px; }
   .page--left { border-radius: 4px 4px 0 0; border-bottom: 1px dashed var(--paper-edge); }
@@ -335,11 +411,13 @@ main, .foot { position: relative; z-index: 1; }
   .r-close { top: 8px; right: 8px; }
 }
 
-.foot { border-top: 1px solid var(--line); padding: 24px 0 32px; font-size: .82rem; color: var(--ink-muted); background: rgba(12, 18, 14, .6); }
+.foot { border-top: 1px solid var(--line); padding: 24px 0 32px; font-size: .82rem; color: var(--ink-muted); background: rgba(30, 18, 8, .75); }
 .foot__inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
 
 @media (prefers-reduced-motion: reduce) {
   .book, .book:hover, .book:focus-visible { transition: none; }
-  .motes { display: none; }
-  .pendant, .pendant__halo { animation: none; }
+  .daylight i, .caustics, .lantern, .vines__trail, .lantern__halo, .lantern__flame, .plant__fronds,
+  .ph-surface, .ph-rays, .ph-kelp--a, .ph-kelp--b, .ph-fish, .ph-line circle { animation: none; }
+  .ph-fish-path { animation: none; transform: translate(230px, 160px); }
+  .ph-bubbles { display: none; }
 }

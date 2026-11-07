@@ -9,12 +9,12 @@
   <link rel="canonical" href="https://annabelle-grimes.com/library/">
   <meta property="og:title" content="Research Library">
   <meta property="og:description" content="The sources behind my research, shelved by subject. Pull a book off the shelf to read about it.">
-  <meta name="theme-color" content="#1a110b">
+  <meta name="theme-color" content="#2a1a0e">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="library.css?v=20261106180000">
+  <link rel="stylesheet" href="library.css?v=20261106233000">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -25,42 +25,81 @@
     </div>
   </header>
 
-  <!-- lamplight over the room: the glow, and dust drifting in it -->
-  <div class="lamplight" aria-hidden="true"></div>
-  <div class="motes" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <!-- daylight through the porthole: soft beams across the cabin, and the ripple of the water above -->
+  <div class="daylight" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="caustics" aria-hidden="true"></div>
 
   <main id="main">
     <section class="intro">
-      <!-- a pendant lamp over the title: green enamel shade, brass fittings, a cloth cord, and a cone of warm light -->
-      <svg class="pendant" viewBox="0 0 240 430" aria-hidden="true">
+      <!-- a brass porthole onto the sea: sunlit water, kelp, a passing fish, bubbles, and far off, a P-ONE line -->
+      <figure class="porthole" aria-hidden="true">
+        <svg viewBox="0 0 400 400">
+          <defs>
+            <radialGradient id="ph-brass" cx=".38" cy=".3" r=".8"><stop offset="0" stop-color="#f7dc9a"/><stop offset=".45" stop-color="#c99a45"/><stop offset=".8" stop-color="#8a6123"/><stop offset="1" stop-color="#5b3d12"/></radialGradient>
+            <linearGradient id="ph-water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bff0ee"/><stop offset=".22" stop-color="#6fd0d6"/><stop offset=".6" stop-color="#2a8fa6"/><stop offset="1" stop-color="#0d4a63"/></linearGradient>
+            <linearGradient id="ph-ray" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+            <radialGradient id="ph-om" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#fffbe0"/><stop offset=".5" stop-color="#9fe8ff"/><stop offset="1" stop-color="#2a8fa6" stop-opacity="0"/></radialGradient>
+            <clipPath id="ph-glass"><circle cx="200" cy="200" r="146"/></clipPath>
+          </defs>
+          <circle cx="200" cy="200" r="194" fill="#2c1a0d" opacity=".55"/>
+          <circle cx="200" cy="200" r="188" fill="url(#ph-brass)"/>
+          <circle cx="200" cy="200" r="160" fill="#3b2710"/>
+          <g clip-path="url(#ph-glass)">
+            <rect x="40" y="40" width="320" height="320" fill="url(#ph-water)"/>
+            <path class="ph-surface" d="M20 92 q 20 -6 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 V40 H20 Z" fill="#e9fbf8" opacity=".55"/>
+            <g class="ph-rays" fill="url(#ph-ray)">
+              <path d="M150 90 L 186 90 L 140 360 L 96 360 Z"/>
+              <path d="M214 90 L 236 90 L 236 360 L 196 360 Z" opacity=".7"/>
+              <path d="M262 90 L 290 90 L 340 360 L 300 360 Z" opacity=".55"/>
+            </g>
+            <g class="ph-line">
+              <line x1="292" y1="350" x2="292" y2="150" stroke="#0b3446" stroke-width="1.6" opacity=".7"/>
+              <circle cx="292" cy="170" r="6" fill="url(#ph-om)"/><circle cx="292" cy="215" r="6" fill="url(#ph-om)"/>
+              <circle cx="292" cy="260" r="6" fill="url(#ph-om)"/><circle cx="292" cy="305" r="6" fill="url(#ph-om)"/>
+            </g>
+            <path d="M40 330 q 60 -26 120 -6 t 120 -8 t 80 10 V360 H40 Z" fill="#0a3a4c"/>
+            <path d="M40 346 q 70 -14 150 -2 t 170 -4 V360 H40 Z" fill="#082e3c"/>
+            <g class="ph-kelp ph-kelp--a"><path d="M86 360 C 76 310 100 280 88 236 C 80 206 96 186 92 160" fill="none" stroke="#1f6b4f" stroke-width="7" stroke-linecap="round"/>
+              <path d="M90 300 q -18 -8 -22 -24 M 86 252 q 18 -6 24 -22 M 90 206 q -16 -8 -18 -24" fill="none" stroke="#2c8a62" stroke-width="5" stroke-linecap="round"/></g>
+            <g class="ph-kelp ph-kelp--b"><path d="M120 360 C 128 326 112 300 122 270 C 130 246 118 230 124 210" fill="none" stroke="#2c8a62" stroke-width="5" stroke-linecap="round"/>
+              <path d="M122 314 q 16 -6 20 -20 M 120 262 q -14 -6 -18 -20" fill="none" stroke="#3fa275" stroke-width="4" stroke-linecap="round"/></g>
+            <g class="ph-fish-path"><g class="ph-fish"><path d="M0 0 C 14 -12 40 -12 52 0 C 40 12 14 12 0 0 Z M 50 0 L 66 -10 L 63 0 L 66 10 Z" fill="#e7b25a"/>
+              <path d="M14 -3 C 24 -6 34 -6 42 -2" fill="none" stroke="#c98a2e" stroke-width="2"/><circle cx="12" cy="-2" r="2.2" fill="#2a1a08"/></g></g>
+            <g class="ph-bubbles" fill="none" stroke="#ecffff" stroke-width="1.4" opacity=".85">
+              <circle cx="178" cy="330" r="4"/><circle cx="186" cy="330" r="2.5"/><circle cx="240" cy="330" r="3.2"/><circle cx="160" cy="330" r="2"/><circle cx="228" cy="330" r="2.2"/>
+            </g>
+            <path d="M104 118 A 130 130 0 0 1 222 70" fill="none" stroke="#fff" stroke-opacity=".38" stroke-width="10" stroke-linecap="round"/>
+            <path d="M96 150 A 130 130 0 0 1 108 128" fill="none" stroke="#fff" stroke-opacity=".3" stroke-width="6" stroke-linecap="round"/>
+          </g>
+          <circle cx="200" cy="200" r="148" fill="none" stroke="#1f1407" stroke-width="5"/>
+          <circle cx="200" cy="200" r="174" fill="none" stroke="#5b3d12" stroke-width="1.5" opacity=".6"/>
+          <g fill="#ecca82" stroke="#5b3d12" stroke-width="1">
+            <circle cx="374" cy="200" r="5"/><circle cx="361" cy="267" r="5"/><circle cx="323" cy="323" r="5"/><circle cx="267" cy="361" r="5"/><circle cx="200" cy="374" r="5"/><circle cx="133" cy="361" r="5"/><circle cx="77" cy="323" r="5"/><circle cx="39" cy="267" r="5"/><circle cx="26" cy="200" r="5"/><circle cx="39" cy="133" r="5"/><circle cx="77" cy="77" r="5"/><circle cx="133" cy="39" r="5"/><circle cx="200" cy="26" r="5"/><circle cx="267" cy="39" r="5"/><circle cx="323" cy="77" r="5"/><circle cx="361" cy="133" r="5"/>
+          </g>
+          <g fill="url(#ph-brass)" stroke="#5b3d12" stroke-width="1.5">
+            <path d="M2 186 h 22 a 6 6 0 0 1 6 6 v 16 a 6 6 0 0 1 -6 6 h -22 Z"/><path d="M398 186 h -22 a 6 6 0 0 0 -6 6 v 16 a 6 6 0 0 0 6 6 h 22 Z"/>
+          </g>
+        </svg>
+      </figure>
+
+      <!-- a ship's lantern: brass cage, glass, a small flame -->
+      <svg class="lantern" viewBox="0 0 120 240" aria-hidden="true">
         <defs>
-          <linearGradient id="pl-brass" x1="0" x2="1"><stop offset="0" stop-color="#5c4118"/><stop offset=".42" stop-color="#ecce8a"/><stop offset=".62" stop-color="#b8903f"/><stop offset="1" stop-color="#4f3713"/></linearGradient>
-          <linearGradient id="pl-shade" x1="0" x2="1"><stop offset="0" stop-color="#0b2016"/><stop offset=".36" stop-color="#2f6b4a"/><stop offset=".55" stop-color="#22573b"/><stop offset="1" stop-color="#081a11"/></linearGradient>
-          <linearGradient id="pl-sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/></linearGradient>
-          <radialGradient id="pl-inner" cx=".5" cy=".1" r=".9"><stop offset="0" stop-color="#fff4da"/><stop offset=".3" stop-color="#f5d494"/><stop offset=".75" stop-color="#b7883b"/><stop offset="1" stop-color="#5a3f1a"/></radialGradient>
-          <radialGradient id="pl-bulb" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="#fff2c6"/><stop offset=".75" stop-color="#ffd27a" stop-opacity=".8"/><stop offset="1" stop-color="#ffb347" stop-opacity="0"/></radialGradient>
-          <linearGradient id="pl-cone" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd696" stop-opacity=".34"/><stop offset=".55" stop-color="#ffd696" stop-opacity=".08"/><stop offset="1" stop-color="#ffd696" stop-opacity="0"/></linearGradient>
-          <filter id="pl-soft" x="-30%" y="-10%" width="160%" height="130%"><feGaussianBlur stdDeviation="7"/></filter>
-          <filter id="pl-halo" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="10"/></filter>
+          <linearGradient id="ln-brass" x1="0" x2="1"><stop offset="0" stop-color="#6b4a1c"/><stop offset=".45" stop-color="#f1d08a"/><stop offset=".65" stop-color="#b8903f"/><stop offset="1" stop-color="#5a3e15"/></linearGradient>
+          <radialGradient id="ln-glow" cx=".5" cy=".55" r=".5"><stop offset="0" stop-color="#fff6d6"/><stop offset=".35" stop-color="#ffd27a"/><stop offset=".8" stop-color="#f5a742" stop-opacity=".35"/><stop offset="1" stop-color="#f5a742" stop-opacity="0"/></radialGradient>
+          <filter id="ln-blur" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="14"/></filter>
         </defs>
-        <path class="pendant__cone" d="M50 252 L 190 252 L 240 430 L 0 430 Z" fill="url(#pl-cone)" filter="url(#pl-soft)"/>
-        <!-- the cloth cord, twisted -->
-        <line x1="120" y1="0" x2="120" y2="150" stroke="#1d140c" stroke-width="3"/>
-        <line x1="120" y1="0" x2="120" y2="150" stroke="#5b4630" stroke-width="3" stroke-dasharray="2 3" opacity=".7"/>
-        <!-- brass cap, knurled -->
-        <rect x="111" y="148" width="18" height="30" rx="3" fill="url(#pl-brass)"/>
-        <path d="M111 155 H 129 M 111 160 H 129 M 111 171 H 129" stroke="#3e2b0f" stroke-width="1" opacity=".55"/>
-        <path d="M110 178 H 130 L 134 189 H 106 Z" fill="url(#pl-brass)"/>
-        <!-- the shade: green enamel bell, a sheen on top, a brass rim, the warm inside seen from below -->
-        <path d="M120 187 C 98 187 89 197 85 214 C 81 232 67 244 44 251 L 196 251 C 173 244 159 232 155 214 C 151 197 142 187 120 187 Z" fill="url(#pl-shade)"/>
-        <path d="M120 187 C 98 187 89 197 85 214 C 81 232 67 244 44 251 L 196 251 C 173 244 159 232 155 214 C 151 197 142 187 120 187 Z" fill="url(#pl-sheen)"/>
-        <path d="M96 196 C 92 206 90 220 84 232" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="3" stroke-linecap="round"/>
-        <ellipse cx="120" cy="253" rx="74" ry="9" fill="url(#pl-inner)"/>
-        <ellipse cx="120" cy="251" rx="77" ry="8" fill="none" stroke="url(#pl-brass)" stroke-width="3.5"/>
-        <!-- the bulb and its filament, with a halo -->
-        <circle cx="120" cy="256" r="34" fill="url(#pl-bulb)" filter="url(#pl-halo)" class="pendant__halo"/>
-        <ellipse cx="120" cy="256" rx="15" ry="9" fill="url(#pl-bulb)"/>
-        <path d="M113 255 q 3.5 -4 7 0 q 3.5 4 7 0" fill="none" stroke="#ff9d3a" stroke-width="1.1"/>
+        <circle class="lantern__halo" cx="60" cy="150" r="58" fill="url(#ln-glow)" filter="url(#ln-blur)"/>
+        <path d="M60 0 V 40" stroke="#3a2a14" stroke-width="3"/>
+        <circle cx="60" cy="48" r="9" fill="none" stroke="url(#ln-brass)" stroke-width="4"/>
+        <path d="M38 78 Q 60 52 82 78 Z" fill="url(#ln-brass)"/>
+        <rect x="34" y="78" width="52" height="8" rx="2" fill="url(#ln-brass)"/>
+        <path d="M38 86 H 82 L 78 184 H 42 Z" fill="#ffe7a8" fill-opacity=".28" stroke="url(#ln-brass)" stroke-width="3"/>
+        <ellipse class="lantern__flame" cx="60" cy="146" rx="9" ry="20" fill="url(#ln-glow)"/>
+        <ellipse cx="60" cy="150" rx="3.5" ry="8" fill="#fffbe9"/>
+        <path d="M60 86 V 184 M 48 86 L 46 184 M 72 86 L 74 184" stroke="url(#ln-brass)" stroke-width="1.6" opacity=".8"/>
+        <rect x="34" y="184" width="52" height="10" rx="2" fill="url(#ln-brass)"/>
+        <path d="M44 194 H 76 L 70 206 H 50 Z" fill="url(#ln-brass)"/>
       </svg>
       <div class="container">
         <p class="eyebrow">Research library</p>
@@ -86,9 +125,80 @@
             <p class="loading">Unpacking the books&hellip;</p>
           </div>
           <div class="case__plinth" aria-hidden="true"></div>
+          <!-- a pothos in a clay pot on top of the case, its vines trailing down the side -->
+          <svg class="vines" viewBox="0 0 170 470" aria-hidden="true">
+            <g class="vines__trail" fill="none" stroke-linecap="round">
+              <path d="M58 104 C 40 150 30 200 34 250 C 38 300 24 350 30 420" stroke="#2f6b3e" stroke-width="3"/>
+              <path d="M74 106 C 70 150 58 180 62 230 C 66 270 56 300 60 340" stroke="#2f6b3e" stroke-width="3"/>
+              <path d="M44 100 C 24 130 14 160 18 190" stroke="#2f6b3e" stroke-width="2.5"/>
+              <g fill="#4f9a55" stroke="none">
+                <path d="M34 140 c -16 -4 -22 10 -12 18 c 8 6 16 -2 12 -18 Z"/><path d="M40 182 c 16 -6 22 8 12 16 c -8 6 -16 -2 -12 -16 Z"/>
+                <path d="M30 226 c -16 -4 -22 10 -12 18 c 8 6 16 -2 12 -18 Z"/><path d="M38 270 c 16 -6 22 8 12 16 c -8 6 -16 -2 -12 -16 Z"/>
+                <path d="M28 312 c -16 -4 -22 10 -12 18 c 8 6 16 -2 12 -18 Z"/><path d="M32 356 c 14 -6 20 8 10 16 c -8 6 -14 -2 -10 -16 Z"/>
+                <path d="M28 398 c -14 -4 -20 10 -10 16 c 8 6 14 -2 10 -16 Z"/>
+                <path d="M66 150 c 16 -6 22 8 12 16 c -8 6 -16 -2 -12 -16 Z"/><path d="M60 200 c -16 -4 -22 10 -12 18 c 8 6 16 -2 12 -18 Z"/>
+                <path d="M64 250 c 16 -6 22 8 12 16 c -8 6 -16 -2 -12 -16 Z"/><path d="M58 300 c -14 -4 -20 10 -10 16 c 8 6 14 -2 10 -16 Z"/>
+                <path d="M18 168 c -14 -4 -20 10 -10 16 c 8 6 14 -2 10 -16 Z"/>
+              </g>
+              <g fill="#6cb86a" stroke="none" opacity=".7">
+                <path d="M30 230 c -8 -1 -10 6 -6 9 Z"/><path d="M42 186 c 8 -2 10 4 6 8 Z"/><path d="M68 154 c 8 -2 10 4 6 8 Z"/>
+              </g>
+            </g>
+            <g fill="#4f9a55">
+              <path d="M60 64 c -26 -26 -46 -8 -40 10 c 8 16 30 10 40 -10 Z"/><path d="M70 60 c 20 -30 46 -16 42 4 c -6 18 -30 14 -42 -4 Z"/>
+              <path d="M64 56 c -4 -30 18 -40 28 -26 c 8 14 -8 30 -28 26 Z"/><path d="M52 74 c -30 -6 -38 16 -24 24 c 14 8 26 -6 24 -24 Z"/>
+              <path d="M80 72 c 30 -8 40 14 26 22 c -14 8 -28 -4 -26 -22 Z"/>
+            </g>
+            <path d="M34 80 H 104 L 96 124 H 42 Z" fill="#c4683d"/><rect x="30" y="74" width="78" height="12" rx="3" fill="#d97a4a"/>
+            <path d="M40 92 H 98" stroke="#a9532e" stroke-width="2" opacity=".6"/>
+          </svg>
+          <!-- a library ladder leaning on the bookcase -->
+          <svg class="ladder" viewBox="0 0 90 1000" preserveAspectRatio="none" aria-hidden="true">
+            <defs><linearGradient id="ld-wood" x1="0" x2="1"><stop offset="0" stop-color="#7a4b28"/><stop offset=".5" stop-color="#c08850"/><stop offset="1" stop-color="#6a3f20"/></linearGradient></defs>
+            <rect x="6" y="0" width="12" height="1000" rx="3" fill="url(#ld-wood)"/><rect x="72" y="0" width="12" height="1000" rx="3" fill="url(#ld-wood)"/>
+            <g fill="#a46d3e"><rect x="14" y="60" width="62" height="9" rx="2"/><rect x="14" y="160" width="62" height="9" rx="2"/><rect x="14" y="260" width="62" height="9" rx="2"/><rect x="14" y="360" width="62" height="9" rx="2"/><rect x="14" y="460" width="62" height="9" rx="2"/><rect x="14" y="560" width="62" height="9" rx="2"/><rect x="14" y="660" width="62" height="9" rx="2"/><rect x="14" y="760" width="62" height="9" rx="2"/><rect x="14" y="860" width="62" height="9" rx="2"/><rect x="14" y="960" width="62" height="9" rx="2"/></g>
+          </svg>
         </div>
       </div>
-      <div class="floor" aria-hidden="true"><div class="rug"></div></div>
+      <div class="floor" aria-hidden="true">
+        <div class="floor__light"></div>
+        <svg class="rug" viewBox="0 0 800 200" preserveAspectRatio="none">
+          <rect x="0" y="0" width="800" height="200" rx="10" fill="#efe3c6"/>
+          <rect x="14" y="14" width="772" height="172" rx="6" fill="none" stroke="#3b9a98" stroke-width="10"/>
+          <path class="rug__zig" d="M34 36 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10" fill="none" stroke="#c9a46a" stroke-width="3"/>
+          <path class="rug__zig" d="M34 164 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10 l 14 10 l 14 -10" fill="none" stroke="#c9a46a" stroke-width="3"/>
+          <g fill="#e08d5b">
+            <path d="M0 -22 L 6 -7 L 22 -6 L 9 4 L 14 20 L 0 11 L -14 20 L -9 4 L -22 -6 L -6 -7 Z" transform="translate(180 100) rotate(12)"/>
+            <path d="M0 -22 L 6 -7 L 22 -6 L 9 4 L 14 20 L 0 11 L -14 20 L -9 4 L -22 -6 L -6 -7 Z" transform="translate(470 118) rotate(-18) scale(.8)"/>
+            <path d="M0 -22 L 6 -7 L 22 -6 L 9 4 L 14 20 L 0 11 L -14 20 L -9 4 L -22 -6 L -6 -7 Z" transform="translate(650 84) rotate(30) scale(.65)"/>
+          </g>
+          <g fill="#7cc4c0"><path d="M300 76 q 22 -26 44 0 Z"/><ellipse cx="560" cy="134" rx="18" ry="9"/><ellipse cx="96" cy="132" rx="14" ry="7"/></g>
+          <path d="M306 76 q 0 18 -6 30 M 316 76 q 2 22 -2 36 M 326 76 q 4 18 2 30 M 336 76 q 6 14 8 26" fill="none" stroke="#7cc4c0" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <svg class="chair" viewBox="0 0 260 220">
+          <ellipse cx="130" cy="212" rx="118" ry="9" fill="#000" opacity=".35"/>
+          <path d="M44 196 l -6 20 M 216 196 l 6 20" stroke="#3a2210" stroke-width="7" stroke-linecap="round"/>
+          <path d="M52 40 Q 130 6 208 40 L 214 150 H 46 Z" fill="#9c3a3e"/>
+          <path d="M52 40 Q 130 6 208 40" fill="none" stroke="#b9545a" stroke-width="5"/>
+          <g fill="#7e2a2f" opacity=".6"><circle cx="90" cy="64" r="3"/><circle cx="130" cy="56" r="3"/><circle cx="170" cy="64" r="3"/><circle cx="110" cy="96" r="3"/><circle cx="150" cy="96" r="3"/></g>
+          <path d="M72 102 l 46 -26 l 22 36 l -46 26 Z" fill="#4fa7a4"/><path d="M84 106 q 18 -8 34 -6" fill="none" stroke="#2d7d7a" stroke-width="3"/>
+          <path d="M132 84 l 50 6 l -6 42 l -50 -6 Z" fill="#d98a3e"/><path d="M140 104 q 16 4 32 2" fill="none" stroke="#b56a24" stroke-width="3"/>
+          <path d="M36 128 H 224 Q 236 128 236 142 V 186 Q 236 198 222 198 H 38 Q 24 198 24 186 V 142 Q 24 128 36 128 Z" fill="#a8434a"/>
+          <path d="M24 112 Q 24 100 38 100 H 54 V 198 H 38 Q 24 198 24 186 Z" fill="#8a3036"/>
+          <path d="M236 112 Q 236 100 222 100 H 206 V 198 H 222 Q 236 198 236 186 Z" fill="#8a3036"/>
+          <path d="M60 136 H 200" stroke="#c2626a" stroke-width="3" opacity=".7"/>
+        </svg>
+        <svg class="plant" viewBox="0 0 140 220">
+          <ellipse cx="70" cy="214" rx="50" ry="6" fill="#000" opacity=".35"/>
+          <g class="plant__fronds" fill="none" stroke-linecap="round">
+            <path d="M70 150 C 60 110 40 90 20 70" stroke="#2f7d55" stroke-width="6"/><path d="M70 150 C 74 100 66 60 72 14" stroke="#3a9465" stroke-width="7"/>
+            <path d="M70 150 C 90 112 110 96 128 60" stroke="#2f7d55" stroke-width="6"/><path d="M70 150 C 54 126 36 124 8 120" stroke="#246a47" stroke-width="5"/>
+            <path d="M70 150 C 92 132 112 130 134 118" stroke="#246a47" stroke-width="5"/>
+            <path d="M44 96 q -14 -2 -20 6 M 56 112 q -12 -6 -22 0 M 70 60 q -12 -4 -16 4 M 72 90 q 12 -6 18 0 M 100 96 q 12 -8 20 -2 M 92 116 q 12 -4 18 4" stroke="#4aa877" stroke-width="4"/>
+          </g>
+          <path d="M34 150 H 106 L 96 210 H 44 Z" fill="#c4683d"/><rect x="30" y="144" width="80" height="14" rx="3" fill="#d97a4a"/>
+        </svg>
+      </div>
     </section>
   </main>
 
@@ -131,6 +241,6 @@
     </div>
   </footer>
 
-  <script src="library.js?v=20261106180000" defer></script>
+  <script src="library.js?v=20261106230000" defer></script>
 </body>
 </html>
