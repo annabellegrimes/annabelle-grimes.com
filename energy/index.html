@@ -135,60 +135,69 @@
       </div>
       <!-- my car, the yardstick: a 2008 Volvo XC70 in profile, front to the left, with the trip to SFU under it -->
       <figure class="car" aria-label="My car, a white 2008 Volvo XC70">
-        <svg viewBox="0 0 480 230" role="img" aria-hidden="true">
+        <svg viewBox="36 44 664 244" role="img" aria-hidden="true">
           <defs>
-            <linearGradient id="car-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#f1f2f3"/><stop offset="1" stop-color="#d4d8dc"/></linearGradient>
-            <linearGradient id="car-glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#55626f"/><stop offset=".45" stop-color="#2a333d"/><stop offset="1" stop-color="#1a2128"/></linearGradient>
-            <linearGradient id="car-clad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a4f55"/><stop offset="1" stop-color="#2c3035"/></linearGradient>
-            <linearGradient id="car-chrome" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f6f8"/><stop offset=".5" stop-color="#aab1b8"/><stop offset="1" stop-color="#e3e7ea"/></linearGradient>
-            <radialGradient id="car-rim" cx=".45" cy=".4" r=".6"><stop offset="0" stop-color="#f2f4f6"/><stop offset=".65" stop-color="#bcc3ca"/><stop offset="1" stop-color="#8a929a"/></radialGradient>
+            <linearGradient id="car-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#f0f1f3"/><stop offset="1" stop-color="#cfd4d9"/></linearGradient>
+            <linearGradient id="car-glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5a6875"/><stop offset=".45" stop-color="#2b353f"/><stop offset="1" stop-color="#1a2128"/></linearGradient>
+            <linearGradient id="car-clad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4b5056"/><stop offset="1" stop-color="#2a2e33"/></linearGradient>
+            <linearGradient id="car-chrome" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f6f8"/><stop offset=".5" stop-color="#a8afb6"/><stop offset="1" stop-color="#e3e7ea"/></linearGradient>
+            <radialGradient id="car-rim" cx=".45" cy=".4" r=".62"><stop offset="0" stop-color="#f2f4f6"/><stop offset=".65" stop-color="#c0c7ce"/><stop offset="1" stop-color="#8a929a"/></radialGradient>
+            <path id="car-spoke" d="M-1 -9 L -8 -29 L -3.4 -30 L 2 -9 Z M1 -9 L 8 -29 L 3.4 -30 L -2 -9 Z"/>
             <g id="car-wheel">
-              <circle r="34" fill="#16181a"/><circle r="31" fill="none" stroke="#2a2d31" stroke-width="2"/>
-              <circle r="24" fill="url(#car-rim)"/>
-              <g fill="#7d858d">
-                <path d="M-2.2 -6 L -4.5 -22 L 4.5 -22 L 2.2 -6 Z"/><path d="M-2.2 -6 L -4.5 -22 L 4.5 -22 L 2.2 -6 Z" transform="rotate(72)"/>
-                <path d="M-2.2 -6 L -4.5 -22 L 4.5 -22 L 2.2 -6 Z" transform="rotate(144)"/><path d="M-2.2 -6 L -4.5 -22 L 4.5 -22 L 2.2 -6 Z" transform="rotate(216)"/>
-                <path d="M-2.2 -6 L -4.5 -22 L 4.5 -22 L 2.2 -6 Z" transform="rotate(288)"/>
+              <circle r="44" fill="#16181a"/><circle r="40.5" fill="none" stroke="#2c2f33" stroke-width="2"/>
+              <circle r="31" fill="#555c63"/>
+              <g fill="url(#car-rim)">
+                <use href="#car-spoke"/><use href="#car-spoke" transform="rotate(72)"/><use href="#car-spoke" transform="rotate(144)"/><use href="#car-spoke" transform="rotate(216)"/><use href="#car-spoke" transform="rotate(288)"/>
               </g>
-              <circle r="24" fill="none" stroke="#8d959d" stroke-width="1.5"/><circle r="6" fill="#5b6168"/><circle r="2.2" fill="#c8ced4"/>
+              <circle r="31" fill="none" stroke="url(#car-rim)" stroke-width="3.5"/><circle r="10.5" fill="url(#car-rim)" stroke="#7d858d" stroke-width="1"/><circle r="3.6" fill="#7d858d"/>
             </g>
           </defs>
-          <ellipse cx="240" cy="196" rx="214" ry="9" fill="#000" opacity=".22"/>
-          <!-- roof rails, silver, along the long flat roof -->
-          <path d="M214 40 Q 216 36 224 36 L 402 36 Q 410 36 412 41" fill="none" stroke="url(#car-chrome)" stroke-width="4.5" stroke-linecap="round"/>
-          <path d="M226 37 v 7 M 314 36 v 7 M 398 37 v 7" stroke="#9aa1a8" stroke-width="3"/>
-          <!-- body: front at the left (short sloping bonnet, raked windscreen), long roof, D-pillar sloping into the tail -->
-          <path d="M24 170 L 20 146 Q 18 128 30 120 L 74 106 Q 124 96 156 92 L 198 52 Q 206 45 222 44 L 400 44 Q 418 44 426 52 L 448 100
-                   Q 456 110 456 124 L 456 156 Q 456 170 442 170 Z" fill="url(#car-body)" stroke="#b6bcc2" stroke-width="1.5" stroke-linejoin="round"/>
-          <!-- the greenhouse: three windows behind black pillars, a chrome line round the top, the beltline rising slightly to the back -->
-          <path d="M162 96 L 202 56 Q 208 51 220 51 L 402 51 Q 412 51 418 58 L 438 92 L 162 99 Z" fill="#14181c"/>
-          <path d="M170 96 L 205 60 Q 209 56 216 56 L 258 56 L 258 96 Z" fill="url(#car-glass)"/>
-          <path d="M266 56 L 336 56 L 336 94 L 266 95.5 Z" fill="url(#car-glass)"/>
-          <path d="M344 56 L 402 56 Q 409 56 413 62 L 430 91 L 344 93.5 Z" fill="url(#car-glass)"/>
-          <path d="M200 54 Q 207 48 220 48 L 402 48 Q 413 48 420 56" fill="none" stroke="url(#car-chrome)" stroke-width="2"/>
-          <path d="M162 99.5 L 438 92.5" stroke="#c9ced3" stroke-width="1.5"/>
-          <!-- mirror, door lines, handles -->
-          <path d="M174 101 Q 176 94 186 94 L 194 96 L 194 106 L 178 107 Q 173 106 174 101 Z" fill="url(#car-body)" stroke="#9fa6ad" stroke-width="1"/>
-          <path d="M166 100 Q 160 128 164 160 M 262 97 L 262 158 M 350 95 Q 356 120 352 150" fill="none" stroke="#c3c8cd" stroke-width="1.6"/>
-          <rect x="222" y="112" width="20" height="5" rx="2.5" fill="#b7bdc3"/><rect x="312" y="110" width="20" height="5" rx="2.5" fill="#b7bdc3"/>
-          <!-- headlight and the tall tail light -->
-          <path d="M26 122 L 66 110 Q 72 109 72 114 L 68 122 Q 50 127 30 131 Q 24 130 26 122 Z" fill="#f6f3e8" stroke="#8f979f" stroke-width="1"/>
-          <path d="M40 120 Q 52 116 62 114" stroke="#c9a65a" stroke-width="2" fill="none" opacity=".8"/>
-          <path d="M424 56 L 432 56 L 452 102 L 454 136 L 447 136 L 445 104 Z" fill="#c33a32"/>
-          <path d="M428 58 L 444 96" stroke="#ef7a6d" stroke-width="1.5" opacity=".8"/>
-          <!-- dark lower cladding, wheel-arch flares, a silver sill strip, fog light -->
-          <path d="M22 150 L 456 146 L 456 158 Q 456 170 442 170 L 28 170 Q 22 168 22 160 Z" fill="url(#car-clad)"/>
-          <path d="M58 170 Q 60 118 108 116 Q 156 118 158 170 Z" fill="url(#car-clad)"/>
-          <path d="M326 170 Q 328 118 376 116 Q 424 118 426 170 Z" fill="url(#car-clad)"/>
-          <path d="M166 156 L 320 154" stroke="url(#car-chrome)" stroke-width="3" stroke-linecap="round"/>
-          <path d="M22 140 L 56 136" stroke="#3a3e43" stroke-width="2"/>
-          <circle cx="36" cy="155" r="5" fill="#e9e6da" stroke="#9aa1a8" stroke-width="1.5"/>
-          <!-- wheels -->
-          <use href="#car-wheel" x="108" y="168"/>
-          <use href="#car-wheel" x="376" y="168"/>
+          <ellipse cx="368" cy="267" rx="316" ry="9" fill="#000" opacity=".2"/>
+          <!-- roof rail, along the long flat roof -->
+          <path d="M350 66 C 372 59 410 57 450 56.5 L 556 55.5 C 576 55.5 590 58 600 63" fill="none" stroke="url(#car-chrome)" stroke-width="5" stroke-linecap="round"/>
+          <path d="M366 63 v 5 M 480 56 v 6 M 582 57 v 6" stroke="#9aa1a8" stroke-width="3.5"/>
+          <!-- body: bonnet sloping down to the left, raked windscreen, long roof, roof spoiler, tail -->
+          <path d="M66 224 C 58 212 54 192 55 172 C 55 161 60 155 70 151 C 100 138 158 129 222 123 L 298 82 C 318 70 344 64 382 61 C 440 56 540 55 600 61 L 644 71 C 654 86 664 110 670 130 C 678 152 685 176 686 200 L 684 214 L 612 228 L 66 228 Z" fill="url(#car-body)" stroke="#b1b7bd" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M578 56 L 588 51 L 590 57" fill="#23282e"/>
+          <!-- the windscreen at a slant, a slim pillar, then the greenhouse: black surround, three side windows -->
+          <path d="M232 124.5 L 299 86 C 314 77 330 71 352 67 L 324 76 L 262 123 Z" fill="url(#car-glass)"/>
+          <path d="M260 127 L 320 82 C 334 73 362 70 400 69 L 590 66 C 612 66 626 72 632 86 L 640 118 Z" fill="#14181c"/>
+          <path d="M272 124 L 325 86 C 340 78 366 76 401 75.5 L 397 122 Z" fill="url(#car-glass)"/>
+          <path d="M408 75 L 497 73 L 505 120 L 404 122 Z" fill="url(#car-glass)"/>
+          <path d="M508 72.5 L 592 71 C 610 71 621 77 625 90 L 628 117 L 523 119.5 Z" fill="url(#car-glass)"/>
+          <!-- rear screen, seen edge on past the tail gate -->
+          <path d="M630 72 L 643 74 L 664 124 L 650 124 Z" fill="url(#car-glass)"/>
+          <!-- spoiler over the tail gate -->
+          <path d="M604 62 L 642 70 L 646 76 L 612 70 Z" fill="#23282e"/>
+          <path d="M240 127 L 648 117" stroke="#c6ccd1" stroke-width="1.8"/>
+          <!-- bonnet shut line, door lines, body crease -->
+          <path d="M66 154 C 106 148 170 134 240 128" fill="none" stroke="#aeb5bb" stroke-width="1.7"/>
+          <path d="M246 128 C 243 158 244 188 247 214 M 402 75 L 391 214 M 503 73 L 520 124 C 516 158 506 190 497 212" fill="none" stroke="#b1b7bd" stroke-width="1.7"/>
+          <path d="M246 181 L 510 176" stroke="#c2c8ce" stroke-width="1.7"/>
+          <path d="M592 169 C 612 168 632 164 640 142" fill="none" stroke="#c2c8ce" stroke-width="1.7"/>
+          <!-- door handles and the mirror -->
+          <rect x="348" y="141" width="31" height="8" rx="4" fill="url(#car-chrome)" stroke="#9aa1a8"/><rect x="475" y="137" width="31" height="8" rx="4" fill="url(#car-chrome)" stroke="#9aa1a8"/>
+          <path d="M270 126 C 271 115 279 110 290 111 C 295 112 296 116 295 122 L 293 132 L 274 132 C 271 131 270 129 270 126 Z" fill="url(#car-body)" stroke="#969da4" stroke-width="1.3"/>
+          <!-- headlight, tail light -->
+          <path d="M66 157 C 82 153 104 152 120 155 C 124 159 121 168 114 172 C 100 177 84 178 72 177 C 64 172 62 162 66 157 Z" fill="#f6f3e8" stroke="#8f979f" stroke-width="1.3"/>
+          <circle cx="104" cy="164" r="7" fill="#fffdf4" stroke="#b4b9be"/><circle cx="85" cy="166" r="6" fill="#fffdf4" stroke="#b4b9be"/>
+          <path d="M646 79 L 650 78 C 661 102 671 134 675 167 L 667 168 C 662 136 655 108 645 86 Z" fill="#b8352e"/>
+          <path d="M650 86 C 660 108 667 134 671 161" fill="none" stroke="#ef7a6d" stroke-width="1.6" opacity=".8"/>
+          <!-- dark lower cladding: bumpers, sill, wheel-arch flares -->
+          <path d="M58 192 C 80 186 108 186 128 190 L 128 228 L 66 228 C 60 216 58 204 58 192 Z" fill="url(#car-clad)"/>
+          <path d="M226 214 L 503 211 L 503 228 L 226 232 Z" fill="url(#car-clad)"/>
+          <path d="M594 190 C 628 184 660 184 684 186 L 686 204 L 684 216 L 612 228 L 594 228 Z" fill="url(#car-clad)"/>
+          <path d="M125 232 C 123 186 143 156 179 154.5 C 217 155 239 188 237 234 Z" fill="url(#car-clad)"/>
+          <path d="M498 232 C 496 188 516 160 552 158 C 590 158 612 190 610 232 Z" fill="url(#car-clad)"/>
+          <!-- the silver scuff strip on the sill, fog lamp and rear reflector -->
+          <path d="M238 219 L 492 216" stroke="url(#car-chrome)" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="81" cy="205" r="7.5" fill="#e9e6da" stroke="#9aa1a8" stroke-width="1.5"/>
+          <rect x="644" y="190" width="34" height="8" rx="3" fill="#b5352e"/>
+          <use href="#car-wheel" x="178" y="222"/>
+          <use href="#car-wheel" x="549" y="222"/>
           <!-- the road to SFU -->
-          <path d="M8 206 H 472" stroke="var(--line)" stroke-width="2"/>
-          <path d="M8 206 H 472" stroke="var(--text-secondary)" stroke-width="2" stroke-dasharray="14 12" opacity=".6"/>
+          <path d="M42 276 H 694" stroke="var(--line)" stroke-width="2.6"/>
+          <path d="M42 276 H 694" stroke="var(--text-secondary)" stroke-width="2.6" stroke-dasharray="20 17" opacity=".6"/>
         </svg>
         <figcaption>My 2008 Volvo XC70: <b>9.2&nbsp;km</b> each way to SFU</figcaption>
       </figure>
