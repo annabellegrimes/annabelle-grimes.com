@@ -442,6 +442,16 @@ p { margin: 0 0 1em; }
 .card--feature .card__media { aspect-ratio: 2.4 / 1; }
 @media (max-width: 760px) { .card--feature .card__media { aspect-ratio: 16 / 9; } }
 .card--feature .card__media img { object-position: 50% 90%; }
+.card__media:has(.photo-label) { position: relative; }
+.photo-label {
+  position: absolute; left: 10px; bottom: 10px; max-width: calc(100% - 20px);
+  padding: 4px 10px; border-radius: 6px;
+  background: rgba(7, 28, 54, .82); color: #fff;
+  font-size: .76rem; line-height: 1.35; pointer-events: none;
+}
+.talk-photo { position: relative; margin: 12px 0 0; max-width: 480px; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); }
+.talk-photo img { display: block; width: 100%; height: auto; }
+@media print { .talk-photo { display: none; } }
 
 /* ---------- Project groups ---------- */
 .proj-group + .proj-group { margin-top: 44px; }
