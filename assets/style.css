@@ -449,9 +449,18 @@ p { margin: 0 0 1em; }
   background: rgba(7, 28, 54, .82); color: #fff;
   font-size: .76rem; line-height: 1.35; pointer-events: none;
 }
-.talk-photo { position: relative; margin: 12px 0 0; max-width: 480px; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); }
+.talks__item { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 24px; align-items: start; }
+.talk-photo { position: relative; margin: 0; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); }
 .talk-photo img { display: block; width: 100%; height: auto; }
-@media print { .talk-photo { display: none; } }
+.talk-photo .photo-label { left: 6px; bottom: 6px; max-width: calc(100% - 12px); padding: 2px 7px; font-size: .68rem; }
+@media (max-width: 600px) {
+  .talks__item { grid-template-columns: 1fr; gap: 10px; }
+  .talk-photo { max-width: 260px; }
+}
+@media print {
+  .talks__item { display: block; }
+  .talk-photo { display: none; }
+}
 
 /* ---------- Project groups ---------- */
 .proj-group + .proj-group { margin-top: 44px; }
