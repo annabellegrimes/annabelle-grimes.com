@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=20261108140000">
+  <link rel="stylesheet" href="assets/style.css?v=20261108150000">
   <script>
     try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
   </script>
@@ -117,21 +117,38 @@
             Neutrino telescopes catch the faint flashes of Cherenkov light that follow a rare neutrino interaction.
             P-ONE hangs its optical modules along flexible lines anchored more than 2.5&nbsp;km deep in the Cascadia Basin.
             Ocean currents keep moving those lines, so the telescope has to keep track of exactly where every sensor is.
-            My PhD research, co-supervised by <a href="https://www.sfu.ca/physics/people/faculty/dgrant.html" target="_blank" rel="noopener">Dr. Darren Grant</a>
-            and <a href="https://www.sfu.ca/physics/people/faculty/mdanning.html" target="_blank" rel="noopener">Dr. Matthias Danninger</a>, is about that problem: acoustic positioning and detector-geometry reconstruction. I also work on integration,
-            calibration and testing for P-ONE-1, the experiment's first detector line.
           </p>
-          <p>
-            I studied Integrated Engineering at UBC, then moved into physics. Through the UBC Science Co-op program, I held two
-            positions at <a href="https://www.triumf.ca/" target="_blank" rel="noopener">TRIUMF</a> that covered both sides of nuclear physics.
-            On the experimental side, I built scintillator detector hardware for the GRIFFIN spectrometer. On the theory side, I computed
-            nuclear matrix elements for neutrinoless double-beta decay with the in-medium similarity renormalization group. As an
-            experimentalist with an engineering background, I found the theory work a little outside my comfort zone.
-          </p>
-          <p>
-            Before that, the UBC Engineering Co-op program took me to Laser Zentrum Hannover in Germany, where I applied machine
-            learning to laser additive manufacturing.
-          </p>
+          <div class="about__block">
+            <h3 class="about__label">PhD research at SFU</h3>
+            <p>
+              My PhD research, co-supervised by <a href="https://www.sfu.ca/physics/people/faculty/dgrant.html" target="_blank" rel="noopener">Dr. Darren Grant</a>
+              and <a href="https://www.sfu.ca/physics/people/faculty/mdanning.html" target="_blank" rel="noopener">Dr. Matthias Danninger</a>, is about that problem:
+              <a href="#work-acoustic">acoustic positioning and detector-geometry reconstruction</a>.
+            </p>
+            <p>I also work on <a href="#work-p-one-1">integration, calibration and testing for P-ONE-1</a>, the experiment's first detector line.</p>
+          </div>
+          <div class="about__block">
+            <h3 class="about__label">Nuclear physics at TRIUMF</h3>
+            <p>
+              I studied Integrated Engineering at UBC, then moved into physics. Through the UBC Science Co-op program, I held two
+              positions at <a href="https://www.triumf.ca/" target="_blank" rel="noopener">TRIUMF</a> that covered both sides of nuclear physics.
+            </p>
+            <ul class="about__list">
+              <li><strong>Experiment:</strong> I built <a href="#work-griffin">scintillator detector hardware for the GRIFFIN spectrometer</a>.</li>
+              <li>
+                <strong>Theory:</strong> I computed <a href="#work-imsrg">nuclear matrix elements for neutrinoless double-beta decay</a> with the in-medium
+                similarity renormalization group. As an experimentalist with an engineering background, I found the theory work a little outside
+                my comfort zone, but it was a very valuable perspective to gain.
+              </li>
+            </ul>
+          </div>
+          <div class="about__block">
+            <h3 class="about__label">Engineering co-op in Germany</h3>
+            <p>
+              Before that, the UBC Engineering Co-op program took me to Laser Zentrum Hannover in Germany, where I
+              <a href="#work-lzh">applied machine learning to laser additive manufacturing</a>.
+            </p>
+          </div>
         </div>
         <div class="about__side">
           <aside class="facts" aria-label="Quick facts">
@@ -175,7 +192,7 @@
           <div class="proj-group proj-group--current" data-group="current">
             <h3 class="proj-group__title">Current</h3>
             <div class="cards">
-            <article class="card card--feature" data-cat="current">
+            <article class="card card--feature" id="work-acoustic" data-cat="current">
               <figure class="card__media"><img src="assets/img/p-one-team.jpg" style="object-position: 50% 0" alt="Members of the P-ONE team at the wet test on Granville Island in summer 2026, posing together on a dockside platform with boats and a Canadian flag behind them" width="800" height="450" loading="lazy" decoding="async"><figcaption class="photo-label">P-ONE wet test on Granville Island, summer 2026</figcaption></figure>
               <div class="card__top"><span class="badge badge--live">Current &middot; PhD thesis</span><span class="card__where">SFU &middot; P-ONE</span></div>
               <h3>Acoustic position reconstruction for P-ONE</h3>
@@ -192,7 +209,7 @@
               <ul class="tags tags--sm"><li>Acoustics</li><li>Geometry reconstruction</li><li>Python</li></ul>
             </article>
 
-            <article class="card" data-cat="current">
+            <article class="card" id="work-p-one-1" data-cat="current">
               <figure class="card__media"><img src="assets/img/p-one-integration.jpg" alt="P-ONE optical modules, glass spheres studded with photomultiplier tubes, strapped into a frame in front of coiled cable" width="800" height="450" loading="lazy" decoding="async"><figcaption class="photo-label">P-ONE optical modules during integration</figcaption></figure>
               <div class="card__top"><span class="badge badge--live">Current</span><span class="card__where">SFU &middot; P-ONE</span></div>
               <h3>P-ONE-1: integration, calibration &amp; QA</h3>
@@ -210,7 +227,7 @@
           <div class="proj-group proj-group--past" data-group="past">
             <h3 class="proj-group__title">Previous work</h3>
             <div class="cards">
-            <article class="card" data-cat="past">
+            <article class="card" id="work-griffin" data-cat="past">
               <figure class="card__media"><img src="assets/img/griffin.jpg" alt="The GRIFFIN gamma-ray spectrometer at TRIUMF: a spherical array of detectors in an aluminium frame around the beamline" width="800" height="450" loading="lazy" decoding="async"><figcaption class="photo-label">The GRIFFIN spectrometer at TRIUMF</figcaption></figure>
               <div class="card__top"><span class="badge badge--muted">2023 to 2024</span><span class="card__where">TRIUMF &middot; Science Co-op</span></div>
               <h3>ARIES: a new beta detector for GRIFFIN</h3>
@@ -220,7 +237,7 @@
               <ul class="tags tags--sm"><li>Scintillators</li><li>PMTs</li><li>Nuclear structure</li></ul>
             </article>
 
-            <article class="card" data-cat="past">
+            <article class="card" id="work-imsrg" data-cat="past">
               <figure class="card__media"><img src="assets/img/imsrg.svg" alt="Illustration: a Hamiltonian matrix flowing from dense to decoupled form under the similarity renormalization group" width="800" height="450" loading="lazy" decoding="async"></figure>
               <div class="card__top"><span class="badge badge--muted">2023</span><span class="card__where">TRIUMF Theory &middot; Science Co-op</span></div>
               <h3>Nuclear matrix elements for 0&nu;&beta;&beta; decay</h3>
@@ -229,7 +246,7 @@
               <ul class="tags tags--sm"><li>IMSRG</li><li>Ab initio theory</li></ul>
             </article>
 
-            <article class="card" data-cat="past">
+            <article class="card" id="work-lzh" data-cat="past">
               <figure class="card__media"><img src="assets/img/lzh.jpg" alt="Annabelle in a protective suit and visored helmet, smiling beside a laser additive manufacturing setup at Laser Zentrum Hannover" width="800" height="450" loading="lazy" decoding="async"><figcaption class="photo-label">Suited up at Laser Zentrum Hannover</figcaption></figure>
               <div class="card__top"><span class="badge badge--muted">2019</span><span class="card__where">LZH &middot; Engineering Co-op</span></div>
               <h3>Machine learning for laser additive manufacturing</h3>

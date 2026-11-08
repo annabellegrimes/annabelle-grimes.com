@@ -201,6 +201,15 @@ p { margin: 0 0 1em; }
 .about { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 56px; align-items: start; }
 .about h2 { margin-bottom: 24px; max-width: 22ch; }
 .about__text p { font-size: 1.05rem; color: var(--text); max-width: 62ch; }
+.about__block { margin-top: 26px; padding-left: 16px; border-left: 2px solid var(--line); }
+.about__block p { margin: 0 0 10px; }
+.about__block > :last-child { margin-bottom: 0; }
+.about__label { font: inherit; font-size: .74rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin: 0 0 8px; }
+.about__list { margin: 0; padding-left: 18px; max-width: 62ch; font-size: 1.05rem; color: var(--text); }
+.about__list li + li { margin-top: 8px; }
+.about__list strong { font-weight: 600; }
+.card:target { animation: card-flash 2s ease-out; }
+@keyframes card-flash { from { box-shadow: 0 0 0 2px var(--accent); } to { box-shadow: 0 0 0 2px transparent; } }
 .facts { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); }
 .facts dl { margin: 0 0 20px; display: grid; gap: 14px; }
 .facts dt { font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
